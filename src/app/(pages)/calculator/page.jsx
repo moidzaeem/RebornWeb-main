@@ -251,7 +251,7 @@ const Page = () => {
                   onClick={handleNext}
                   className="mt-2 bg-green text-white px-4 py-2 rounded"
                 >
-                  Next
+                  Calculate Carbon Emissions
                 </button>
               </div>
               {project && (
@@ -366,7 +366,7 @@ const Page = () => {
         </div>
       </div>
       <div className="bg-[#43b933] flex flex-col gap-y-2 px-8 lg:px-16 xll:px-32 py-4 lg:py-8">
-        <h2 className="text-xl font-semibold text-white">
+        <h2 className="text-2xl font-semibold text-white">
           Join Us on Our Journey
         </h2>
         <p className="text-white">
