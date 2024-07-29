@@ -55,6 +55,8 @@ const Navbar = () => {
   useEffect(() => {
     const onScroll = () => {
       setNavScroll(window.scrollY >= 80);
+      setDropDown(null); // Close the dropdown on scroll
+
     };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
