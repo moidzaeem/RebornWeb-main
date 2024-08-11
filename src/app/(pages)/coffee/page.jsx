@@ -61,7 +61,7 @@ const page = () => {
           viewport={{ once: true }}
           whileInView={{ y: 0 }}
           transition={{ duration: 0.5 }}
-          className=" z-[1] leading-normal text-center text-[30px]  xll:text-[40px] text-white font-medium font-poppins"
+          className=" z-[1] leading-normal text-center lg:leading-[70px] xll:leading-[80px] text-[30px] sm:text-[50px] lg:text-[60px] xll:text-[65px] text-white font-medium font-worksans"
         >
           Project Create by Us, Supported by You, For Our{" "}
           <span className="text-green font-bold">Planet</span>

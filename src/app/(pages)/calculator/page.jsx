@@ -243,7 +243,7 @@ const Page = () => {
                   onClick={handleNext}
                   className="mt-2 bg-green text-white px-4 py-2 rounded"
                 >
-                  Next
+                  Calculate Carbon Emissions
                 </button>
               </div>
               {project && (
@@ -358,9 +358,11 @@ const Page = () => {
           </div>
         </div>
       </div>
+
       <div className="bg-[#43b933]/80 flex flex-col gap-y-4 px-8 lg:px-16 xll:px-32 py-4 lg:py-8">
         <h2 className="text-3xl font-semibold text-white">
-          Join Us on Our Journey
+
+         Join Us on Our Journey
         </h2>
         <p className="text-white">
           Every flight you take can now contribute to a brighter, greener
