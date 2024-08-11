@@ -53,7 +53,7 @@ const page = () => {
           transition={{ duration: 0.5 }}
           className=" z-[1] leading-normal text-center lg:leading-[70px] xll:leading-[80px] text-[30px] sm:text-[50px] lg:text-[60px] xll:text-[65px] text-white font-medium font-worksans"
         >
-          Project Create by Us{","} Supported by You{","} For Our 
+          Project Create by Us{","} Supported by You{","} For Our
           <span className="text-green font-bold">Planet</span>
         </motion.h3>
 
@@ -105,13 +105,20 @@ const page = () => {
 
       {/* Goal Time Line Section 2 */}
       <section className="w-full bg-[#f6f6f6] mt-10 max-w-[1800px] mb-[60px]  px-[30px] lg:px-[60px] xll:px-[120px] py-[4rem] mx-auto">
-        <motion.div initial={{y:200}} viewport={{once:true}} whileInView={{y:0}} transition={{duration:0.5}} className='w-full flex flex-col items-center justify-center'>
-          <h1 className='text-center mb-[20px] font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]'>   
-            <span className='font-bold text-[#14a800]'> How it works</span> 
+        <motion.div
+          initial={{ y: 200 }}
+          viewport={{ once: true }}
+          whileInView={{ y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="w-full flex flex-col items-center justify-center"
+        >
+          <h1 className="text-center mb-[20px] font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]">
+            <span className="font-bold text-[#14a800]"> How it works</span>
           </h1>
-          <p className=' mb-12 w-full xsm:w-[90%] leading-5 tracking-normal font-worksans mdd:w-[60%] text-center text-black-text text-sm xsm:text-[16px]'>About the Luggage Tag</p>
+          <p className=" mb-12 w-full xsm:w-[90%] leading-5 tracking-normal font-worksans mdd:w-[60%] text-center text-black-text text-sm xsm:text-[16px]">
+            About the Luggage Tag
+          </p>
         </motion.div>
-   
 
         <div className="timeLine  relative w-full mx-auto bg-[#F3F4F9] py-[5rem] rounded-xl my-[100px]">
           {GoalTimeLineData?.map((item) => (
@@ -130,14 +137,18 @@ const page = () => {
       {/* section 3  */}
       <section className="bg-[#ffffff]">
         <div className="w-full max-w-[1800px] my-[40px]   px-[30px] lg:px-[60px] xll:px-[120px] py-[2rem] mx-auto">
-        <motion.div initial={{y:200}} viewport={{once:true}} whileInView={{y:0}} transition={{duration:0.5}} className='w-full flex flex-col items-center justify-center'>
-          <h1 className='text-center mb-[20px] font-poppins text-[30px] xsm:text-[40px] lg:text-[50px]  font-[500] text-[#3d3d3d]'> Crafted from Sustainable   
-            <span className='font-bold text-[#14a800]'> Materials</span> 
-          </h1>
-         
-        </motion.div>
-        
-
+          <motion.div
+            initial={{ y: 200 }}
+            viewport={{ once: true }}
+            whileInView={{ y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="w-full flex flex-col items-center justify-center"
+          >
+            <h1 className="text-center mb-[20px] font-poppins text-[30px] xsm:text-[40px] lg:text-[50px]  font-[500] text-[#3d3d3d]">
+              Crafted from Sustainable
+              <span className="font-bold text-[#14a800]"> Materials</span>
+            </h1>
+          </motion.div>
 
           <motion.div
             initial={{ y: 200, opacity: 0 }}
@@ -165,40 +176,37 @@ const page = () => {
             </div>
             <div className="  w-full mt-8 lg:mt-0 xsm:w-10/12 lg:flex-1  flex items-center justify-center flex-col">
               <div className="w-full text-center lg:text-left   xsm:w-10/12 lg:flex-1 flex items-center lg:items-start  justify-center lg:justify-start flex-col">
-             
-                  <Image
-                    src="/assets/logos/ecofrendly.png"
-                    width={200}
-                    height={200}
-                    alt="bussnessec2"
-                    loading="lazy"
-                    className=" w-[50px]  object-cover h-auto"
-                  />
-                  <h3 className="   mb-[0px] font-sans text-[25px] xsm:text-[30px] xll:text-[30px] font-[500] text-green">
-                    Bamboo
-                  </h3>
-                  <p className="leading-[30px] text-sm sm:text-[16px] font-normal  font-sans  text-black-text">
-                    Bamboo is a rapidly renewable resource that requires minimal
-                    water and thrives without pesticides{"."}
-                  </p>
-                
-               
-                  <Image
-                    src="/assets/logos/hnd.png"
-                    width={200}
-                    height={200}
-                    alt="bussnessec2"
-                    loading="lazy"
-                    className=" w-[50px] mt-5 object-cover h-auto"
-                  />
-                  <h3 className=" mb-[0px] font-sans text-[25px] xsm:text-[30px] xll:text-[30px] font-[500] text-green">
-                    Latex
-                  </h3>
-                  <p className="leading-[30px] text-sm sm:text-[16px] font-normal  font-sans  text-black-text">
-                    Latex is a natural{","} renewable material derived from the
-                    rubber tree{"."}
-                  </p>
-                
+                <Image
+                  src="/assets/logos/ecofrendly.png"
+                  width={200}
+                  height={200}
+                  alt="bussnessec2"
+                  loading="lazy"
+                  className=" w-[50px]  object-cover h-auto"
+                />
+                <h3 className="   mb-[0px] font-sans text-[25px] xsm:text-[30px] xll:text-[30px] font-[500] text-green">
+                  Bamboo
+                </h3>
+                <p className="leading-[30px] text-sm sm:text-[16px] font-normal  font-sans  text-black-text">
+                  Bamboo is a rapidly renewable resource that requires minimal
+                  water and thrives without pesticides{"."}
+                </p>
+
+                <Image
+                  src="/assets/logos/hnd.png"
+                  width={200}
+                  height={200}
+                  alt="bussnessec2"
+                  loading="lazy"
+                  className=" w-[50px] mt-5 object-cover h-auto"
+                />
+                <h3 className=" mb-[0px] font-sans text-[25px] xsm:text-[30px] xll:text-[30px] font-[500] text-green">
+                  Latex
+                </h3>
+                <p className="leading-[30px] text-sm sm:text-[16px] font-normal  font-sans  text-black-text">
+                  Latex is a natural{","} renewable material derived from the
+                  rubber tree{"."}
+                </p>
               </div>
             </div>
           </motion.div>
@@ -220,69 +228,90 @@ const page = () => {
               </h3>
               <p className="leading-[30px] text-sm sm:text-[16px] font-normal  font-sans  text-black-text">
                 By providing convenient access to calculate and offset carbon
-                emissions{","} this initiative holds significant promise{"."} With an
-                estimated 6 million individuals traveling by air daily{","} it
-                possesses the potential to make a substantial impact in
+                emissions{","} this initiative holds significant promise{"."}{" "}
+                With an estimated 6 million individuals traveling by air daily
+                {","} it possesses the potential to make a substantial impact in
                 preserving the environment and combating climate change{"."}
               </p>
             </div>
 
-
             <div className="  w-full mt-8 lg:mt-0 xsm:w-10/12 lg:flex-1  flex items-center justify-center flex-col">
               <div className="w-full xsm:w-10/12 lg:flex-1 shadow-xl rounded-lg py-5 px-2 flex items-start  justify-start flex-col">
-
                 {/* Acorian */}
                 <div className="collapse collapse-arrow bg-white">
                   <input type="radio" name="my-accordion-2" defaultChecked />
                   <div className="collapse-title mb-[0px] font-poppins text-[18px] xsm:text-[20px] font-semibold text-[#504545]">
-                  Flight Greener
+                    Flight Greener
                   </div>
                   <div className="collapse-content">
-                    <p>The program helps air travelers calculate and offset their flight emissions in less than a minute{"."}</p>
+                    <p>
+                      The program helps air travelers calculate and offset their
+                      flight emissions in less than a minute{"."}
+                    </p>
                   </div>
                 </div>
                 {/* Acorian */}
                 <div className="collapse collapse-arrow bg-white">
                   <input type="radio" name="my-accordion-2" defaultChecked />
                   <div className="collapse-title mb-[0px] font-poppins text-[18px] xsm:text-[20px] font-semibold text-[#504545]">
-                  Environmental Benefit                 </div>
+                    Environmental Benefit{" "}
+                  </div>
                   <div className="collapse-content">
-                    <p>By offsetting emissions{","} it contributes to preserving the environment and combating climate change{"."}</p>
+                    <p>
+                      By offsetting emissions{","} it contributes to preserving
+                      the environment and combating climate change{"."}
+                    </p>
                   </div>
                 </div>
                 {/* Acorian */}
                 <div className="collapse collapse-arrow bg-white">
                   <input type="radio" name="my-accordion-2" defaultChecked />
                   <div className="collapse-title mb-[0px] font-poppins text-[18px] xsm:text-[20px] font-semibold text-[#504545]">
-                  Support high-quality projects                 </div>
+                    Support high-quality projects{" "}
+                  </div>
                   <div className="collapse-content">
-                    <p>All carbon offsetting projects supported by RebornGreen are verified to the highest standards through the largest Carbon Certifications{","} including the Gold Standard Voluntary Emission Reductions (VER)</p>
+                    <p>
+                      All carbon offsetting projects supported by RebornGreen
+                      are verified to the highest standards through the largest
+                      Carbon Certifications{","} including the Gold Standard
+                      Voluntary Emission Reductions (VER)
+                    </p>
                   </div>
                 </div>
-             
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-  {/* section 5  */}
-      <section className='w-full flex items-center justify-start flex-col bg-white mt-10 max-w-[1800px] mb-[60px]  px-[30px] lg:px-[60px] xll:px-[120px] py-[4rem] mx-auto'>
-        <motion.div initial={{y:200}} viewport={{once:true}} whileInView={{y:0}} transition={{duration:0.5}} className='w-full flex flex-col items-center justify-center'>
-          <h1 className='text-center mb-[20px] font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]'> Data You Can  
-            <span className='font-bold text-[#14a800]'> Trust</span> 
+      {/* section 5  */}
+      <section className="w-full flex items-center justify-start flex-col bg-white mt-10 max-w-[1800px] mb-[60px]  px-[30px] lg:px-[60px] xll:px-[120px] py-[4rem] mx-auto">
+        <motion.div
+          initial={{ y: 200 }}
+          viewport={{ once: true }}
+          whileInView={{ y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="w-full flex flex-col items-center justify-center"
+        >
+          <h1 className="text-center mb-[20px] font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]">
+            Data You Can
+            <span className="font-bold text-[#14a800]"> Trust</span>
           </h1>
-          <p className=' mb-12 w-full xsm:w-[90%] leading-5 tracking-normal font-worksans mdd:w-[60%] text-center text-black-text text-sm xsm:text-[16px]'>Flight Emissions Calculator</p>
+          <p className=" mb-12 w-full xsm:w-[90%] leading-5 tracking-normal font-worksans mdd:w-[60%] text-center text-black-text text-sm xsm:text-[16px]">
+            Flight Emissions Calculator
+          </p>
         </motion.div>
 
-
         {/* card 1   */}
-          
-        <motion.div initial={{y:200}} viewport={{once:true}} whileInView={{y:0}} transition={{duration:0.5}} className='flex items-center mt-6 justify-center gap-7 sm:gap-16 flex-wrap'>
-
-
-              {/* card 1   */}
-        <div className=" relative w-[340px] sm:w-[500px] hover:scale-110 duration-300 flex items-center justify-center flex-col text-center px-4 py-5 min-h-[200px] bg-secondary  z-10 rounded-xl">
+        <motion.div
+          initial={{ y: 200 }}
+          viewport={{ once: true }}
+          whileInView={{ y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex items-center mt-6 justify-center gap-7 sm:gap-16 flex-wrap"
+        >
+          {/* card 1   */}
+          <div className=" relative w-[340px] sm:w-[500px] hover:scale-110 duration-300 flex items-center justify-center flex-col text-center px-4 py-5 min-h-[200px] bg-secondary  z-10 rounded-xl">
             <div className="thecard ">
               <div className="front  gap-y-3 text-center rounded-xl flex items-center justify-center flex-col bg-[#f6f6f6] p-6">
                 {/* <Image src={img} alt='card image' width={60} height={60} /> */}
@@ -299,45 +328,45 @@ const page = () => {
               <div className="Flightbacked bg-secondary flex items-center justify-center rounded-xl p-4 ">
                 <p className=" text-[12px] xsm:text-[16px] xsm:text-sm text-black">
                   Data from 30+ sources is now easily ingestible in a structured
-                  format{","} enriched with metadata such as validity year{","} source{","}
-                  CO2e calculation method{","} region{","} quality flags{","} and LCA
-                  activity{"."}
+                  format{","} enriched with metadata such as validity year{","}{" "}
+                  source{","}
+                  CO2e calculation method{","} region{","} quality flags{","}{" "}
+                  and LCA activity{"."}
                 </p>
               </div>
             </div>
           </div>
 
           {/* card 2  */}
-        <div className=" relative w-[340px] sm:w-[500px] hover:scale-110 duration-300 flex items-center justify-center flex-col text-center px-4 py-5 min-h-[200px] bg-sec  z-10 rounded-xl">
+          <div className=" relative w-[340px] sm:w-[500px] hover:scale-110 duration-300 flex items-center justify-center flex-col text-center px-4 py-5 min-h-[200px] bg-sec  z-10 rounded-xl">
             <div className="thecard ">
               <div className="front  gap-y-3 text-center rounded-xl flex items-center justify-center flex-col bg-[#f6f6f6] p-6">
-              <FaRegClock size={30} className="text-green" />
+                <FaRegClock size={30} className="text-green" />
 
                 <div>
                   <h2 className=" text-green text-[16px] xsm:text-[20px] font-worksans font-semibold">
-                  Scientific
+                    Scientific
                   </h2>
-                  <p className=" text-[12px] xsm:text-sm text-earthy-brown">Regularly updated data and methodologies{","} vetted by climate scientists{"."}
-.
+                  <p className=" text-[12px] xsm:text-sm text-earthy-brown">
+                    Regularly updated data and methodologies{","} vetted by
+                    climate scientists{"."}.
                   </p>
                 </div>
               </div>
               <div className="Flightbacked bg-secondary flex items-center justify-center rounded-xl p-4 ">
-              <p className=" text-[12px] xsm:text-[16px] xsm:text-sm text-black">
-                Our data is verified through expert manual review and AI-driven outlier detection{","} audited by scientists{","} and overseen by a panel of respected environmental experts{"."}
+                <p className=" text-[12px] xsm:text-[16px] xsm:text-sm text-black">
+                  Our data is verified through expert manual review and
+                  AI-driven outlier detection{","} audited by scientists{","}{" "}
+                  and overseen by a panel of respected environmental experts
+                  {"."}
                 </p>
               </div>
             </div>
           </div>
-
-         
         </motion.div>
-          </section>
+      </section>
 
-
-
-
-    {/* section 6  */}
+      {/* section 6  */}
       <section className="bg-[#ffffff]">
         <div className="w-full max-w-[1800px] my-[40px]   px-[30px] lg:px-[60px] xll:px-[120px] py-[2rem] mx-auto">
           <motion.div
@@ -346,28 +375,22 @@ const page = () => {
             transition={{ type: "tween", duration: 0.5 }}
             className={`flex gap-15 flex-col lg:flex-row my-20 items-center lg:items-start justify-center`}
           >
-       
             <div className="  w-full mt-8 lg:mt-0 xsm:w-10/12 lg:flex-1 px-1 ssm:px-5 xsm:px-10 text-center lg:text-left  flex items-center lg:items-start justify-center flex-col">
-             
-                
-                
-                  <h3 className="   mb-[0px] font-sans text-[25px] xsm:text-[30px] xll:text-[30px] font-[500] text-dark">
-                  Calculate the Carbon Footprint of Your <span className="text-green">Flight
-                    </span> 
-                  </h3>
-                  <p className="leading-[30px] text-sm sm:text-[16px] font-normal  font-sans  text-black-text">
-                  Utilize RebornGreen{"'"}s flight calculator to determine the carbon footprint of your flight and offset it by supporting environmentally beneficial initiatives{"."}
-                  </p>
-                  <Link href="/calculator">
-                  <button className="border-none text-white rounded-sm hover:bg-secondary transition-all duration-500 outline-none px-5 hover:scale-95 py-5 my-6 bg-green flex items-center gap-2">
+              <h3 className="   mb-[0px] font-sans text-[25px] xsm:text-[30px] xll:text-[30px] font-[500] text-dark">
+                Calculate the Carbon Footprint of Your{" "}
+                <span className="text-green">Flight</span>
+              </h3>
+              <p className="leading-[30px] text-sm sm:text-[16px] font-normal  font-sans  text-black-text">
+                Utilize RebornGreen{"'"}s flight calculator to determine the
+                carbon footprint of your flight and offset it by supporting
+                environmentally beneficial initiatives{"."}
+              </p>
+              <Link href="/calculator">
+                <button className="border-none text-white rounded-sm hover:bg-secondary transition-all duration-500 outline-none px-5 hover:scale-95 py-5 my-6 bg-green flex items-center gap-2">
                   Flight Emissions Calculator <FaCalculator />
-                  </button>
-                  </Link>
-               
-             
-            
+                </button>
+              </Link>
             </div>
-
 
             <div className="flex-1 flex items-center relative justify-center">
               <Image
@@ -383,7 +406,7 @@ const page = () => {
         </div>
       </section>
 
-    {/* section 7  */}
+      {/* section 7  */}
       <section className="bg-[#ffffff]">
         <div className="w-full max-w-[1800px] my-[40px]   px-[30px] lg:px-[60px] xll:px-[120px] py-[2rem] mx-auto">
           <motion.div
@@ -392,31 +415,24 @@ const page = () => {
             transition={{ type: "tween", duration: 0.5 }}
             className={`flex gap-15 flex-col lg:flex-row my-20 items-center bg-secondary rounded-xl  justify-center`}
           >
-       
             <div className="  w-full mt-8 lg:mt-0 xsm:w-10/12 lg:flex-1 px-1 ssm:px-5 xsm:px-10 text-center lg:text-left  flex items-center lg:items-start justify-center flex-col">
-             
-                
-                
-                  <h3 className="   mb-[0px] font-sans text-[25px] xsm:text-[30px] xll:text-[30px] font-[500] text-[#fcfbfb]">
-                  Calculate the Carbon Footprint of Your <span className="text-white">Flight
-                    </span> 
-                  </h3>
-                  <p className="leading-[30px] text-sm sm:text-[16px] font-normal  font-sans  text-[#fcfbfb]">
-                  Utilize RebornGreen{"'"}s flight calculator to determine the carbon footprint of your flight and offset it by supporting environmentally beneficial initiatives{"."}
-                  </p>
-                 
+              <h3 className="   mb-[0px] font-sans text-[25px] xsm:text-[30px] xll:text-[30px] font-[500] text-[#fcfbfb]">
+                Order Your Luggage Tag Today and Start Flying Greener
+              </h3>
+              <p className="leading-[30px] text-sm sm:text-[16px] font-normal  font-sans  text-[#fcfbfb]">
+                Travel sustainably with RebornGreen{`’`}s Flight Offset Luggage
+                Tag. Offset your carbon footprint effortlessly and support
+                climate projects with every journey.
+              </p>
 
-                  <div className="flex items-center flex-wrap gap-2">
-                  <button className="border-none text-white rounded-lg hover:bg-white hover:text-black transition-all duration-500 outline-none px-10  hover:scale-95 py-3 my-6 bg-blue-700 flex items-center gap-2">
+              <div className="flex items-center flex-wrap gap-2">
+                <button className="border-none text-white rounded-lg hover:bg-white hover:text-black transition-all duration-500 outline-none px-10  hover:scale-95 py-3 my-6 bg-blue-700 flex items-center gap-2">
                   Buy Now
-                  </button>
-                  {/* <Link href={'/contact'} className="border-none text-black rounded-lg hover:text-white hover:bg-blue-700 transition-all duration-500 outline-none px-10  hover:scale-95 py-3 my-6 bg-white flex items-center gap-2">
+                </button>
+                {/* <Link href={'/contact'} className="border-none text-black rounded-lg hover:text-white hover:bg-blue-700 transition-all duration-500 outline-none px-10  hover:scale-95 py-3 my-6 bg-white flex items-center gap-2">
                   Contact us
                   </Link> */}
-                  </div>
-               
-             
-            
+              </div>
             </div>
 
             <div className="flex-1 flex items-center lg:items-start flex-col justify-center">
@@ -428,19 +444,17 @@ const page = () => {
                 loading="lazy"
                 className=" rounded-lg w-full lg:w-[400px]  object-cover h-auto sm:h-[450px]"
               />
-               <p className="leading-[30px] text-center px-2 py-10 text-sm sm:text-[16px] font-normal  font-sans  text-[#fcfbfb]">
-                  For bulk or corporate orders please <Link href={'/contact'} className="font-bold text-white">get in touch</Link> with us
-                  </p>
+              <p className="leading-[30px] text-center px-2 py-10 text-sm sm:text-[16px] font-normal  font-sans  text-[#fcfbfb]">
+                For bulk or corporate orders please{" "}
+                <Link href={"/contact"} className="font-bold text-white">
+                  get in touch
+                </Link>{" "}
+                with us
+              </p>
             </div>
           </motion.div>
         </div>
       </section>
-
-
-
-
-
-
     </div>
   );
 };

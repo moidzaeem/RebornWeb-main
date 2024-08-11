@@ -7,6 +7,8 @@ import BussnesCardReversed from "@/components/BussnesCardReversed";
 import { FaRecycle } from "react-icons/fa";
 import Link from "next/link";
 import { useState } from "react";
+import apiImage from "../../../../public/api.webp";
+import showcaseImage from "../../../../public/Showcase.webp";
 
 // export const metadata = {
 //   title: "Explore Our Comprehensive Services | Joyn Digital",
@@ -25,13 +27,13 @@ const sec3CardData = [
     title: "Climate Impact for Your Team",
     desc: "Our monthly subscription plan is designed to empower your team to make a positive difference in the fight against climate change. By subscribing, you'll be supporting verified carbon avoidance and tree planting projects every month.",
     img: "/ca2.png",
-    link: "/plant-tree",
+    link: "#simplify-climate",
     btnText: "Subscribe Now",
   },
   {
     title: "APIs for Climate Change Solutions",
     desc: "Automatically plant trees with our API integration for every order, invoice, or other business activity. Use our widget to display the number of trees planted on your website, showcasing your commitment to environmental sustainability.",
-    img: "/ca3.png",
+    img: apiImage,
     link: "/Register",
     btnText: "Sign Up",
   },
@@ -94,7 +96,10 @@ const page = () => {
         <div className="w-full h-full absolute top-0 left-0 bg-black opacity-50 z-0"></div>
       </div>
       {/* simplify climate */}
-      <section className="w-full flex items-center justify-start flex-col bg-white mt-10 max-w-[1800px] mb-[60px]  px-[30px] lg:px-[60px] xll:px-[120px] py-[4rem] mx-auto">
+      <section
+        id="simplify-climate"
+        className="w-full flex items-center justify-start flex-col bg-white mt-10 max-w-[1800px] mb-[60px]  px-[30px] lg:px-[60px] xll:px-[120px] py-[4rem] mx-auto"
+      >
         <motion.div
           initial={{ y: 200 }}
           viewport={{ once: true }}
@@ -279,6 +284,7 @@ const page = () => {
             At RebornGreen, we believe in inspiring people. That's why we offer
             a way to showcase your impact.
           </p>
+          <Image src={showcaseImage} alt="showcase" className="w-full h-auto" />
         </motion.div>
       </section>
       {/* Climate  */}
@@ -300,7 +306,7 @@ const page = () => {
             business. The globe can be customized to suit your business. Contact
             us to find out more.
           </p>
-          <ThreeImageCarousel />
+          {/* <ThreeImageCarousel /> */}
         </motion.div>
       </section>
       {/* Carbon  */}
