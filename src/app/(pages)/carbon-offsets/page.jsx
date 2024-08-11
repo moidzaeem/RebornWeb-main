@@ -10,6 +10,9 @@ import reducePng from "../../../../public/reduce.png";
 import Image from "next/image";
 import ArrowUpSvg from "@/assets/svg/ArrowUpSvg";
 import ArrowDownSvg from "@/assets/svg/ArrowDownSvg";
+import carbonOffsetImg from "../../../../public/Untitled-design-2024-05-15T170119.931.png";
+import ProjectsCard from "@/components/ProjectsCard";
+import { FaBalanceScale, FaLeaf, FaRecycle } from "react-icons/fa";
 
 const items = [
   {
@@ -48,6 +51,41 @@ const howItWorksItems = [
   },
 ];
 
+const projCardData = [
+  {
+    icon: <FaRecycle size={45} className="text-green mb-3" />,
+    title: "Get in Touch",
+    desc: "If your business plans to make a positive impact but is unsure where to begin, contact us. Our team is here to guide you on your sustainability journey",
+    btnLink: "/carbon-offsets",
+    img: "/assets/images/cop.jpg",
+    reverse: false,
+  },
+  {
+    icon: <FaBalanceScale size={45} className="text-green mb-3" />,
+    title: "Sustainability Consulting",
+    desc: "We provide holistic consulting to align businesses with sustainable practices. Collaborating closely, we pinpoint areas for environmental improvement and tailor programs to your needs.",
+    btnLink: "/carbon-offsets",
+    img: "/assets/images/soutbuss.jpg",
+    reverse: true,
+  },
+  {
+    icon: <FaLeaf size={45} className="text-green mb-3" />,
+    title: "Green Marketing",
+    desc: "After establishing your green profile, we assist in community promotion. Green marketing enhances brand image, setting you apart in today's market. Transparently showcasing sustainable practices fosters trust between your company and consumers.",
+    btnLink: "/carbon-offsets",
+    img: "/assets/images/grm.jpg",
+    reverse: false,
+  },
+  {
+    icon: <FaRecycle size={45} className="text-green mb-3" />,
+    title: "Get in Touch",
+    desc: "If your business plans to make a positive impact but is unsure where to begin, contact us. Our team is here to guide you on your sustainability journey",
+    btnLink: "/carbon-offsets",
+    img: "/assets/images/cop.jpg",
+    reverse: false,
+  },
+];
+
 const Page = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -59,8 +97,7 @@ const Page = () => {
     <div className="overflow-hidden h-full">
       <div
         style={{
-          backgroundImage:
-            "url('/Untitled design - 2024-05-15T170119.931.png')",
+          backgroundImage: "url('/Untitled-design-2024-05-15T170119.931.png')",
         }}
         className=" flex-col h-[80vh] flex items-center justify-center bg-cover w-full  px-[30px] relative lg:px-[60px] xll:px-[120px] py-[6rem] mx-auto"
       >
@@ -287,7 +324,87 @@ const Page = () => {
           </section>
         </div>
       </section>
+
       <div style={{ height: 100 }} />
+
+      <section className="bg-[#F9F9F9]">
+        <div className="w-full max-w-[1800px] my-[40px] px-[30px] lg:px-[60px] xll:px-[120px] py-[2rem] mx-auto">
+          <motion.div
+            initial={{ y: 200, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ type: "tween", duration: 0.5 }}
+            className="flex gap-6 md:gap-12 xl:gap-18 flex-col lg:flex-row my-20 items-center justify-center"
+          >
+            <div className="w-full mt-8 lg:mt-0 xsm:w-10/12 lg:flex-1 flex items-center justify-center flex-col">
+              <div className="w-full flex items-start gap-6 md:gap-12 xl:gap-16 flex-col lg:flex-row">
+                <div className="w-full lg:w-5/12 flex flex-col gap-4 md:gap-8 xl:gap-12">
+                  <h3 className="font-black mb-[20px] font-poppins text-[25px] xsm:text-[30px] lg:text-[35px] xll:text-[40px] text-[#223645]">
+                    Investing in
+                    <br />
+                    <span className="border-b-8 border-green">
+                      A Sustainable Future
+                    </span>
+                  </h3>
+                  <p className="text-base md:text-lg xl:text-xl font-medium font-worksans tracking-wide">
+                    Carbon offsetting is a way for businesses and individuals to
+                    address the greenhouse gas emissions they can’t eliminate
+                    through their operations. It allows you to balance your
+                    environmental impact by supporting projects that actively
+                    reduce or remove carbon dioxide from the atmosphere.
+                  </p>
+                </div>
+                <Image
+                  src={carbonOffsetImg}
+                  alt="carbon-offset"
+                  className="w-full lg:w-7/12 rounded-2xl shadow-xl"
+                />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="w-full max-w-[1800px] my-[100px] sm:my-[160px] px-[30px] lg:px-[60px] xll:px-[120px] py-4 md:py-6 xl:py-8 mx-auto">
+        <div className="flex flex-col items-center gap-y-2 mb-6 md:mb-12 xl:mb-16">
+          <h1 className="text-center font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] text-[#3d3d3d] font-medium">
+            <span className="font-bold text-[#14a800]">Carbon Projects</span>
+          </h1>
+          <p className="w-full md:w-[90%] leading-5 tracking-normal font-worksans text-center text-black-text text-base md:text-lg xl:text-xl">
+            Our projects are all Gold Standard certified, ensuring the highest
+            level of credibility and impact. This rigorous standard verifies not
+            only CO2 reduction but also the positive social and environmental
+            contributions the projects deliver.
+          </p>
+        </div>
+        <div className=" flex items-stretch gap-4 md:gap-6 xl:gap-8">
+          {projCardData.map((project, index) => (
+            <motion.div
+              initial={{ y: 200, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ type: "tween", duration: 0.5 }}
+              className="w-full md:w-6/12 xl:w-3/12"
+            >
+              <div
+                style={{ backgroundImage: `url(${project.img})` }}
+                className="w-full h-full flex items-center justify-center flex-col bg-cover bg-no-repeat group rounded-3xl"
+              >
+                <div className="w-full h-full bg-[#ffffff]/25 group-hover:bg-black/45 flex flex-col items-center justify-center rounded-3xl py-4 px-6 xl:py-6 xl:px-8">
+                  <p>{project.icon}</p>
+                  <h3 className="text-center mb-5 font-poppins text-xl md:text-2xl xl:text-3xl font-semibold text-green">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm md:text-base group-hover:text-white font-worksans text-green font-medium">
+                    {project.desc}
+                  </p>
+                  <Link href={project.btnLink} className="btn my-10">
+                    Read More
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };
