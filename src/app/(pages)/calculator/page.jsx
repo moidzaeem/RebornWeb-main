@@ -3,8 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
 import Select from "react-select";
-import carbonFootPrint from "../../../../public/Background-Calculator.png";
-import CalculatorSvg from "../../../../public/svg/CalculatorSvg";
+import rebornLogo from "../../../../public/assets/logos/logo.png";
 import flightDetermined from "../../../../public/FLIGHT.png";
 import unccLogo from "../../../../public/un-cc-logo.webp";
 import verraLogo from "../../../../public/verra-logo.webp";
@@ -149,23 +148,16 @@ const Page = () => {
 
   return (
     <section>
-      <div className="w-full flex gap-x-8 justify-between items-center px-[30px] lg:px-[60px] xll:px-[120px] py-3 border-b-2 shadow-md">
-        <h3 className="font-black font-poppins text-[25px] xsm:text-[30px] lg:text-[35px] xll:text-[40px] text-[#223645] border-b-4 border-b-green">
-          Calculate and Offset
-        </h3>
-        <Link href="/" className="relative">
-          <Image
-            src="/assets/logos/logo.png"
-            width={1000}
-            height={1000}
-            alt="Picture of the author"
-            priority
-            className="w-[120px] xsm:w-[160px] h-auto object-cover"
-          />
-        </Link>
-      </div>
-      <div className="bg-apiIntegrationBg">
-        <div className="bg-black/40 px-8 lg:px-16 xll:px-32 py-8 lg:py-14 flex flex-col gap-y-12">
+      <div className="bg-apiIntegrationBg bg-no-repeat bg-cover bg-center">
+        <div className="bg-black/50 px-8 lg:px-16 xll:px-32 py-8 lg:py-14 flex flex-col gap-y-12">
+          <Link href="/">
+            <Image
+              priority
+              src={rebornLogo}
+              alt="Reborn-Green"
+              className="w-[120px] xsm:w-[160px] h-auto"
+            />
+          </Link>
           <div className="flex flex-col items-center">
             <h2 className="text-4xl font-semibold text-white mb-4">
               Calculate and Offset Your Flight's Carbon Footprint
@@ -256,32 +248,32 @@ const Page = () => {
               </div>
               {project && (
                 <div className="col-span-12 flex flex-col gap-y-6">
-                  <div className="flex flex-col gap-y-2">
-                    <h3 className="text-xl font-bold text-white">
+                  <div className="flex flex-col gap-y-4">
+                    <h2 className="text-2xl font-semibold text-white text-center md:text-left">
                       {project.title}
-                    </h3>
+                    </h2>
                     <p className="text-white">{project.summary}</p>
-                    <div className="flex flex-wrap gap-4 justify-between">
+                    <div className="w-full grid grid-cols-12 justify-center gap-5">
                       {project.images.map((image) => (
                         <img
                           key={image}
                           src={image}
                           alt={project.title}
-                          className="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 rounded"
+                          className="w-full col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-2 rounded-lg border border-white/50 shadow-lg"
                           style={{ maxWidth: "100%", height: "auto" }}
                         />
                       ))}
                     </div>
                   </div>
-                  <div className="flex justify-between items-center gap-x-8 flex-wrap">
-                    <p className="text-2xl font-bold text-center text-white">
+                  <div className="flex justify-between gap-4 flex-wrap">
+                    <p className="text-xl font-semibold text-left text-white">
                       Your Result is {co2} kg CO2e for € {price}
                     </p>
                     <a
                       href={paymentLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-blue-500 text-white px-4 py-2 rounded self-end"
+                      className="w-full md:w-fit bg-blue-500 text-center text-white px-4 py-2 rounded"
                     >
                       Checkout
                     </a>
@@ -303,7 +295,7 @@ const Page = () => {
             change.
           </p>
         </div>
-        <div className="grid grid-cols-12 gap-x-8">
+        <div className="grid grid-cols-12 gap-x-8 gap-y-4">
           <div className="col-span-12 md:col-span-7 flex flex-col gap-y-4">
             <h2 className="text-2xl font-semibold text-[#3d3d3d]">
               How is the Emissions Calculation for My Flight Determined?
@@ -330,14 +322,15 @@ const Page = () => {
         <h2 className="text-4xl font-semibold text-[#3d3d3d] mb-4">
           Reliable Sources for CO2 Flight Emissions Offsets
         </h2>
-        <div className="w-full grid grid-cols-3 gap-x-12">
+        <div className="w-full grid grid-cols-3 gap-x-12 gap-y-4">
           {flightEmissionsSources.map((i) => (
-            <Link key={i.link} href={i.link} target="_blank">
-              <Image
-                src={i.image}
-                alt={i.link}
-                className="col-span-1 w-full h-auto rounded-lg"
-              />
+            <Link
+              key={i.link}
+              href={i.link}
+              target="_blank"
+              className="col-span-3 md:col-span-1 hover:bg-[#43b933]/20 p-6 rounded-xl"
+            >
+              <Image src={i.image} alt={i.link} className="w-full h-auto" />
             </Link>
           ))}
         </div>
@@ -365,17 +358,22 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#43b933] flex flex-col gap-y-2 px-8 lg:px-16 xll:px-32 py-4 lg:py-8">
-        <h2 className="text-2xl font-semibold text-white">
-          Join Us on Our Journey
+
+      <div className="bg-[#43b933]/80 flex flex-col gap-y-4 px-8 lg:px-16 xll:px-32 py-4 lg:py-8">
+        <h2 className="text-3xl font-semibold text-white">
+
+         Join Us on Our Journey
         </h2>
         <p className="text-white">
           Every flight you take can now contribute to a brighter, greener
           future. By choosing to offset your emissions with us, you’re not just
           making a responsible choice—you’re joining a community dedicated to
           positive change. Together, let’s turn every mile into a step toward a
-          sustainable world. Thank you for being part of the solution!
+          sustainable world.
         </p>
+        <h6 className="text-white text-xl font-semibold">
+          Thank you for being part of the solution!
+        </h6>
       </div>
     </section>
   );
