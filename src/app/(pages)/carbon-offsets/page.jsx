@@ -377,32 +377,34 @@ const Page = () => {
           </p>
         </div>
         <div className=" flex items-stretch gap-4 md:gap-6 xl:gap-8">
-          {projCardData.map((project, index) => (
-            <motion.div
-              initial={{ y: 200, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ type: "tween", duration: 0.5 }}
-              className="w-full md:w-6/12 xl:w-3/12"
-            >
-              <div
-                style={{ backgroundImage: `url(${project.img})` }}
-                className="w-full h-full flex items-center justify-center flex-col bg-cover bg-no-repeat group rounded-3xl"
-              >
-                <div className="w-full h-full bg-[#ffffff]/25 group-hover:bg-black/45 flex flex-col items-center justify-center rounded-3xl py-4 px-6 xl:py-6 xl:px-8">
-                  <p>{project.icon}</p>
-                  <h3 className="text-center mb-5 font-poppins text-xl md:text-2xl xl:text-3xl font-semibold text-green">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm md:text-base group-hover:text-white font-worksans text-green font-medium">
-                    {project.desc}
-                  </p>
-                  <Link href={project.btnLink} className="btn my-10">
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+        {projCardData.map((project, index) => (
+  <motion.div
+    key={project.id || index} // Use project.id if available, otherwise fallback to index
+    initial={{ y: 200, opacity: 0 }}
+    whileInView={{ y: 0, opacity: 1 }}
+    transition={{ type: "tween", duration: 0.5 }}
+    className="w-full md:w-6/12 xl:w-3/12"
+  >
+    <div
+      style={{ backgroundImage: `url(${project.img})` }}
+      className="w-full h-full flex items-center justify-center flex-col bg-cover bg-no-repeat group rounded-3xl"
+    >
+      <div className="w-full h-full bg-[#ffffff]/25 group-hover:bg-black/45 flex flex-col items-center justify-center rounded-3xl py-4 px-6 xl:py-6 xl:px-8">
+        <p>{project.icon}</p>
+        <h3 className="text-center mb-5 font-poppins text-xl md:text-2xl xl:text-3xl font-semibold text-green">
+          {project.title}
+        </h3>
+        <p className="text-sm md:text-base group-hover:text-white font-worksans text-green font-medium">
+          {project.desc}
+        </p>
+        <Link href={project.btnLink} className="btn my-10">
+          Read More
+        </Link>
+      </div>
+    </div>
+  </motion.div>
+))}
+
         </div>
       </section>
     </div>
