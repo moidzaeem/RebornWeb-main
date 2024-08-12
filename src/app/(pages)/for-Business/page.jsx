@@ -7,7 +7,7 @@ import BussnesCardReversed from "@/components/BussnesCardReversed";
 import { FaRecycle } from "react-icons/fa";
 import Link from "next/link";
 import { useState } from "react";
-import apiImage from "../../../../public/api.webp";
+import apiImage from "../../../../public/API.webp";
 import showcaseImage from "../../../../public/Showcase.webp";
 
 // export const metadata = {
