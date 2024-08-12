@@ -22,6 +22,7 @@ module.exports = {
         "soft-gray": "var(--soft-gray)",
         "black-text": "var(--black-text)",
       },
+      spacing: { 12.5: "3.125rem", 25: "6.25rem" },
       gridTemplateColumns: {
         "3f": "repeat(3, 1fr)",
         "2f": "repeat(2,1fr)",
