@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useState } from "react";
 import apiImage from "../../../../public/API.webp";
 import showcaseImage from "../../../../public/Showcase.webp";
+import { Helmet } from 'react-helmet';
 
 // export const metadata = {
 //   title: "Explore Our Comprehensive Services | Joyn Digital",
@@ -69,6 +70,38 @@ const projCardDara = [
 const page = () => {
   return (
     <div className="overflow-hidden h-full">
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>Positive Climate Action - Business Sustainability Services</title>
+        <meta name="title" content="Positive Climate Action - Business Sustainability Services" />
+        <meta
+          name="description"
+          content="Join us and reach your ESG and net-zero commitments. A partnership that boosts the fight against climate change and drives sustainable growth for your business."
+        />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://reborngreen.org" />
+        <meta property="og:title" content="Positive Climate Action - Business Sustainability Services" />
+        <meta
+          property="og:description"
+          content="Our mission is to empower businesses and individuals to accelerate climate action."
+        />
+        <meta property="og:image" content="" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="http://website.com" />
+        <meta
+          property="twitter:title"
+          content="Positive Climate Action - Business Sustainability Services"
+        />
+        <meta
+          property="twitter:description"
+          content="Our mission is to empower businesses and individuals to accelerate climate action."
+        />
+        <meta property="twitter:image" content="" />
+      </Helmet>
       <div
         style={{ backgroundImage: "url('/sus.png')" }}
         className=" flex-col h-[80vh] flex items-center justify-center bg-cover w-full  px-[30px] relative lg:px-[60px] xll:px-[120px] py-[6rem] mx-auto"

@@ -3,6 +3,7 @@ import { easeIn, easeInOut, motion } from "framer-motion";
 import Image from "next/image";
 import Head from "next/head";
 import ContactCom from "@/components/ContactCom";
+import { Helmet } from 'react-helmet';
 
 // Define metadata
 
@@ -39,7 +40,7 @@ const sec2CardData = [
 const Page = () => {
   return (
     <div className="overflow-hidden h-full">
-      <Head>
+      <Helmet>
         {/* Primary Meta Tags */}
         <title>About RebornGreen | RebornGreen</title>
         <meta name="title" content="About RebornGreen | RebornGreen" />
@@ -70,7 +71,7 @@ const Page = () => {
           content="Our mission is to empower businesses and individuals to accelerate climate action."
         />
         <meta property="twitter:image" content="" />
-      </Head>
+      </Helmet>
 
       <div
         style={{ backgroundImage: "url('/aboutus/Our Story .png')" }}

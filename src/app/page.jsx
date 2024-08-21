@@ -143,6 +143,12 @@ const GoalTimeLineData = [
   },
 ];
 
+export const metadata = {
+  title: 'Global Climate Projects | RebornGreen',
+  description:'Join the fight against climate change. Discover our programs and learn how you can contribute to global climate projects.',
+}
+
+
 export default function Home() {
   // <Head>
   //    <Script
@@ -156,12 +162,7 @@ export default function Home() {
       {/* Hero Section */}
       <Head>
         {/* Primary Meta Tags */}
-        <title>Global Climate Projects | RebornGreen</title>
-        <meta name="title" content="Global Climate Projects | RebornGreen" />
-        <meta
-          name="description"
-          content="Join the fight against climate change. Discover our programs and learn how you can contribute to global climate projects."
-        />
+         
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
