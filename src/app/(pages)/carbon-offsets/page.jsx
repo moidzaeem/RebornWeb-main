@@ -53,7 +53,7 @@ const howItWorksItems = [
 
 const projCardData = [
   {
-    icon: <FaRecycle size={45} className="text-green mb-3" />,
+    icon: <FaRecycle size={45} className="text-green mb-3 fill-white" />,
     title: "Get in Touch",
     desc: "If your business plans to make a positive impact but is unsure where to begin, contact us. Our team is here to guide you on your sustainability journey",
     btnLink: "/carbon-offsets",
@@ -61,7 +61,7 @@ const projCardData = [
     reverse: false,
   },
   {
-    icon: <FaBalanceScale size={45} className="text-green mb-3" />,
+    icon: <FaBalanceScale size={45} className="text-green mb-3 fill-white" />,
     title: "Sustainability Consulting",
     desc: "We provide holistic consulting to align businesses with sustainable practices. Collaborating closely, we pinpoint areas for environmental improvement and tailor programs to your needs.",
     btnLink: "/carbon-offsets",
@@ -69,7 +69,7 @@ const projCardData = [
     reverse: true,
   },
   {
-    icon: <FaLeaf size={45} className="text-green mb-3" />,
+    icon: <FaLeaf size={45} className="text-green mb-3 fill-white" />,
     title: "Green Marketing",
     desc: "After establishing your green profile, we assist in community promotion. Green marketing enhances brand image, setting you apart in today's market. Transparently showcasing sustainable practices fosters trust between your company and consumers.",
     btnLink: "/carbon-offsets",
@@ -77,7 +77,7 @@ const projCardData = [
     reverse: false,
   },
   {
-    icon: <FaRecycle size={45} className="text-green mb-3" />,
+    icon: <FaRecycle size={45} className="text-green mb-3 fill-white" />,
     title: "Get in Touch",
     desc: "If your business plans to make a positive impact but is unsure where to begin, contact us. Our team is here to guide you on your sustainability journey",
     btnLink: "/carbon-offsets",
@@ -108,8 +108,18 @@ const Page = () => {
           transition={{ duration: 0.5 }}
           className=" z-[1] leading-normal text-center lg:leading-[70px] xll:leading-[80px] text-[30px] sm:text-[50px] lg:text-[60px] xll:text-[65px] text-white font-medium font-worksans"
         >
-          <span className="text-white">Start Your Net Zero Journey!</span>
+          Start Your<span className="text-[#14a800]"> Net Zero </span>Journey!
         </motion.h3>
+        <motion.p
+          initial={{ y: 200 }}
+          viewport={{ once: true }}
+          whileInView={{ y: 0 }}
+          transition={{ duration: 0.5 }}
+          className=" w-full font-worksans mt-6 sm:w-[70%] mdd:w-[60%] text-white z-[1] text-center"
+        >
+          Whether you're a small business, large corporation, or individual,
+          we're here to support you every step of the way.
+        </motion.p>
         <div className="w-full h-full absolute top-0 left-0 bg-black opacity-50 z-0"></div>
       </div>
 
@@ -124,10 +134,19 @@ const Page = () => {
           >
             <div className="w-full mt-8 lg:mt-0 xsm:w-10/12 lg:flex-1 flex items-center justify-center flex-col">
               <div className="w-full xsm:w-10/12 lg:flex-1 flex items-center gap-24 text-center lg:text-start lg:items-start justify-center lg:flex-row flex-col">
-                <h3 className="font-[500] w-full text-center lg:text-left mb-[20px] font-poppins text-[25px] xsm:text-[30px] lg:text-[35px] xll:text-[40px]">
-                  Net zero starts with{" "}
-                  <span className="text-green"> less!</span>
-                </h3>
+                <div className="flex flex-col gap-y-2.5">
+                  <h1 className="font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]">
+                    Net Zero Starts with
+                    <span className="font-bold text-[#14a800]"> Less</span>
+                  </h1>
+                  <p className="w-full leading-5 tracking-normal font-worksans text-black-text text-sm xsm:text-base">
+                    Achieving net zero emissions requires a two-pronged
+                    approach: reducing your carbon footprint and offsetting the
+                    remainder. At RebornGreen, we believe in prioritizing
+                    emission reduction as the cornerstone of sustainability
+                  </p>
+                </div>
+
                 <div>
                   <h3 className="w-fit font-black text-center lg:text-left mb-[20px] font-poppins text-[25px] xsm:text-[30px] lg:text-[35px] xll:text-[40px] text-[#223645] border-b-8 border-b-green">
                     Minmize emissions first
@@ -377,34 +396,33 @@ const Page = () => {
           </p>
         </div>
         <div className=" flex items-stretch gap-4 md:gap-6 xl:gap-8">
-        {projCardData.map((project, index) => (
-  <motion.div
-    key={project.id || index} // Use project.id if available, otherwise fallback to index
-    initial={{ y: 200, opacity: 0 }}
-    whileInView={{ y: 0, opacity: 1 }}
-    transition={{ type: "tween", duration: 0.5 }}
-    className="w-full md:w-6/12 xl:w-3/12"
-  >
-    <div
-      style={{ backgroundImage: `url(${project.img})` }}
-      className="w-full h-full flex items-center justify-center flex-col bg-cover bg-no-repeat group rounded-3xl"
-    >
-      <div className="w-full h-full bg-[#ffffff]/25 group-hover:bg-black/45 flex flex-col items-center justify-center rounded-3xl py-4 px-6 xl:py-6 xl:px-8">
-        <p>{project.icon}</p>
-        <h3 className="text-center mb-5 font-poppins text-xl md:text-2xl xl:text-3xl font-semibold text-green">
-          {project.title}
-        </h3>
-        <p className="text-sm md:text-base group-hover:text-white font-worksans text-green font-medium">
-          {project.desc}
-        </p>
-        <Link href={project.btnLink} className="btn my-10">
-          Read More
-        </Link>
-      </div>
-    </div>
-  </motion.div>
-))}
-
+          {projCardData.map((project, index) => (
+            <motion.div
+              key={project.id || index} // Use project.id if available, otherwise fallback to index
+              initial={{ y: 200, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ type: "tween", duration: 0.5 }}
+              className="w-full md:w-6/12 xl:w-3/12"
+            >
+              <div
+                style={{ backgroundImage: `url(${project.img})` }}
+                className="w-full h-full flex items-center justify-center flex-col bg-cover bg-no-repeat group rounded-3xl"
+              >
+                <div className="w-full h-full bg-[#000000]/20 flex flex-col items-center justify-center rounded-3xl py-4 px-6 xl:py-6 xl:px-8">
+                  <p>{project.icon}</p>
+                  <h3 className="text-center mb-5 font-poppins text-xl md:text-2xl xl:text-3xl font-semibold text-white">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm md:text-base font-worksans text-white font-medium">
+                    {project.desc}
+                  </p>
+                  <Link href={project.btnLink} className="btn my-10">
+                    Read More
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
     </div>

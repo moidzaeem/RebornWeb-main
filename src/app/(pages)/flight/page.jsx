@@ -3,6 +3,13 @@ import FlightTimeLine from "@/components/FlightGoals";
 import { easeIn, easeInOut, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import instantCarbonOffsetImg from "../../../../public/assets/images/InstantCarbonFootprintOffset.webp";
+import footerTagImg from "../../../../public/assets/images/FooterTag.webp";
+import calculatorImg from "../../../../public/assets/images/Calculator.webp";
+import step1Img from "../../../../public/assets/images/HowItWorksStep1.webp";
+import step2Img from "../../../../public/assets/images/HowItWorksStep2.webp";
+import step3Img from "../../../../public/assets/images/HowItWorksStep3.webp";
+import step4Img from "../../../../public/assets/images/HowItWorksStep4.webp";
 
 import React from "react";
 import { CiCalculator1, CiFlag1, CiMobile1 } from "react-icons/ci";
@@ -11,29 +18,33 @@ import { FaCalculator, FaHandHolding, FaRegClock } from "react-icons/fa";
 const GoalTimeLineData = [
   {
     id: 1,
-    img: "/assets/timel1.svg",
-    text: "Attach the Tag to Your Luggage",
+    img: step1Img,
+    text: `Attach Your Tag`,
+    description: `Simply attach the eco-friendly luggage tag to your suitcase. It's your passport to sustainable travel.`,
     rgt: false,
     icon: <CiFlag1 width={25} className={"text-green text-2xl"} />,
   },
   {
     id: 2,
-    img: "/assets/timel2.svg",
-    text: "Simply Touch it to the Back of Your Phone or Scan the QR Code Located on the Back",
+    img: step2Img,
+    text: `Scan Luggage Tag`,
+    description: `A quick tap of your phone on the tag or a scan of the QR code will direct you to our flight carbon emissions calculator.`,
     rgt: true,
     icon: <CiMobile1 width={25} className={"text-green text-2xl"} />,
   },
   {
     id: 3,
-    img: "/assets/timel1.svg",
-    text: "You Will Be Directed to Our Flight Carbon Emissions Calculator",
+    img: step3Img,
+    text: `Calculate Emissions`,
+    description: `Input your flight details to calculate your flight's carbon emissions.`,
     rgt: false,
     icon: <CiCalculator1 width={25} className={"text-green text-2xl"} />,
   },
   {
     id: 4,
-    img: "/assets/timel2.svg",
-    text: "Select a Verified Carbon Credits Project and Offset Your Emissions",
+    img: step4Img,
+    text: `Checkout and Offset`,
+    description: `Offset your flight's carbon emissions by supporting verified carbon projects, making every journey a step towards a greener planet.`,
     rgt: true,
     icon: <FaHandHolding width={25} className={"text-green text-2xl"} />,
   },
@@ -43,7 +54,9 @@ const page = () => {
   return (
     <div className="overflow-hidden h-full">
       <div
-        style={{ backgroundImage: "url('/assets/images/airplaneimg.jpg')" }}
+        style={{
+          backgroundImage: "url('/assets/images/Airport-Passager.webp')",
+        }}
         className=" flex-col h-[80vh] flex items-center justify-center bg-cover w-full  bg-center px-[30px] relative lg:px-[60px] xll:px-[120px] py-[6rem] mx-auto"
       >
         <motion.h3
@@ -53,8 +66,10 @@ const page = () => {
           transition={{ duration: 0.5 }}
           className=" z-[1] leading-normal text-center lg:leading-[70px] xll:leading-[80px] text-[30px] sm:text-[50px] lg:text-[60px] xll:text-[65px] text-white font-medium font-worksans"
         >
-          Project Create by Us{","} Supported by You{","} For Our
-          <span className="text-green font-bold">Planet</span>
+          Project Create by Us, Supported by You,
+          <br />
+          For
+          <span className="text-green font-bold"> Our Planet</span>
         </motion.h3>
 
         <div className="w-full h-full absolute top-0 left-0 bg-black opacity-20 z-0"></div>
@@ -71,12 +86,10 @@ const page = () => {
           >
             <div className="flex-1 flex items-center justify-center">
               <Image
-                src="/assets/images/mob-sec1.png"
-                width={600}
-                height={600}
+                src={instantCarbonOffsetImg}
                 alt="bussnessec2"
                 loading="lazy"
-                className=" rounded-lg w-full lg:w-[500px]  object-cover h-auto sm:h-[400px] lg:h-[550px]"
+                className="rounded-lg w-full lg:max-w-[500px] object-cover h-auto"
               />
             </div>
             <div className="  w-full mt-8 lg:mt-0 xsm:w-10/12 lg:flex-1  flex items-center justify-center flex-col">
@@ -87,7 +100,7 @@ const page = () => {
                   height={100}
                   alt="Co2 reduction"
                   loading="lazy"
-                  className=" rounded-lg w-[160px]  object-cover h-auto "
+                  className="rounded-lg w-40 object-cover h-auto"
                 />
 
                 <h3 className=" text-center  mb-[20px] font-sans text-[25px] xsm:text-[30px] xll:text-[30px] font-[500] text-green">
@@ -115,8 +128,9 @@ const page = () => {
           <h1 className="text-center mb-[20px] font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]">
             <span className="font-bold text-[#14a800]"> How it works</span>
           </h1>
-          <p className=" mb-12 w-full xsm:w-[90%] leading-5 tracking-normal font-worksans mdd:w-[60%] text-center text-black-text text-sm xsm:text-[16px]">
-            About the Luggage Tag
+          <p className="mb-12 w-full xsm:w-[90%] leading-5 tracking-normal font-worksans mdd:w-[60%] text-center text-black-text text-sm xsm:text-[16px]">
+            Our luggage tag is a simple yet powerful tool that helps you reduce
+            your carbon footprint while traveling
           </p>
         </motion.div>
 
@@ -126,6 +140,7 @@ const page = () => {
               key={item.id}
               img={item.img}
               text={item.text}
+              description={item.description}
               id={item.id}
               rgt={item.rgt}
               icon={item.icon}
@@ -373,9 +388,9 @@ const page = () => {
             initial={{ y: 200, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ type: "tween", duration: 0.5 }}
-            className={`flex gap-15 flex-col lg:flex-row my-20 items-center lg:items-start justify-center`}
+            className={`flex gap-15 flex-col lg:flex-row my-20 items-center lg:items-center justify-center`}
           >
-            <div className="  w-full mt-8 lg:mt-0 xsm:w-10/12 lg:flex-1 px-1 ssm:px-5 xsm:px-10 text-center lg:text-left  flex items-center lg:items-start justify-center flex-col">
+            <div className="w-full mt-8 lg:mt-0 xsm:w-10/12 lg:flex-1 px-1 ssm:px-5 xsm:px-10 text-center lg:text-left flex items-center lg:items-start justify-center flex-col">
               <h3 className="   mb-[0px] font-sans text-[25px] xsm:text-[30px] xll:text-[30px] font-[500] text-dark">
                 Calculate the Carbon Footprint of Your{" "}
                 <span className="text-green">Flight</span>
@@ -394,12 +409,10 @@ const page = () => {
 
             <div className="flex-1 flex items-center relative justify-center">
               <Image
-                src="/assets/images/airplaneimg.jpg"
-                width={600}
-                height={600}
-                alt="bussnessec2"
+                src={calculatorImg}
+                alt="calculator"
                 loading="lazy"
-                className=" rounded-lg w-full lg:w-[600px]  object-cover h-auto"
+                className="rounded-lg w-full lg:w-[600px] object-cover h-auto"
               />
             </div>
           </motion.div>
@@ -426,25 +439,23 @@ const page = () => {
               </p>
 
               <div className="flex items-center flex-wrap gap-2">
-                <button className="border-none text-white rounded-lg hover:bg-white hover:text-black transition-all duration-500 outline-none px-10  hover:scale-95 py-3 my-6 bg-blue-700 flex items-center gap-2">
+                <Link
+                  href="https://projects.reborngreen.org/luggage-tag/"
+                  className="border-none text-white rounded-lg hover:bg-white hover:text-black transition-all duration-500 outline-none px-10  hover:scale-95 py-3 my-6 bg-blue-700 flex items-center gap-2"
+                >
                   Buy Now
-                </button>
-                {/* <Link href={'/contact'} className="border-none text-black rounded-lg hover:text-white hover:bg-blue-700 transition-all duration-500 outline-none px-10  hover:scale-95 py-3 my-6 bg-white flex items-center gap-2">
-                  Contact us
-                  </Link> */}
+                </Link>
               </div>
             </div>
 
-            <div className="flex-1 flex items-center lg:items-start flex-col justify-center">
+            <div className="flex-1 flex items-center lg:items-start flex-col justify-center py-8">
               <Image
-                src="/assets/images/mob-sec1.png"
-                width={600}
-                height={600}
+                src={footerTagImg}
                 alt="bussnessec2"
                 loading="lazy"
-                className=" rounded-lg w-full lg:w-[400px]  object-cover h-auto sm:h-[450px]"
+                className="rounded-lg w-full lg:w-[400px] h-auto sm:h-[650px]"
               />
-              <p className="leading-[30px] text-center px-2 py-10 text-sm sm:text-[16px] font-normal  font-sans  text-[#fcfbfb]">
+              <p className="leading-[30px] text-center px-2 py-4 text-sm sm:text-[16px] font-normal  font-sans  text-[#fcfbfb]">
                 For bulk or corporate orders please{" "}
                 <Link href={"/contact"} className="font-bold text-white">
                   get in touch

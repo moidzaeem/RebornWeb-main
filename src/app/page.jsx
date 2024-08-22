@@ -11,6 +11,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import { FaRegCheckCircle } from "react-icons/fa";
+import offsetLuggageTagImg from "../../public/images/InstantCarbonFootprintOffsetLuggageTag.webp";
+import coffeeShopLoyaltyImg from "../../public/images/CoffeeShopLoyaltyProgram.webp";
 
 const Hero = dynamic(() => import("@/components/Hero.jsx"), { ssr: false });
 
@@ -19,28 +21,28 @@ const flatcardData = [
     image: "/svg/Restore Nature.svg",
     title: "Restore Nature",
     intro: "We plant your tree where it's most needed",
-    text: "We are dedicated to strategic reforestation efforts that combat climate change, restore ecosystems, and empower communities",
+    text: "Contribute to global reforestation by supporting verified tree planting projects through our store.",
     link: "/tree-planting",
   },
   {
     image: "/svg/Reduce Emissions.svg",
     title: "Reduce Emissions",
-    intro: "A Simple Act That Can Change the World",
-    text: "We help reduce carbon emissions through customized solutions.",
+    intro: "A simple act that can change the world",
+    text: "Counteract your carbon footprint by supporting verified projects with maximum climate benefits",
     link: "/carbon-offsets",
   },
   {
     image: "/svg/Make an Impact.svg",
     title: "Make an Impact",
     intro: "For a healthy planet for future generations",
-    text: "Utilize our flexible climate store for reforestation, carbon mitigation, and removal initiatives through e-commerce tools or monthly subscriptions.",
+    text: "Grow your business and your forest. Plant a tree automatically with every transaction using our API.",
     link: "/user-profile",
   },
   {
     image: "/svg/Share Your Progress.svg",
     title: "Share Your Progress",
     intro: "Inspire others and showcase your commitment",
-    text: "You can use your profile dashboard to track progress on climate-related initiatives and engage with clients, customers, employees, and stakeholders",
+    text: "Gain insights into your climate contributions, download proof of impact, and unlock our special green rewards.",
     link: "/user-profile",
   },
 ];
@@ -55,14 +57,14 @@ const textcardData = [
   {
     image: "/assets/images/hsec3img2.png",
     title: "Carbon Offset",
-    text: "We create new methods that help individuals and businesses calculate, reduce, and offset their emissions.",
+    text: "We create new methods that help individuals and businesses calculate, reduce and offset their emissions.",
     btnText: "Learn More",
     btnLink: "/carbon-offsets",
   },
   {
     image: "/assets/images/hsec3img3.png",
     title: "Our Mission",
-    text: "Climate change demands immediate action. Our mission is to create, innovate, and make climate projects easily accessible for everyone.",
+    text: "Climate change demands immediate action. Our mission is to create, innovate and make climate projects easily accessible for everyone.",
     btnText: "About Us",
     btnLink: "/about",
   },
@@ -115,7 +117,7 @@ const GoalTimeLineData = [
     description:
       "A luggage tag that enables users to swiftly scan, calculate carbon emissions, and offset their flight footprint in 30 seconds or less!",
     rgt: true,
-    img: "/assets/images/aboutmain.jpg",
+    img: offsetLuggageTagImg,
     links: "/flight",
   },
   {
@@ -124,7 +126,7 @@ const GoalTimeLineData = [
     description:
       "An initiative for coffee enthusiasts that advocates for environmental conservation. Earn stamps on a loyalty card to redeem a complimentary coffee and contribute to tree-planting efforts.",
     rgt: false,
-    img: "/assets/images/airplaneimg.jpg",
+    img: coffeeShopLoyaltyImg,
     links: "/coffee",
   },
   {
@@ -222,7 +224,7 @@ export default function Home() {
               Sustainability for{" "}
               <span className="text-green font-semibold">Businesses</span>
             </h3>
-            <p className="leading-normal font-poppins text-[14px] xll:text-[16px] tracking-normal text-black-text">
+            <p className="leading-normal font-poppins text-sm xll:text-base tracking-normal text-black-text">
               Achieve CSR & Net-Zero goals and boost your brand with a tailored
               sustainability solution!
             </p>
@@ -325,12 +327,16 @@ export default function Home() {
 
       {/* Goal Time Line Section 6 */}
       <section className="w-full bg-[#f6f6f6] mt-10 max-w-[1800px] mb-[60px]  px-[30px] lg:px-[60px] xll:px-[120px] py-[4rem] mx-auto">
-        <h1 className="text-center mb-[20px] font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]">
+        <h1 className="text-center font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]">
           <span className="font-bold text-[#14a800]">
             Projects Created by Us, Supported by You,{" "}
           </span>
           For our Planet
         </h1>
+        <p className="mb-5 leading-normal font-poppins text-sm xll:text-base tracking-normal text-black-text text-center">
+          Committed to innovation, we develop unique projects annually to
+          increase our climate impact and combat climate change.
+        </p>
 
         <div className="timeLine  relative w-full mx-auto bg-[#F3F4F9] py-[5rem] rounded-xl my-[100px]">
           {GoalTimeLineData?.map((item) => (

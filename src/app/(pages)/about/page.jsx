@@ -83,14 +83,21 @@ const Page = () => {
           transition={{ duration: 0.5 }}
           className=" z-[1] leading-normal text-center lg:leading-[70px] xll:leading-[80px] text-[30px] sm:text-[50px] lg:text-[60px] xll:text-[65px] text-white font-medium font-worksans"
         >
-          Our Story About Why and How We Became <br /> Involved In Saving the
-          Planet
+          Leading the Charge for Sustainability
         </motion.h3>
-       
+        <motion.p
+          initial={{ y: 200 }}
+          viewport={{ once: true }}
+          whileInView={{ y: 0 }}
+          transition={{ duration: 0.5 }}
+          className=" w-full font-worksans mt-6 sm:w-[70%] mdd:w-[60%] text-white z-[1] text-center"
+        >
+          Inspired by the urgent need to protect our planet, we embarked on a
+          mission to create sustainable solutions.
+        </motion.p>
 
         <div className="w-full h-full absolute top-0 left-0 bg-black opacity-50 z-0"></div>
       </div>
-
 
       {/* about sec 1  */}
       <section className="w-full max-w-[1800px] mb-[160px]  px-[30px] lg:px-[60px] xll:px-[120px] py-[2rem] mx-auto">

@@ -1,7 +1,17 @@
 "use client";
+import BenefitsList from "@/components/BenefitsList";
 import PlantingPartner from "@/components/PlantingPartner";
 import { motion } from "framer-motion";
 import Image from "next/image";
+
+const tropicalRainforestBenefitsList = [
+  `Maintaining healthy water supplies.`,
+  `Supports rich ecosystems and exceptional biodiversity.`,
+];
+const tropicalDryForestBenefitsList = [
+  `Restoring ecosystems vital for local food security.`,
+  `Helping to combat deforestation and land degradation.`,
+];
 
 const textcardData = [
   {
@@ -57,7 +67,7 @@ const sec3TimelineData = [
       />
     ),
     title: "Benefits",
-    desc: "Maintaining healthy water supplies. / Supports rich ecosystems and exceptional biodiversity.",
+    desc: <BenefitsList benefitList={tropicalRainforestBenefitsList} />,
   },
 ];
 const sec3TimelineData2 = [
@@ -90,7 +100,7 @@ const sec3TimelineData2 = [
       />
     ),
     title: "Benefits",
-    desc: "- Restoring ecosystems vital for local food security. - Helping to combat deforestation and land degradation.",
+    desc: <BenefitsList benefitList={tropicalDryForestBenefitsList} />,
   },
 ];
 
