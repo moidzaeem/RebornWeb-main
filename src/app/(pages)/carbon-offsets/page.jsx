@@ -14,6 +14,7 @@ import carbonOffsetImg from "../../../../public/Untitled-design-2024-05-15T17011
 import ProjectsCard from "@/components/ProjectsCard";
 import { FaBalanceScale, FaLeaf, FaRecycle } from "react-icons/fa";
 import { Helmet } from "react-helmet";
+import TextCard from "@/components/TextCard";
 
 const items = [
   {
@@ -166,22 +167,22 @@ const Page = () => {
             transition={{ type: "tween", duration: 0.5 }}
             className="flex gap-15 flex-col lg:flex-row my-20 items-center justify-center"
           >
-            <div className="w-full mt-8 lg:mt-0 xsm:w-10/12 lg:flex-1 flex items-center justify-center flex-col">
-              <div className="w-full xsm:w-10/12 lg:flex-1 flex items-center gap-24 text-center lg:text-start lg:items-start justify-center lg:flex-row flex-col">
-                <div className="flex flex-col gap-y-2.5">
-                  <h1 className="font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]">
-                    Net Zero Starts with
-                    <span className="font-bold text-[#14a800]"> Less</span>
-                  </h1>
-                  <p className="w-full leading-5 tracking-normal font-worksans text-black-text text-sm xsm:text-base">
-                    Achieving net zero emissions requires a two-pronged
-                    approach: reducing your carbon footprint and offsetting the
-                    remainder. At RebornGreen, we believe in prioritizing
-                    emission reduction as the cornerstone of sustainability
-                  </p>
-                </div>
+            <div className="w-full mt-8 lg:mt-0 items-center justify-center ">
+              <div className="text-center">
+                <h1 className="font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]">
+                  Net Zero Starts with
+                  <span className="font-bold text-[#14a800]"> Less</span>
+                </h1>
+                <p className="w-full leading-5 tracking-normal font-worksans text-black-text text-sm xsm:text-base">
+                  The journey to net zero emissions requires a collaborative
+                  effort, and businesses play a crucial role. Focusing on
+                  reduction is the cornerstone of achieving net zero. Every ton
+                  of CO2 your company avoids releasing translates to a
+                  significant positive impact.
+                </p>
+              </div>
 
-                <div>
+              {/* <div>
                   <h3 className="w-fit font-black text-center lg:text-left mb-[20px] font-poppins text-[25px] xsm:text-[30px] lg:text-[35px] xll:text-[40px] text-[#223645] border-b-8 border-b-green">
                     Minimize emissions first
                   </h3>
@@ -192,10 +193,34 @@ const Page = () => {
                     ton of CO2 your company avoids releasing translates to a
                     significant positive impact.
                   </p>
+                </div> */}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="w-full bg-[#f6f6f6] mt-10 max-w-[1800px] mb-[60px]  px-[30px] lg:px-[60px] xll:px-[120px] py-[4rem] mx-auto">
+        <h1 className="text-center mb-[20px] font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]">
+          <span className="font-bold text-[#14a800]">Minimize Emissions  </span>
+          First
+        </h1>
+        <div className="flex gap-6 flex-wrap items-center justify-center">
+          {items?.map((item, index) => (
+            <div className=" w-full xsm:w-[90%] flex items-center justify-between bg-white duration-500 hover:scale-110 md:w-[48%] xlg:w-[20%] xll:w-[20%] h-full rounded-xl shadow-lg border min-h-[420px]">
+              <div className="gap-y-5 text-center w-full h-full rounded-xl flex items-center justify-center flex-col  p-4">
+                {/* <Image src={img} alt="card image" width={90} height={90} /> */}
+                <div>
+                  <h2 className="text-dark text-lg xsm:text-2xl font-worksans font-semibold">
+                    {item.title}
+                  </h2>
+                  <p className="text-base text-black-text font-poppins mt-3">
+                    {item.content}
+                  </p>
+                 
                 </div>
               </div>
             </div>
-          </motion.div>
+          ))}
         </div>
       </section>
 
@@ -299,7 +324,7 @@ const Page = () => {
       <div style={{ height: 200 }} />
 
       {/* Section 1 */}
-      <section className="bg-[#F9F9F9]">
+      {/* <section className="bg-[#F9F9F9]">
         <div className="w-full max-w-[1800px] my-[40px] px-[30px] lg:px-[60px] xll:px-[120px] py-[2rem] mx-auto">
           <motion.div
             initial={{ y: 200, opacity: 0 }}
@@ -323,7 +348,7 @@ const Page = () => {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* last banner */}
       <section className="bg-white">
@@ -380,7 +405,43 @@ const Page = () => {
 
       <div style={{ height: 100 }} />
 
-      <section className="bg-[#F9F9F9]">
+      <section className="bg-[#f6f6f6]">
+        <div className="w-full max-w-[1800px] my-[40px]   px-[30px] lg:px-[60px] xll:px-[120px] py-[2rem] mx-auto">
+          <motion.div
+            initial={{ y: 200, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ type: "tween", duration: 0.5 }}
+            className={`flex gap-15 flex-col lg:flex-row my-20 items-center justify-center`}
+          >
+            <Image
+              src={carbonOffsetImg}
+              width={700}
+              height={500}
+              alt="bussnessec2"
+              loading="lazy"
+              className=" rounded-lg w-full sm:w-[80%] mdd:w-[50%] h-auto"
+            />
+            <div className="  w-full mt-8 lg:mt-0 xsm:w-10/12 lg:flex-1  flex items-center justify-center flex-col">
+              <div className="w-full xsm:w-10/12 lg:flex-1 flex items-center text-center lg:text-start lg:items-start  justify-center flex-col">
+                <h3 className=" text-center lg:text-left mb-[20px] font-poppins text-[25px] xsm:text-[30px] lg:text-[35px] xll:text-[40px] font-[500] text-green">
+                Investing in
+                A Sustainable Future
+                </h3>
+                <p className="leading-[30px] text-sm sm:text-[16px]  font-worksans tracking-wide text-black-text">
+                Carbon offsetting is a way for businesses and individuals to
+                    address the greenhouse gas emissions they can’t eliminate
+                    through their operations. It allows you to balance your
+                    environmental impact by supporting projects that actively
+                    reduce or remove carbon dioxide from the atmosphere.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+
+      {/* <section className="bg-[#F9F9F9]">
         <div className="w-full max-w-[1800px] my-[40px] px-[30px] lg:px-[60px] xll:px-[120px] py-[2rem] mx-auto">
           <motion.div
             initial={{ y: 200, opacity: 0 }}
@@ -391,13 +452,10 @@ const Page = () => {
             <div className="w-full mt-8 lg:mt-0 xsm:w-10/12 lg:flex-1 flex items-center justify-center flex-col">
               <div className="w-full flex items-start gap-6 md:gap-12 xl:gap-16 flex-col lg:flex-row">
                 <div className="w-full lg:w-5/12 flex flex-col gap-4 md:gap-8 xl:gap-12">
-                  <h3 className="font-black mb-[20px] font-poppins text-[25px] xsm:text-[30px] lg:text-[35px] xll:text-[40px] text-[#223645]">
+                  <h1 className="">
                     Investing in
-                    <br />
-                    <span className="border-b-8 border-green">
-                      A Sustainable Future
-                    </span>
-                  </h3>
+                    A Sustainable Future
+                  </h1>
                   <p className="text-base md:text-lg xl:text-xl font-medium font-worksans tracking-wide">
                     Carbon offsetting is a way for businesses and individuals to
                     address the greenhouse gas emissions they can’t eliminate
@@ -415,7 +473,7 @@ const Page = () => {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       <section className="w-full max-w-[1800px] my-[100px] sm:my-[160px] px-[30px] lg:px-[60px] xll:px-[120px] py-4 md:py-6 xl:py-8 mx-auto">
         <div className="flex flex-col items-center gap-y-2 mb-6 md:mb-12 xl:mb-16">
