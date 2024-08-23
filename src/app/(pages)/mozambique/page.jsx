@@ -191,10 +191,11 @@ const page = () => {
               style={{
                 backgroundImage: `url(${item.image})`,
                 filter: "brightness(0.80)",
+                backgroundSize:"cover"
               }}
               className={`${
                 index === 4 ? "ima " : ""
-              } w-full xsm:w-[90%] flex items-end relative bg-cover bg-no-repeat justify-between duration-500 hover:scale-110 md:w-[48%] xlg:w-[30%] xll:w-[30%] h-full rounded-xl shadow-lg border min-h-[520px]`}
+              } object-cover w-full xsm:w-[90%] flex items-end relative bg-cover bg-no-repeat justify-between duration-500 hover:scale-110 md:w-[48%] xlg:w-[30%] xll:w-[30%] h-full rounded-xl shadow-lg border min-h-[520px]`}
             >
               <div className="gap-y-5 mb-20 relative z-20 text-center w-full h-full rounded-xl flex items-center justify-center flex-col p-4">
                 <div>

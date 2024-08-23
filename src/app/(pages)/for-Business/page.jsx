@@ -11,6 +11,8 @@ import apiImage from "../../../../public/API.webp";
 import showcaseImage from "../../../../public/Showcase.webp";
 import { Helmet } from 'react-helmet';
 import { parseCookies } from "nookies";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 // export const metadata = {
 //   title: "Explore Our Comprehensive Services | Joyn Digital",
@@ -28,7 +30,7 @@ const sec3CardData = [
   {
     title: "Climate Impact for Your Team",
     desc: "Our monthly subscription plan is designed to empower your team to make a positive difference in the fight against climate change. By subscribing, you'll be supporting verified carbon avoidance and tree planting projects every month.",
-    img: "/ca2.png",
+    img: "/climate_impact.png",
     link: "#simplify-climate",
     btnText: "Subscribe Now",
   },
@@ -334,7 +336,7 @@ const Page = () => {
             climate actions with RebornGreen. Get started today and unlock
             digital tools, certificates, and green rewards.
           </p>
-          <Image src={showcaseImage} alt="showcase" className="w-full h-auto" />
+          <Image src={showcaseImage} alt="showcase" className="object-cover" />
         </motion.div>
       </section>
       {/* Climate  */}
@@ -406,7 +408,7 @@ const Page = () => {
             width={1000}
             height={1000}
             layout="intrinsic"
-            className="w-full h-full xl:w-[95%] xl:h-[95%]"
+            className="w-full h-full xl:w-[95%] xl:h-[95%] object-cover"
           />
         </motion.div>
         <div id="GIT" />
@@ -476,11 +478,48 @@ const GetInTouch = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission logic here (e.g., send data to backend, show success message)
     console.log(formData);
-    // Optionally, clear form fields after submission
+  
+    try {
+      // Send data to server
+      await axios.post('https://backend.reborngreen.org/send-email', formData);
+      toast.success("Your message has been sent!", {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+
+      // Clear form fields
+      setRegValue({
+        name: "",
+        email: "",
+        country: "",
+        enquiryReason: "",
+        hearAbout: "",
+        message: "",
+      });
+    } catch (error) {
+      console.log(error);
+      toast.error("There was an error sending your message. Please try again later.", {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+    
     setFormData({
       name: "",
       email: "",

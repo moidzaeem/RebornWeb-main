@@ -206,7 +206,7 @@ const Page = () => {
         </h1>
         <div className="flex gap-6 flex-wrap items-center justify-center">
           {items?.map((item, index) => (
-            <div className=" w-full xsm:w-[90%] flex items-center justify-between bg-white duration-500 hover:scale-110 md:w-[48%] xlg:w-[20%] xll:w-[20%] h-full rounded-xl shadow-lg border min-h-[420px]">
+            <div key={index} className=" w-full xsm:w-[90%] flex items-center justify-between bg-white duration-500 hover:scale-110 md:w-[48%] xlg:w-[20%] xll:w-[20%] h-full rounded-xl shadow-lg border min-h-[420px]">
               <div className="gap-y-5 text-center w-full h-full rounded-xl flex items-center justify-center flex-col  p-4">
                 {/* <Image src={img} alt="card image" width={90} height={90} /> */}
                 <div>

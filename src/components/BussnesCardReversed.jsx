@@ -19,7 +19,7 @@ const BussnesCardReversed = ({ title, desc, img, btnText, link }) => {
           height={600}
           alt="bussnessec2"
           loading="lazy"
-          className="w-full h-full"
+          className="w-full h-full object-cover"
         />
         {/* <div className='w-full overflow-hidden  h-full absolute top-0 left-0 bg-black opacity-30 z-0'></div> */}
       </div>

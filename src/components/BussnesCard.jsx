@@ -26,16 +26,15 @@ const BussnesCard = ({ title, desc, img, btnText, link }) => {
         </Link>
       </div>
 
-      <div className=" overflow-hidden rounded-br-lg rounded-bl-lg  lg:rounded-bl-none lg:rounded-e-lg w-full h-full relative sm:w-[80%] mdd:w-[60%]">
+      <div className="overflow-hidden rounded-br-lg rounded-bl-lg lg:rounded-bl-none lg:rounded-e-lg w-full h-full relative sm:w-[80%] mdd:w-[60%]">
         <Image
           src={img}
-          width={600}
-          height={600}
+          width={900}
+          height={900}
           alt="bussnessec2"
           loading="lazy"
-          className="w-full h-full"
+          className="w-full h-full object-cover"
         />
-        {/* <div className='w-full overflow-hidden  h-full absolute top-0 left-0 bg-black opacity-30 z-0'></div> */}
       </div>
     </motion.div>
   );
