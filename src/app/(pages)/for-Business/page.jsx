@@ -68,7 +68,7 @@ const projCardDara = [
   // },
 ];
 
-const page = () => {
+const Page = () => {
 
   const [accessToken, setAccessToken] = useState('')
   useEffect(() => {
@@ -459,7 +459,7 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
 const GetInTouch = () => {
   const [formData, setFormData] = useState({
     name: "",
