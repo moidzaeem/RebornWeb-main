@@ -3,6 +3,7 @@ import BenefitsList from "@/components/BenefitsList";
 import PlantingPartner from "@/components/PlantingPartner";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Helmet } from "react-helmet";
 
 const tropicalRainforestBenefitsList = [
   `Maintaining healthy water supplies.`,
@@ -107,6 +108,44 @@ const sec3TimelineData2 = [
 const page = () => {
   return (
     <div className="overflow-hidden h-full">
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>Restore Honduras’ Forests | Combat Pine Beetle Infestation</title>
+        <meta
+          name="title"
+          content="Restore Honduras’ Forests | Combat Pine Beetle Infestation"
+        />
+        <meta
+          name="description"
+          content="Support reforestation efforts in Honduras to heal ecosystems ravaged by pine beetle infestations."
+        />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://reborngreen.org" />
+        <meta
+          property="og:title"
+          content="Restore Honduras’ Forests | Combat Pine Beetle Infestation"
+        />
+        <meta
+          property="og:description"
+          content="Support reforestation efforts in Honduras to heal ecosystems ravaged by pine beetle infestations."
+        />
+        <meta property="og:image" content="" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="http://website.com" />
+        <meta
+          property="twitter:title"
+          content="Restore Honduras’ Forests | Combat Pine Beetle Infestation"
+        />
+        <meta
+          property="twitter:description"
+          content="Support reforestation efforts in Honduras to heal ecosystems ravaged by pine beetle infestations."
+        />
+        <meta property="twitter:image" content="" />
+      </Helmet>
       <div
         style={{
           backgroundImage:

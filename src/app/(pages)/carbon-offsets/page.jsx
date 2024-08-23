@@ -13,6 +13,7 @@ import ArrowDownSvg from "@/assets/svg/ArrowDownSvg";
 import carbonOffsetImg from "../../../../public/Untitled-design-2024-05-15T170119.931.png";
 import ProjectsCard from "@/components/ProjectsCard";
 import { FaBalanceScale, FaLeaf, FaRecycle } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const items = [
   {
@@ -95,6 +96,39 @@ const Page = () => {
 
   return (
     <div className="overflow-hidden h-full">
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>Carbon Offsets for Businesses</title>
+        <meta name="title" content="Carbon Offsets for Businesses" />
+        <meta
+          name="description"
+          content="Discover how your business can reduce its carbon footprint with our tailored carbon offset solutions. Explore options to meet sustainability goals."
+        />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://website.com" />
+        <meta property="og:title" content="Carbon Offsets for Businesses" />
+        <meta
+          property="og:description"
+          content="Discover how your business can reduce its carbon footprint with our tailored carbon offset solutions. Explore options to meet sustainability goals."
+        />
+        <meta property="og:image" content="" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="http://website.com" />
+        <meta
+          property="twitter:title"
+          content="Carbon Offsets for Businesses"
+        />
+        <meta
+          property="twitter:description"
+          content="Discover how your business can reduce its carbon footprint with our tailored carbon offset solutions. Explore options to meet sustainability goals."
+        />
+        <meta property="twitter:image" content="" />
+      </Helmet>
+
       <div
         style={{
           backgroundImage: "url('/Untitled-design-2024-05-15T170119.931.png')",
@@ -149,7 +183,7 @@ const Page = () => {
 
                 <div>
                   <h3 className="w-fit font-black text-center lg:text-left mb-[20px] font-poppins text-[25px] xsm:text-[30px] lg:text-[35px] xll:text-[40px] text-[#223645] border-b-8 border-b-green">
-                    Minmize emissions first
+                    Minimize emissions first
                   </h3>
                   <p className="leading-[30px] text-sm sm:text-[16px] font-worksans tracking-wide text-black-text">
                     The journey to net zero emissions requires a collaborative
@@ -166,7 +200,7 @@ const Page = () => {
       </section>
 
       {/* accordions */}
-      <section className="bg-white">
+      {/* <section className="bg-white">
         <div
           style={{
             boxShadow: "0px 25px 50px -12px rgba(220.5, 220.5, 220.5, 0.5)",
@@ -223,7 +257,7 @@ const Page = () => {
           </div>
         </div>
         <div className="h-25 bg-[#54CA41] rounded-2xl relative bottom-12.5 z-0 left-25 w-[80%]" />
-      </section>
+      </section> */}
 
       <div style={{ height: 100 }} />
       <h2 className="text-center text-2xl lg:text-4xl font-light mb-10">

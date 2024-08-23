@@ -4,6 +4,7 @@ import PlantingPartner from "@/components/PlantingPartner";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaRegCheckCircle } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const riftValleyBenefitsList = [
   `Provides employment to those living in extreme poverty`,
@@ -111,6 +112,46 @@ const sec3TimelineData2 = [
 const page = () => {
   return (
     <div className="overflow-hidden h-full">
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>
+          Planting trees and supporting water security in Kenyan forests | RebornGreen
+        </title>
+        <meta
+          name="title"
+          content="Planting trees and supporting water security in Kenyan forests | RebornGreen "
+        />
+        <meta
+          name="description"
+          content="Restoring the Northern coast of Kenya"
+        />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://reborngreen.org" />
+        <meta
+          property="og:title"
+          content="Planting trees and supporting water security in Kenyan forests | RebornGreen "
+        />
+        <meta
+          property="og:description"
+          content="Restoring the Northern coast of Kenya"
+        />
+        <meta property="og:image" content="" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="http://website.com" />
+        <meta
+          property="twitter:title"
+          content="Planting trees and supporting water security in Kenyan forests | RebornGreen "
+        />
+        <meta
+          property="twitter:description"
+          content="Restoring the Northern coast of Kenya"
+        />
+        <meta property="twitter:image" content="" />
+      </Helmet>
       <div
         style={{
           backgroundImage: "url('/assets/treeplanting-images/Kenya/12.png')",

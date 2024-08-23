@@ -22,6 +22,7 @@ import CoffeProgramHIWStep1 from "../../../../public/assets/coffee/CoffeProgramH
 import CoffeProgramHIWStep2 from "../../../../public/assets/coffee/CoffeProgramHowItWorksStep2.webp";
 import CoffeProgramHIWStep3 from "../../../../public/assets/coffee/CoffeProgramHowItWorksStep3.webp";
 import CoffeProgramHIWStep4 from "../../../../public/assets/coffee/CoffeProgramHowItWorksStep4.webp";
+import { Helmet } from "react-helmet";
 
 const GoalTimeLineData = [
   {
@@ -61,6 +62,45 @@ const GoalTimeLineData = [
 const page = () => {
   return (
     <div className="overflow-hidden h-full">
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>Coffee Shop Loyalty Program | Every Card Plants a Tree</title>
+        <meta
+          name="title"
+          content="Coffee Shop Loyalty Program | Every Card Plants a Tree"
+        />
+        <meta
+          name="description"
+          content="Increase customer engagement with our Coffee Shop Loyalty Program. For every completed card, your customers plant a tree and earn a free coffee."
+        />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://reborngreen.org" />
+        <meta
+          property="og:title"
+          content="Coffee Shop Loyalty Program | Every Card Plants a Tree"
+        />
+        <meta
+          property="og:description"
+          content="Increase customer engagement with our Coffee Shop Loyalty Program. For every completed card, your customers plant a tree and earn a free coffee."
+        />
+        <meta property="og:image" content="" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="http://website.com" />
+        <meta
+          property="twitter:title"
+          content="Coffee Shop Loyalty Program | Every Card Plants a Tree"
+        />
+        <meta
+          property="twitter:description"
+          content="Increase customer engagement with our Coffee Shop Loyalty Program. For every completed card, your customers plant a tree and earn a free coffee."
+        />
+        <meta property="twitter:image" content="" />
+      </Helmet>
+
       <div
         style={{
           backgroundImage: "url('/assets/coffee/CoffeeShop.webp')",

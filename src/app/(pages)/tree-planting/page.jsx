@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { Helmet } from "react-helmet";
 
 const workse2cData = [
   {
@@ -43,6 +44,44 @@ const sec3TimelineData = [
 const page = () => {
   return (
     <div className="overflow-hidden h-full">
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>Tree Planting | Verified Projects Worldwide</title>
+        <meta
+          name="title"
+          content="Tree Planting | Verified Projects Worldwide"
+        />
+        <meta
+          name="description"
+          content="Join us in supporting verified tree planting projects worldwide, delivering the highest social and climate impact. Make a difference with every tree planted."
+        />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://reborngreen.org" />
+        <meta
+          property="og:title"
+          content="Tree Planting | Verified Projects Worldwide"
+        />
+        <meta
+          property="og:description"
+          content="Join us in supporting verified tree planting projects worldwide, delivering the highest social and climate impact. Make a difference with every tree planted."
+        />
+        <meta property="og:image" content="" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="http://website.com" />
+        <meta
+          property="twitter:title"
+          content="Tree Planting | Verified Projects Worldwide"
+        />
+        <meta
+          property="twitter:description"
+          content="Join us in supporting verified tree planting projects worldwide, delivering the highest social and climate impact. Make a difference with every tree planted."
+        />
+        <meta property="twitter:image" content="" />
+      </Helmet>
       <div
         style={{
           backgroundImage:

@@ -60,7 +60,7 @@ const Footer = () => (
         </div>
         <div className="flex flex-col md:mt-0 mt-[30px] w-full ssm:w-[60%] xxm:w-[60%] md:w-[30%] gap-4 items-start">
           <p className="text-white text-[16px] xll:text-[20px] font-Noto font-[500]">
-            Climate Projects
+            Projects
           </p>
           <hr className="border-t-2 border-white w-full" />
 

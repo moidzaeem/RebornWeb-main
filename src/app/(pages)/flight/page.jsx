@@ -14,6 +14,7 @@ import step4Img from "../../../../public/assets/images/HowItWorksStep4.webp";
 import React from "react";
 import { CiCalculator1, CiFlag1, CiMobile1 } from "react-icons/ci";
 import { FaCalculator, FaHandHolding, FaRegClock } from "react-icons/fa";
+import { Helmet } from 'react-helmet';
 
 const GoalTimeLineData = [
   {
@@ -50,9 +51,43 @@ const GoalTimeLineData = [
   },
 ];
 
+
+
 const page = () => {
   return (
     <div className="overflow-hidden h-full">
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>Flight Offset Luggage Tag - Travel Sustainably</title>
+        <meta name="title" content="Flight Offset Luggage Tag - Travel Sustainably" />
+        <meta
+          name="description"
+          content="Travel sustainably with RebornGreen’s Flight Offset Luggage Tag. Offset your carbon footprint effortlessly and support our planet with every journey."
+        />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://reborngreen.org" />
+        <meta property="og:title" content="Flight Offset Luggage Tag - Travel Sustainably" />
+        <meta
+          property="og:description"
+          content="Travel sustainably with RebornGreen’s Flight Offset Luggage Tag. Offset your carbon footprint effortlessly and support our planet with every journey."
+        />
+        <meta property="og:image" content="" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="http://website.com" />
+        <meta
+          property="twitter:title"
+          content="Flight Offset Luggage Tag - Travel Sustainably"
+        />
+        <meta
+          property="twitter:description"
+          content="Travel sustainably with RebornGreen’s Flight Offset Luggage Tag. Offset your carbon footprint effortlessly and support our planet with every journey."
+        />
+        <meta property="twitter:image" content="" />
+      </Helmet>
       <div
         style={{
           backgroundImage: "url('/assets/images/Airport-Passager.webp')",
@@ -146,6 +181,14 @@ const page = () => {
               icon={item.icon}
             />
           ))}
+        </div>
+        <div className="w-full  flex flex-col items-center justify-center">
+          <Link
+            href={"https://projects.reborngreen.org/luggage-tag/"}
+            className="bg-green text-white py-2 px-4 rounded-md hover:bg-green-dark transition duration-300 mt-4 text-center"
+          >
+            Buy Now
+          </Link>{" "}
         </div>
       </section>
 

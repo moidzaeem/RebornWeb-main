@@ -6,10 +6,11 @@ import BussnesCard from "@/components/BussnesCard";
 import BussnesCardReversed from "@/components/BussnesCardReversed";
 import { FaRecycle } from "react-icons/fa";
 import Link from "next/link";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import apiImage from "../../../../public/API.webp";
 import showcaseImage from "../../../../public/Showcase.webp";
 import { Helmet } from 'react-helmet';
+import { parseCookies } from "nookies";
 
 // export const metadata = {
 //   title: "Explore Our Comprehensive Services | Joyn Digital",
@@ -68,6 +69,17 @@ const projCardDara = [
 ];
 
 const page = () => {
+
+  const [accessToken, setAccessToken] = useState('')
+  useEffect(() => {
+    const cookies = parseCookies();
+
+    const accesstoken = cookies?.access_token;
+    setAccessToken(accesstoken)
+
+  }, []);
+
+
   return (
     <div className="overflow-hidden h-full">
       <Helmet>
@@ -159,10 +171,12 @@ const page = () => {
           transition={{ duration: 0.5 }}
           className="flex items-center mt-6 justify-center gap-7 sm:gap-16 flex-wrap"
         >
-          <Link
-            className=" w-[340px] sm:w-[500px] hover:scale-110 duration-300 flex items-center justify-center flex-col text-center px-4 py-5 min-h-[300px] bg-green  z-10 rounded-xl "
-            href="/plant-tree"
-          >
+         <Link
+  className="w-[340px] sm:w-[500px] hover:scale-110 duration-300 flex items-center justify-center flex-col text-center px-4 py-5 min-h-[300px] bg-green z-10 rounded-xl"
+  href={!accessToken ? '/login?is_pricing=true' : '/plant-tree'}
+>
+ 
+
             <Image src="/Box 1.svg" alt="img" height={100} width={100} />
             <h4 className="text-2xl text-white font-semibold mt-8">
               Support Tree-Planting Projects

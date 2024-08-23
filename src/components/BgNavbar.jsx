@@ -202,7 +202,7 @@ const Navbar = () => {
                         width: "100%",
                         padding: 0,
                         textAlign: "center",
-                        opacity: 0.8,
+                      
                       }}
                       className={`bg-white absolute top-12 shadow-sm show-drop z-10 px-1 py-2 gap-y-3 flex-col left-0 ${
                         dropDown === link.id ? "flex" : "hidden"

@@ -3,6 +3,7 @@ import PlantingPartner from "@/components/PlantingPartner";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaRegCheckCircle } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const benefitsList = (
   <div className="flex gap-2 flex-col">
@@ -115,6 +116,44 @@ const sec3TimelineData2 = [
 const page = () => {
   return (
     <div className="overflow-hidden h-full">
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>Restore Madagascar's Biodiversity | Coastal & Restoration Projects</title>
+        <meta
+          name="title"
+          content="Restore Madagascar's Biodiversity | Coastal & Restoration Projects"
+        />
+        <meta
+          name="description"
+          content="Support mangrove restoration at the northwest coastline and protect rare inland forests to safeguard wildlife and coastal communities."
+        />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://reborngreen.org" />
+        <meta
+          property="og:title"
+          content="Restore Madagascar's Biodiversity | Coastal & Restoration Projects"
+        />
+        <meta
+          property="og:description"
+          content="Support mangrove restoration at the northwest coastline and protect rare inland forests to safeguard wildlife and coastal communities."
+        />
+        <meta property="og:image" content="" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="http://website.com" />
+        <meta
+          property="twitter:title"
+          content="Restore Madagascar's Biodiversity | Coastal & Restoration Projects"
+        />
+        <meta
+          property="twitter:description"
+          content="Support mangrove restoration at the northwest coastline and protect rare inland forests to safeguard wildlife and coastal communities."
+        />
+        <meta property="twitter:image" content="" />
+      </Helmet>
       <div
         style={{
           backgroundImage:

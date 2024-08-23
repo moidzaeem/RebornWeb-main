@@ -134,3 +134,35 @@
 .api-li li {
   list-style: decimal !important;
 }
+
+
+/* Add styles for the dropdown menu */
+.drop-menu {
+  position: relative;
+}
+
+.show-drop {
+  display: none; /* Hide the dropdown by default */
+  position: absolute;
+  background: white;
+  margin-top: 2px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  top: 100%; /* Position below the menu item */
+  left: 0;
+  z-index: 10;
+}
+
+.drop-menu:hover .show-drop {
+  display: block; /* Show the dropdown on hover */
+}
+
+.show-drop a {
+  display: block;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.show-drop a:hover {
+  background: #f0f0f0;
+}

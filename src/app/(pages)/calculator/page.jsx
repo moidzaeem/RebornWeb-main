@@ -56,7 +56,7 @@ const Page = () => {
   // Populate options for departure and destination dropdowns
   const departureOptions = airportsData.map((airport) => ({
     value: airport.iata,
-    label: airport.name,
+    label: `${airport.iata} - ${airport.name}`,
   }));
 
   const destinationOptions = departureOptions; // Assuming you want the same options for both
@@ -297,10 +297,10 @@ const Page = () => {
         </div>
         <div className="grid grid-cols-12 gap-x-8 gap-y-4">
           <div className="col-span-12 md:col-span-7 flex flex-col gap-y-4">
-            <h2 className="text-2xl font-semibold text-[#3d3d3d]">
+            <h2 className="text-2xl font-semibold text-[#3d3d3d] text-center">
               How is the Emissions Calculation for My Flight Determined?
             </h2>
-            <p className="text-gray-600">
+            <p className="text-gray-600 text-center">
               We determine emissions using specific emission factors, usually
               sourced from governmental agencies and NGOs. Each factor is
               meticulously reviewed and cross-referenced with other sources to
@@ -361,8 +361,7 @@ const Page = () => {
 
       <div className="bg-[#43b933]/80 flex flex-col gap-y-4 px-8 lg:px-16 xll:px-32 py-4 lg:py-8">
         <h2 className="text-3xl font-semibold text-white">
-
-         Join Us on Our Journey
+          Join Us on Our Journey
         </h2>
         <p className="text-white">
           Every flight you take can now contribute to a brighter, greener

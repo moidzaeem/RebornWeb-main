@@ -21,10 +21,10 @@ import { useRouter } from "next/navigation";
 const Navbar = () => {
   const router = useRouter();
   const [navOpen, setOpen] = useState(false);
-  const [dropDown, setDropDown] = useState(null);
   const [accessToken, setAccessToken] = useState(null);
   const [username, setUsername] = useState(null);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [navScroll, setNavScroll] = useState(false);
 
   useEffect(() => {
     const cookies = parseCookies();
@@ -38,7 +38,7 @@ const Navbar = () => {
     } else {
       setAccessToken(null);
     }
-  }, [accessToken]);
+  }, []);
 
   const LogoutButton = () => {
     destroyCookie(null, "access_token", { path: "/" });
@@ -47,24 +47,13 @@ const Navbar = () => {
     router.push("/login");
   };
 
-  const LinkClick = () => {
-    setOpen(false);
-  };
-
-  const [navScroll, setNavScroll] = useState(false);
   useEffect(() => {
     const onScroll = () => {
       setNavScroll(window.scrollY >= 80);
-      setDropDown(null); // Close the dropdown on scroll
-
     };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const toggleDropdown = (id) => {
-    setDropDown((prev) => (prev === id ? null : id));
-  };
 
   return (
     <>
@@ -105,13 +94,6 @@ const Navbar = () => {
                   </span>
                 </Link>
               ))}
-              {/* <span onClick={() => setSearchOpen(true)} className='inline-block md:hidden cursor-pointer text-white hover:text-[#c2c2c2]'>
-                <FaSearch size={16} />
-              </span> */}
-              {/* <div className='hidden w-[250px] md:flex items-center rounded-sm py-2 px-2 bg-[#ffffff55]'>
-                <input type='text' placeholder='search here...' className='w-full pl-2 placeholder:text-white placeholder:text-[14px] text-white h-full outline-none bg-transparent' />
-                <FaSearch className='text-white cursor-pointer' />
-              </div> */}
               <div
                 className={`absolute duration-500 bg-[#181a189f] z-[99] flex items-center justify-center left-0 w-full h-1/2 md:hidden ${
                   searchOpen ? "top-20" : "top-[-9999px]"
@@ -166,7 +148,7 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <li
                 key={link.id}
-                className={`relative drop-menu font-poppins text-[14px] lg:text-[14px] text-black-text ${
+                className={`drop-menu font-poppins text-[14px] lg:text-[14px] text-black-text ${
                   navScroll ? "lg:text-black-text" : "lg:text-white"
                 } font-[400]`}
               >
@@ -176,39 +158,16 @@ const Navbar = () => {
                       <Link href={link.id} className="group-li flex items-end">
                         {link.title}
                       </Link>
-                      <p
-                        onClick={() => toggleDropdown(link.id)}
-                        className="cursor-pointer inline-block"
-                      >
-                        {dropDown === link.id ? (
-                          <MdKeyboardArrowUp
-                            className={`${
-                              navScroll ? "text-black" : "text-white"
-                            } drop-icon`}
-                            size={20}
-                          />
-                        ) : (
-                          <MdKeyboardArrowDown
-                            className={`${
-                              navScroll ? "text-black" : "text-white"
-                            } drop-icon`}
-                            size={20}
-                          />
-                        )}
-                      </p>
+                      <div className="cursor-pointer inline-block">
+                        <MdKeyboardArrowDown
+                          className={`${
+                            navScroll ? "text-black" : "text-white"
+                          } drop-icon`}
+                          size={20}
+                        />
+                      </div>
                     </div>
-                    <div
-                      style={{
-                        overflow: "hidden",
-                        width: "100%",
-                        padding: 0,
-                        textAlign: "center",
-                        opacity: 0.8,
-                      }}
-                      className={`bg-white absolute top-12 shadow-sm show-drop z-10 px-1 py-2 gap-y-3 flex-col left-0 ${
-                        dropDown === link.id ? "flex" : "hidden"
-                      }`}
-                    >
+                    <div className="show-drop">
                       {link.dropdownItems.map((item) => (
                         <Link
                           className="px-2 link py-2 text-black-text border-b"

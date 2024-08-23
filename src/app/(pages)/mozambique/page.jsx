@@ -3,6 +3,7 @@ import PlantingPartner from "@/components/PlantingPartner";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaRegCheckCircle } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const benefitsList = (
   <div className="flex gap-2 flex-col">
@@ -80,10 +81,51 @@ const sec3TimelineData = [
 const page = () => {
   return (
     <div className="overflow-hidden h-full">
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>
+          Restoring Mangrove Forests in Mozambique Coastal | Defense Trees{" "}
+        </title>
+        <meta
+          name="title"
+          content="Restoring Mangrove Forests in Mozambique Coastal | Defense Trees "
+        />
+        <meta
+          name="description"
+          content="Strengthen coastal defenses, reduce soil erosion, and protect communities from cyclones and floods while nurturing marine life."
+        />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://reborngreen.org" />
+        <meta
+          property="og:title"
+          content="Restoring Mangrove Forests in Mozambique Coastal | Defense Trees "
+        />
+        <meta
+          property="og:description"
+          content="Strengthen coastal defenses, reduce soil erosion, and protect communities from cyclones and floods while nurturing marine life."
+        />
+        <meta property="og:image" content="" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="http://website.com" />
+        <meta
+          property="twitter:title"
+          content="Restoring Mangrove Forests in Mozambique Coastal | Defense Trees "
+        />
+        <meta
+          property="twitter:description"
+          content="Strengthen coastal defenses, reduce soil erosion, and protect communities from cyclones and floods while nurturing marine life."
+        />
+        <meta property="twitter:image" content="" />
+      </Helmet>
+
       <div
         style={{
           backgroundImage:
-            "url('/assets/treeplanting-images/Mozambique/green123.png')",
+            "url('/tree-planting/mozambique/header.png')",
         }}
         className=" flex-col   h-[95vh] flex items-center justify-center bg-cover w-full  px-[30px] relative lg:px-[60px] xll:px-[120px] py-[6rem] mx-auto"
       >
@@ -125,7 +167,7 @@ const page = () => {
               </div>
             </div>
             <Image
-              src="/assets/treeplanting-images/Mozambique/20190822_Mozambique_0347wm.jpg"
+              src="/tree-planting/mozambique/20190822_Mozambique_0347wm.jpg"
               width={700}
               height={600}
               alt="bussnessec2"

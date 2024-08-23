@@ -175,10 +175,10 @@ export default function StepperComp() {
                 >
                   <FaTree size={30} className="my-5 arrow  text-white" />
                   <h4 className="text-2xl  text-white font-semibold">
-                   Monthly Subscription
+                    Monthly Subscription
                   </h4>
                   <p className="text-[16px]  text-white  font-worksans pt-2">
-                   Making the planet greener every month.
+                    Making the planet greener every month.
                   </p>
                 </div>
                 <Link
@@ -193,10 +193,10 @@ export default function StepperComp() {
                 >
                   <FaTree size={30} className="my-5 arrow text-white" />
                   <h4 className="text-2xl  text-white font-semibold">
-                 Occasional
+                    Occasional
                   </h4>
                   <p className="text-[16px] text-white  font-worksans pt-2">
-                 Flexible tree planting support.
+                    Flexible tree planting support.
                   </p>
                 </Link>
                 <Link
@@ -214,7 +214,8 @@ export default function StepperComp() {
                     Tree Planting Integration
                   </h4>
                   <p className="text-[16px]  text-white  font-worksans pt-2">
-                   Plant a tree for every sale or other company activity using our API integrations.
+                    Plant a tree for every sale or other company activity using
+                    our API integrations.
                   </p>
                 </Link>
               </div>
@@ -239,7 +240,7 @@ export default function StepperComp() {
                   <FaTree size={30} className="mb-8 arrow text-white" />
 
                   <h4 className="text-2xl text-white  font-semibold">
-Monthly Subscription
+                    Monthly Subscription
                   </h4>
                   <p className="text-[16px] text-white  font-worksans pt-2">
                     Making the planet greener every month.
@@ -261,7 +262,7 @@ Monthly Subscription
                     <span className="text-white gr-span">Occasional</span>
                   </h4>
                   <p className="text-[16px]  text-white font-worksans pt-2">
-                 Flexible tree planting support.
+                    Flexible tree planting support.
                   </p>
                 </div>
                 <Link
@@ -276,10 +277,13 @@ Monthly Subscription
                 >
                   <FaTree size={30} className="mb-10 arrow text-white" />
                   <h4 className="text-2xl  font-semibold">
-                    <span className=" text-white gr-span">Tree Planting Integration</span>
+                    <span className=" text-white gr-span">
+                      Tree Planting Integration
+                    </span>
                   </h4>
                   <p className="text-[16px] text-white  font-worksans pt-2">
-                  Plant a tree for every sale or other company activity using our API integrations.
+                    Plant a tree for every sale or other company activity using
+                    our API integrations.
                   </p>
                 </Link>
               </div>

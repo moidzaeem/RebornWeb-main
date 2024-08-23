@@ -4,15 +4,11 @@ import Image from "next/image";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { SendMailClient } from "zeptomail";
-const url = "api.zeptomail.eu/";
-const token =
-  "Zoho-enczapikey yA6KbHtT7QSkwzlRFkc4g5HZ8Nkwqfw52Smwsi3ge8AuKNC3jqFrgUJkJtC/JmeJ0YPYtKtQPdpFL4m+udFefpJlY9ZQfZTGTuv4P2uV48xh8ciEYNYljZmqArkVG65Ocx4sCSk4QvkgWA==";
+import axios from "axios";
 
-let client = new SendMailClient({ url, token });
 
 const ContactCom = () => {
   const router = useRouter();
@@ -29,7 +25,7 @@ const ContactCom = () => {
     emailEr: "",
   });
 
-  const handle = (e) => {
+  const handle = async (e) => {
     e.preventDefault();
     const { name, email, country, message } = regValue;
 
@@ -62,71 +58,43 @@ const ContactCom = () => {
         theme: "light",
       });
     } else {
-      const subData = async () => {
-        client
-          .sendMail({
-            from: {
-              address: "RebornGreen",
-              name: "noreply",
-            },
-            to: [
-              {
-                email_address: {
-                  address: "dan@reborngreen.co.uk",
-                  name: "Gherasim",
-                },
-              },
-            ],
-            subject: "Contact Form ",
-            htmlbody: `<div>
-            <p><b>Name:</b> ${name}</p>
-            <p><b>Email:</b> ${email}</p>
-            <p><b>Country:</b> ${country}</p>
-            <p><b>Message:</b> ${message}</p>
-        </div>`,
-          })
-          .then((resp) => {
-            console.log("Email sent successfully");
-            // Optionally, handle success actions (e.g., show success toast, redirect)
-            toast.success("Form sent successfully!", {
-              position: "top-right",
-              autoClose: 1500,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            });
-            router.push("/");
-          })
-          .catch((error) => {
-            console.error("Error sending email", error);
-            // Handle error scenarios (show error toast, etc.)
-            toast.error("Error sending form data", {
-              position: "top-right",
-              autoClose: 1500,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            });
-          });
+      
+      try {
+        // Send data to server
+        await axios.post('https://backend.reborngreen.org/send-email', regValue);
+        toast.success("Your message has been sent!", {
+          position: "top-right",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
 
-        setError((pev) => ({ ...pev, nameEr: "" }));
-        setError((pev) => ({ ...pev, emailEr: "" }));
-      };
-      subData();
-      setRegValue({
-        name: "",
-        email: "",
-        country: "",
-        enquiryReason: "",
-
-        message: "",
-      });
+        // Clear form fields
+        setRegValue({
+          name: "",
+          email: "",
+          country: "",
+          enquiryReason: "",
+          hearAbout: "",
+          message: "",
+        });
+      } catch (error) {
+        console.log(error);
+        toast.error("There was an error sending your message. Please try again later.", {
+          position: "top-right",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
     }
   };
 

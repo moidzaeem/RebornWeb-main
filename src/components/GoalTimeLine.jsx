@@ -50,7 +50,7 @@ const GoalTimeLine = ({ title, description, id, rgt, img, link }) => {
             <h2 className=" text-dark text-[18px] xsm:text-[20px] sm:text-[24px] font-worksans font-semibold">
               {title}
             </h2>
-            <p className=" text-sm sm:text-[14px] mt-2 mb-2 capitalize text-black-text font-poppins">
+            <p className=" text-sm sm:text-[14px] mt-2 mb-2 text-black-text font-poppins">
               {description}
             </p>
             {img && (

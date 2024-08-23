@@ -14,6 +14,7 @@ import Link from "next/link";
 import { FaLocationDot } from "react-icons/fa6";
 import TextCard from "@/components/TextCard";
 import PlantingPartner from "@/components/PlantingPartner";
+import { Helmet } from "react-helmet";
 
 const textcardData = [
   {
@@ -76,6 +77,44 @@ const sec3TimelineData = [
 const page = () => {
   return (
     <div className="overflow-hidden h-full">
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>Restore Ethiopia’s Green Legacy | Forest & Land Rehabilitation</title>
+        <meta
+          name="title"
+          content="Restore Ethiopia’s Green Legacy | Forest & Land Rehabilitation"
+        />
+        <meta
+          name="description"
+          content="Our initiatives focus on reforestation, enhancing soil health, and supporting sustainable land management in Shebedino to combat deforestation and climate change."
+        />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://reborngreen.org" />
+        <meta
+          property="og:title"
+          content="Restore Ethiopia’s Green Legacy | Forest & Land Rehabilitation"
+        />
+        <meta
+          property="og:description"
+          content="Our initiatives focus on reforestation, enhancing soil health, and supporting sustainable land management in Shebedino to combat deforestation and climate change."
+        />
+        <meta property="og:image" content="" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="http://website.com" />
+        <meta
+          property="twitter:title"
+          content="Restore Ethiopia’s Green Legacy | Forest & Land Rehabilitation"
+        />
+        <meta
+          property="twitter:description"
+          content="Our initiatives focus on reforestation, enhancing soil health, and supporting sustainable land management in Shebedino to combat deforestation and climate change."
+        />
+        <meta property="twitter:image" content="" />
+      </Helmet>
       <div
         style={{
           backgroundImage: "url('/assets/treeplanting-images/Ethiopia/1.png')",

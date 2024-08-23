@@ -5,12 +5,12 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import React, { useEffect, useState } from "react";
 import { parseCookies, setCookie } from "nookies";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
-
   const router = useRouter();
+  const searchParams = useSearchParams(); // To get query parameters
 
   const [formData, setFormData] = useState({
     email: "",
@@ -19,13 +19,12 @@ const Login = () => {
 
   useEffect(() => {
     const cookies = parseCookies();
+    const accessToken = cookies?.access_token;
 
-    const accesstoken = cookies?.access_token;
-
-    if (accesstoken) {
-      redirect("/");
+    if (accessToken) {
+      router.push("/");
     }
-  }, []);
+  }, [router]);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -37,7 +36,6 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Basic validation - check if form data is not empty
     setLoading(true);
     if (!formData.password || !formData.email) {
       setLoading(false);
@@ -55,11 +53,8 @@ const Login = () => {
       });
 
       if (response.status === 200) {
-        // Registration successful, handle accordingly
         if (response.data.status === 200) {
           toast.success(response.data.message);
-          // Set cookies using nookies
-          setLoading(false);
           const { access, refresh } = response.data.data.tokens;
           const { name } = response.data.data.user;
 
@@ -82,34 +77,36 @@ const Login = () => {
             httpOnly: false,
           });
 
-          router.push("/user-profile");
+          // Check query parameters
+          const isPricing = searchParams.get('is_pricing') === 'true';
+          if (isPricing) {
+            router.push("/plant-tree");
+          } else {
+            router.push("/user-profile");
+          }
         } else if (response.data.status === 400) {
-          console.log(response);
           setLoading(false);
           toast.error(response.data.message);
         } else {
           setLoading(false);
           toast.error("Login failed");
-          console.log(response);
         }
       } else {
-        // Registration failed, handle error
         setLoading(false);
-        console.log(response);
         toast.error("Login failed");
       }
     } catch (error) {
       setLoading(false);
-      toast.error("Login failed:", error.message);
+      toast.error("Login failed: " + error.message);
     }
   };
 
   return (
     <div className="overflow-hidden h-full">
-      {/* Login sec 1  */}
+      {/* Login sec 1 */}
       <section
         style={{ backgroundImage: "url('/assets/images/aboutmain.jpg')" }}
-        className="w-full bg-[#f5f5f6] bg-cover object-center max-w-[1800px]  px-[10px] xsm:px-[30px] relative lg:px-[60px] xll:px-[120px] py-[6rem] mx-auto"
+        className="w-full bg-[#f5f5f6] bg-cover object-center max-w-[1800px] px-[10px] xsm:px-[30px] relative lg:px-[60px] xll:px-[120px] py-[6rem] mx-auto"
       >
         <div className="absolute w-full h-full z-0 top-0 left-0 bg-black opacity-[0.2]"></div>
         <div className="flex z-10 relative w-full min-h-screen items-center justify-center">
@@ -118,7 +115,7 @@ const Login = () => {
             className="max-w-[600px] px-3 xsm:px-5 py-10 rounded-lg w-[500px] bg-white shadow-lg"
           >
             <h2 className="text-left font-worksans text-[20px] xsm:text-[25px] lg:text-[30px] xll:text-[35px] uppercase font-semibold text-[#3d3d3d]">
-              Login{" "}
+              Login
             </h2>
             <div>
               <div className="flex my-4 flex-col">
@@ -160,7 +157,7 @@ const Login = () => {
                   className="font-semibold hover:text-blue-900 text-green"
                   href="/Register"
                 >
-                  Register{" "}
+                  Register
                 </Link>
               </p>
               <Link

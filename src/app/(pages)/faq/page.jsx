@@ -28,9 +28,15 @@ const data = [
     },
 ]
 
+export const metadata = {
+  title: 'RebornGreen FAQ - Carbon Offsets & Tree Planting',
+  description:'Find answers to your questions about carbon offsets, emissions, and tree planting with RebornGreen. Discover how our services support a greener planet.',
+}
+
 const page = () => {
   return (
     <div className='overflow-hidden h-full'>
+      
   {/* section 1  */}
   <section className='w-full flex items-center justify-start flex-col bg-white mt-10 max-w-[1800px] mb-[60px]  px-[30px] lg:px-[60px] xll:px-[120px] py-[4rem] mx-auto'>
         <div  className='w-full flex flex-col items-center justify-center'>
