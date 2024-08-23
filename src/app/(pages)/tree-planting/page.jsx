@@ -570,11 +570,20 @@ const page = () => {
               className=" rounded-lg w-full sm:w-[80%] mdd:w-[50%] h-auto"
             />
           </motion.div>
-          <div className="py-2 flex justify-center">
+          <div className="bg-[#43b933]/80 flex flex-col gap-y-4 px-8 lg:px-16 xll:px-32 py-4 lg:py-8 py-2 flex justify-center">
+            <h2 className="text-3xl font-semibold text-white">
+              Ready to Join Our Mission?
+            </h2>
+            <p className="text-white">
+              Make a lasting impact. Choose your planting frequency: monthly,
+              occasional, or automated. Every tree planted brings us closer to a
+              healthier planet
+            </p>
             <Link href="/user-profile" className="btn w-fit">
               Let's grow together
             </Link>
           </div>
+
           {/* <div className="flex items-center gap-10 justify-center flex-col">
             <h1 className=" text-center mb-[20px] font-poppins text-[25px] xsm:text-[30px] lg:text-[35px] xll:text-[40px] font-[500] text-green">
               Offset the carbon footprint of your business

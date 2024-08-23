@@ -174,11 +174,7 @@ const Page = () => {
                   <span className="font-bold text-[#14a800]"> Less</span>
                 </h1>
                 <p className="w-full leading-5 tracking-normal font-worksans text-black-text text-sm xsm:text-base">
-                  The journey to net zero emissions requires a collaborative
-                  effort, and businesses play a crucial role. Focusing on
-                  reduction is the cornerstone of achieving net zero. Every ton
-                  of CO2 your company avoids releasing translates to a
-                  significant positive impact.
+                Achieving net zero emissions requires a two-pronged approach: reducing your carbon footprint and offsetting the remainder. At RebornGreen, we believe in prioritizing emission reduction as the cornerstone of sustainability
                 </p>
               </div>
 
