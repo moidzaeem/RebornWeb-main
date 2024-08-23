@@ -2,13 +2,26 @@
 import PlantingPartner from "@/components/PlantingPartner";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { FaRegCheckCircle } from "react-icons/fa";
 
+const benefitsList = (
+  <div className="flex gap-2 flex-col">
+    <div className="flex items-center gap-x-1 text-xs ssm:text-sm xlg:text-base font-medium">
+      <FaRegCheckCircle size={14} />
+      <p>Provide stability against erosion</p>
+    </div>
+    <div className="flex items-center gap-x-1 text-xs ssm:text-sm xlg:text-base font-medium">
+      <FaRegCheckCircle size={14} />
+      <p>Improve ocean and coral reef health</p>
+    </div>
+  </div>
+);
 const textcardData = [
   {
     image:
       "/assets/treeplanting-images/Mozambique/20190822_Mozambique_0333.jpg",
     title: "A Lifeline for Ecosystems",
-    text: "Mozambique vast forests are vital for its ecological health. They provide habitat for countless species, protect soil from erosion, and regulate water flow. Restoration combats deforestation and safeguards these irreplaceable ecosystems.",
+    text: `Mozambique's vast forests are vital for its ecological health. They provide habitat for countless species, protect soil from erosion, and regulate water flow. Restoration combats deforestation and safeguards these irreplaceable ecosystems.`,
     btnText: "Explore Our Work",
     btnLink: "/",
   },
@@ -60,7 +73,7 @@ const sec3TimelineData = [
       />
     ),
     title: "Benefits",
-    desc: "Provide stability against erosion/ Improve ocean and coral reef health",
+    desc: benefitsList,
   },
 ];
 
@@ -135,18 +148,18 @@ const page = () => {
               key={index}
               style={{
                 backgroundImage: `url(${item.image})`,
-                filter: "brightness(1.5)",
+                filter: "brightness(0.80)",
               }}
               className={`${
                 index === 4 ? "ima " : ""
-              }w-full xsm:w-[90%] flex items-end relative bg-cover bg-no-repeat justify-between duration-500 hover:scale-110 md:w-[48%] xlg:w-[30%] xll:w-[30%] h-full rounded-xl shadow-lg border min-h-[520px]`}
+              } w-full xsm:w-[90%] flex items-end relative bg-cover bg-no-repeat justify-between duration-500 hover:scale-110 md:w-[48%] xlg:w-[30%] xll:w-[30%] h-full rounded-xl shadow-lg border min-h-[520px]`}
             >
               <div className="gap-y-5 mb-20 relative z-20 text-center w-full h-full rounded-xl flex items-center justify-center flex-col p-4">
                 <div>
                   <h2 className="text-[#ffffff] text-[18px] xsm:text-[24px] font-worksans font-semibold">
                     {item.title}
                   </h2>
-                  <p className="text-[14px] tracking-wide capitalize text-[#ffffffc2] font-poppins mt-3">
+                  <p className="text-[14px] tracking-wide text-[#ffffff] font-poppins mt-3">
                     {item.text}
                   </p>
                 </div>
@@ -188,9 +201,9 @@ const page = () => {
                       <h5 className="text-black-text text-[20px] font-semibold mb-1 font-poppins">
                         {item.title}
                       </h5>
-                      <p className="text-[#6E6B6B] font-medium text-[14px] font-worksans">
+                      <div className="text-[#6E6B6B] font-medium text-[14px] font-worksans">
                         {item.desc}
-                      </p>
+                      </div>
                     </div>
                     <hr />
                   </li>

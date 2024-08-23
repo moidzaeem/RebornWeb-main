@@ -1,7 +1,20 @@
 "use client";
+import BenefitsList from "@/components/BenefitsList";
 import PlantingPartner from "@/components/PlantingPartner";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { FaRegCheckCircle } from "react-icons/fa";
+
+const riftValleyBenefitsList = [
+  `Provides employment to those living in extreme poverty`,
+  `Restores key habitats supporting livelihoods and cultural heritage.`,
+];
+const kijabeForestBenefitsList = [
+  `Provides habitat for wildlife.`,
+  `Offers sustainable economic opportunities for local families.`,
+  `Ensures a reliable water supply.`,
+  `Provides landslide protection.`,
+];
 
 const textcardData = [
   {
@@ -58,7 +71,7 @@ const sec3TimelineData = [
       />
     ),
     title: "Benefits",
-    desc: "Provides employment to those living in extreme poverty / Restores key habitats supporting livelihoods and cultural heritage.",
+    desc: <BenefitsList benefitList={riftValleyBenefitsList} />,
   },
 ];
 const sec3TimelineData2 = [
@@ -91,7 +104,7 @@ const sec3TimelineData2 = [
       />
     ),
     title: "Benefits",
-    desc: "- Provides habitat for wildlife. - Offers sustainable economic opportunities for local families. - Ensures a reliable water supply. - Provides landslide protection.",
+    desc: <BenefitsList benefitList={kijabeForestBenefitsList} />,
   },
 ];
 
@@ -164,15 +177,18 @@ const page = () => {
           {textcardData?.map((item, index) => (
             <div
               key={index}
-              style={{ backgroundImage: `url(${item.image})` }}
-              className="ima w-full xsm:w-[90%] flex items-end relative bg-cover bg-no-repeat justify-between  duration-500 hover:scale-110 md:w-[48%] xlg:w-[30%] xll:w-[30%] h-full rounded-xl shadow-lg border min-h-[520px]"
+              style={{
+                backgroundImage: `url(${item.image})`,
+                filter: "brightness(0.8)",
+              }}
+              className="ima w-full xsm:w-[90%  ] flex items-end relative bg-cover bg-no-repeat justify-between  duration-500 hover:scale-110 md:w-[48%] xlg:w-[30%] xll:w-[30%] h-full rounded-xl shadow-lg border min-h-[520px]"
             >
               <div className="gap-y-5 mb-20  relative z-20 text-center w-full h-full rounded-xl flex items-center justify-center flex-col  p-4">
                 <div>
                   <h2 className=" text-[#ffffff] text-[18px] xsm:text-[24px] font-worksans font-semibold">
                     {item.title}
                   </h2>
-                  <p className=" text-[14px] tracking-wide capitalize text-[#ffffffc2] font-poppins mt-3">
+                  <p className=" text-[14px] tracking-wide text-[#ffffff] font-poppins mt-3">
                     {item.text}
                   </p>
                 </div>
@@ -194,7 +210,7 @@ const page = () => {
             className="w-full flex flex-col items-center justify-center"
           >
             <h1 className="text-center mb-[20px] font-poppins text-[30px] xsm:text-[35px] lg:text-[50x] xll:text-[55px] font-[500] text-black">
-            The Great Rift Valley
+              The Great Rift Valley
             </h1>
           </motion.div>
           <motion.div
@@ -246,7 +262,7 @@ const page = () => {
             className="w-full flex flex-col items-center justify-center"
           >
             <h1 className="text-center mb-[20px] font-poppins text-[30px] xsm:text-[35px] lg:text-[50x] xll:text-[55px] font-[500] text-black">
-            Kijabe Forest
+              Kijabe Forest
             </h1>
           </motion.div>
           <motion.div

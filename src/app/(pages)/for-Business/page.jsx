@@ -113,7 +113,8 @@ const page = () => {
           transition={{ duration: 0.5 }}
           className=" z-[1] leading-normal text-center lg:leading-[70px] xll:leading-[80px] text-[30px] sm:text-[50px] lg:text-[60px] xll:text-[65px] text-white font-medium font-worksans"
         >
-          Sustainable Solutions for Your Business
+          Sustainable Solutions for
+          <span className="text-[#14a800]"> Your Business</span>
         </motion.h3>
         <motion.p
           initial={{ y: 200 }}
@@ -268,11 +269,12 @@ const page = () => {
           className="w-full flex flex-col items-center justify-center"
         >
           <h1 className="text-center  font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]">
-            What We
-            <span className="font-bold text-[#14a800]"> Offer</span>{" "}
+            Committed to a Sustainable
+            <span className="font-bold text-[#14a800]"> World?</span>
           </h1>
-          <p className=" w-full xsm:w-[90%] leading-5 tracking-normal font-worksans mdd:w-[60%] text-center text-black-text text-sm xsm:text-[16px]">
-            Accessible Climate Change Solutions for Any Business
+          <p className="w-full xsm:w-[90%] leading-5 tracking-normal font-worksans mdd:w-[60%] text-center text-black-text text-sm xsm:text-base">
+            Discover how our business solutions can help you make a positive
+            impact on both the planet and your business.
           </p>
         </motion.div>
       </section>
@@ -313,9 +315,10 @@ const page = () => {
             Showcase Your Positive Climate <br />
             <span className="font-bold text-[#14a800]"> Impact</span>{" "}
           </h1>
-          <p className=" mb-12 w-full xsm:w-[90%] leading-5 tracking-normal font-worksans mdd:w-[60%] text-center text-black-text text-sm xsm:text-[16px]">
-            At RebornGreen, we believe in inspiring people. That's why we offer
-            a way to showcase your impact.
+          <p className="mb-12 w-full xsm:w-[90%] leading-5 tracking-normal font-worksans mdd:w-[60%] text-center text-black-text text-sm xsm:text-base">
+            Let the world see your climate impact. Showcase your positive
+            climate actions with RebornGreen. Get started today and unlock
+            digital tools, certificates, and green rewards.
           </p>
           <Image src={showcaseImage} alt="showcase" className="w-full h-auto" />
         </motion.div>
@@ -374,16 +377,13 @@ const page = () => {
           className="w-full flex flex-col items-center justify-center"
         >
           <h1 className="text-center mb-[20px] font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]">
-            Climate change and
-            <span className="font-bold text-[#14a800]"> biodiversity</span> loss
-            require urgent action
+            Climate Change is a
+            <span className="font-bold text-[#14a800]"> Global Crisis</span>
           </h1>
-          <p className=" mb-12 w-full xsm:w-[90%] leading-5 tracking-normal font-worksans mdd:w-[60%] text-center text-black-text text-sm xsm:text-[16px]">
-            Business operations are being impacted by the physical changes in
-            our environment, and, in turn, the way businesses operate. Climate
-            changes are contributing to biodiversity loss on our planet. By
-            supporting our projects, your business can take part in addressing
-            these issues.
+          <p className="w-full xsm:w-[90%] leading-5 tracking-normal font-worksans mdd:w-[60%] text-center text-black-text text-sm xsm:text-[16px]">
+            Businesses must lead the transition to a sustainable future. Reduce
+            your carbon footprint, protect biodiversity, and build resilience.
+            Together, we can prevent future disasters
           </p>
 
           <Image

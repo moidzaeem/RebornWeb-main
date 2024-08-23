@@ -2,6 +2,23 @@
 import PlantingPartner from "@/components/PlantingPartner";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { FaRegCheckCircle } from "react-icons/fa";
+
+const benefitsList = (
+  <div className="flex gap-2 flex-col">
+    <div className="flex items-center gap-x-1 text-xs ssm:text-sm xlg:text-base font-medium">
+      <FaRegCheckCircle size={14} />
+      <p>Stabilizes the coast against erosion</p>
+    </div>
+    <div className="flex items-center gap-x-1 text-xs ssm:text-sm xlg:text-base font-medium">
+      <FaRegCheckCircle size={14} />
+      <p>
+        Improves ocean health by filtering pollutants and providing nursery
+        grounds for fish.
+      </p>
+    </div>
+  </div>
+);
 
 const textcardData = [
   {
@@ -58,7 +75,7 @@ const sec3TimelineData = [
       />
     ),
     title: "Benefits",
-    desc: "Stabilizes the coast against erosion Improves ocean health by filtering pollutants and providing nursery grounds for fish.",
+    desc: benefitsList,
   },
 ];
 const sec3TimelineData2 = [
@@ -168,7 +185,7 @@ const page = () => {
               key={index}
               style={{
                 backgroundImage: `url(${item.image})`,
-                filter: "brightness(1.5)",
+                filter: "brightness(0.8)",
               }}
               className={`${
                 index !== 1 ? "ima " : ""
@@ -179,7 +196,7 @@ const page = () => {
                   <h2 className="text-[#ffffff] text-[18px] xsm:text-[24px] font-worksans font-semibold">
                     {item.title}
                   </h2>
-                  <p className="text-[14px] tracking-wide capitalize text-[#ffffffc2] font-poppins mt-3">
+                  <p className="text-[14px] tracking-wide text-[#ffffff] font-poppins mt-3">
                     {item.text}
                   </p>
                 </div>
@@ -223,9 +240,9 @@ const page = () => {
                       <h5 className="text-black-text text-[20px] font-semibold mb-1 font-poppins">
                         {item.title}
                       </h5>
-                      <p className="text-[#6E6B6B] font-medium text-[14px] font-worksans">
+                      <ddiv className="text-[#6E6B6B] font-medium text-[14px] font-worksans">
                         {item.desc}
-                      </p>
+                      </ddiv>
                     </div>
                     <hr />
                   </li>
@@ -255,7 +272,7 @@ const page = () => {
             className="w-full flex flex-col items-center justify-center"
           >
             <h1 className="text-center mb-[20px] font-poppins text-[30px] xsm:text-[35px] lg:text-[50x] xll:text-[55px] font-[500] text-black">
-            Ankarafantsika National Park
+              Ankarafantsika National Park
             </h1>
           </motion.div>
           <motion.div

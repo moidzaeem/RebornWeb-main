@@ -17,33 +17,42 @@ import {
   FaTree,
 } from "react-icons/fa";
 import exploreProjects from "../../../../public/assets/coffee/Explore-Projects.webp";
+import OurSecondAndUniqueProject from "../../../../public/assets/coffee/OurSecondAndUniqueProject.webp";
+import CoffeProgramHIWStep1 from "../../../../public/assets/coffee/CoffeProgramHowItWorksStep1.webp";
+import CoffeProgramHIWStep2 from "../../../../public/assets/coffee/CoffeProgramHowItWorksStep2.webp";
+import CoffeProgramHIWStep3 from "../../../../public/assets/coffee/CoffeProgramHowItWorksStep3.webp";
+import CoffeProgramHIWStep4 from "../../../../public/assets/coffee/CoffeProgramHowItWorksStep4.webp";
 
 const GoalTimeLineData = [
   {
     id: 1,
-    img: "/assets/coffee/coftime1.png",
-    text: "The Coffee Shop Orders Loyalty Cards from Us",
+    img: CoffeProgramHIWStep1,
+    text: `Coffee Shops Partner With Us`,
+    description: `Coffee shops simply order our eco-friendly loyalty cards. It's a small step that makes a big difference. We provide the cards, you provide the great coffee`,
     rgt: false,
     icon: <FaShoppingBasket width={25} className={"text-green text-2xl"} />,
   },
   {
     id: 2,
-    img: "/assets/timel2.svg",
-    text: "Customers Can Get Our Loyalty Cards and Collect Stamps for Each Coffee",
+    img: CoffeProgramHIWStep2,
+    text: `Customers Collect and Enjoy`,
+    description: `Every coffee purchased earns a stamp on the loyalty card. As customers savor their favorite drinks, they're also contributing to a greener planet.`,
     rgt: true,
     icon: <HiUsers width={25} className={"text-green text-2xl"} />,
   },
   {
     id: 3,
-    img: "/assets/timel1.svg",
-    text: "Once the Card is Complete with a Certain Number of Stamps, We Receive the Order from the Coffee Shop",
+    img: CoffeProgramHIWStep3,
+    text: `Order Placed, Trees Planted`,
+    description: `Once a loyalty card is filled with stamps, the coffee shop sends us an order. For each completed card, we plant a tree in a designated reforestation area.`,
     rgt: false,
     icon: <FaStamp width={25} className={"text-green text-2xl"} />,
   },
   {
     id: 4,
-    img: "/assets/timel2.svg",
-    text: "On Behalf of Their Customers, We Will Plant a Tree for Each Completed Card",
+    img: CoffeProgramHIWStep4,
+    text: `A Greener Future Together`,
+    description: `By partnering with us, coffee shops not only enhance their environmental reputation but also increase customer loyalty and attract eco-conscious consumers.`,
     rgt: true,
     icon: <FaTree width={25} className={"text-green text-2xl"} />,
   },
@@ -53,18 +62,20 @@ const page = () => {
   return (
     <div className="overflow-hidden h-full">
       <div
-        style={{ backgroundImage: "url('/assets/coffee/header.png')" }}
-        className=" flex-col h-[80vh] flex items-center justify-center bg-cover w-[110%] left-[-20px]  bg-top px-[30px] relative lg:px-[60px] xll:px-[120px] py-[6rem] mx-auto"
+        style={{
+          backgroundImage: "url('/assets/coffee/CoffeeShop.webp')",
+        }}
+        className="bg-cover flex-col h-[80vh] flex items-center justify-center w-[110%] left-[-20px] bg-bottom bg-no-repeat px-[30px] relative lg:px-[60px] xll:px-[120px] py-[6rem] mx-auto"
       >
         <motion.h3
           initial={{ y: 200 }}
           viewport={{ once: true }}
           whileInView={{ y: 0 }}
           transition={{ duration: 0.5 }}
-          className=" z-[1] leading-normal text-center lg:leading-[70px] xll:leading-[80px] text-[30px] sm:text-[50px] lg:text-[60px] xll:text-[65px] text-white font-medium font-worksans"
+          className="lg:max-w-screen-md xl:max-w-screen-lg z-[1] leading-normal text-center lg:leading-[70px] xll:leading-[80px] text-[30px] sm:text-[50px] lg:text-[60px] xll:text-[65px] text-white font-medium font-worksans"
         >
-          Project Create by Us, Supported by You, For Our{" "}
-          <span className="text-green font-bold">Planet</span>
+          Project Create by Us, Supported by You, For
+          <span className="text-green font-bold"> Our Planet</span>
         </motion.h3>
 
         <div className="w-full h-full absolute top-0 left-0 bg-black opacity-40 z-0"></div>
@@ -81,10 +92,8 @@ const page = () => {
           >
             <div className="flex-1 flex items-center justify-center">
               <Image
-                src="/assets/coffee/cosec2.png"
-                width={600}
-                height={600}
-                alt="bussnessec2"
+                src={OurSecondAndUniqueProject}
+                alt="Coffee-loyalty-program"
                 loading="lazy"
                 className=" rounded-lg w-full lg:w-[500px]  object-cover h-auto sm:h-[400px] lg:h-[550px]"
               />
@@ -97,7 +106,7 @@ const page = () => {
                   height={100}
                   alt="Co2 reduction"
                   loading="lazy"
-                  className=" rounded-lg w-[160px]  object-cover h-auto "
+                  className=" rounded-lg w-[160px] object-cover h-auto "
                 />
 
                 <h3 className=" text-center  mb-[20px] font-sans text-[25px] xsm:text-[30px] xll:text-[30px] font-[500] text-green">
@@ -122,12 +131,12 @@ const page = () => {
           transition={{ duration: 0.5 }}
           className="w-full flex flex-col items-center justify-center"
         >
-          <h1 className="text-center mb-[20px] font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]">
-            {" "}
-            <span className="font-bold text-[#14a800]">How it works</span>
+          <h1 className="text-center mb-[20px] font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-bold text-[#14a800]">
+            How it works
           </h1>
           <p className=" mb-12 w-full xsm:w-[90%] leading-5 tracking-normal font-worksans mdd:w-[60%] text-center text-black-text text-sm xsm:text-[16px]">
-            About the Coffee Shop Loyalty Program
+            Our loyalty program is a simple yet effective way for coffee shops
+            to boost their environmental impact and customer engagement.
           </p>
         </motion.div>
 
@@ -137,6 +146,7 @@ const page = () => {
               key={item.id}
               img={item.img}
               text={item.text}
+              description={item.description}
               id={item.id}
               rgt={item.rgt}
               icon={item.icon}
@@ -243,7 +253,7 @@ const page = () => {
               className=" rounded-lg w-full md:w-[90%] h-auto"
             />
             <Link
-              href="/plant-tree"
+              href="/tree-planting"
               className="border-none text-white rounded-lg hover:bg-blue-900 transition-all duration-500 outline-none px-6 static mdd:absolute top-[45%]  hover:scale-95 py-3 my-6 bg-blue-700 flex items-center gap-2"
             >
               Explore Projects <FaChevronRight size={15} />
