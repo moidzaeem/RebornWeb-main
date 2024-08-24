@@ -113,13 +113,13 @@ export function ThreeImageCarousel() {
 
   return (
     <section className="w-full border-t-2 bg-white mt-10 max-w-[1800px] mb-[60px] px-[30px] lg:px-[60px] xll:px-[120px] py-[4rem] mx-auto">
-      <h1 className="text-center mb-[60px] font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]">
+      {/* <h1 className="text-center mb-[60px] font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]">
         Our Partners
-      </h1>
+      </h1> */}
       <Slider {...settings}>
         <div>
           <Image
-            src="/assets/images/partner1.svg"
+            src="/Globe/Globe.png"
             alt="img"
             width={500}
             height={500}
@@ -129,7 +129,7 @@ export function ThreeImageCarousel() {
         </div>
         <div>
           <Image
-            src="/assets/images/partner2.png"
+            src="/Globe/Photo 2.jpeg"
             alt="img"
             width={500}
             height={500}
@@ -139,7 +139,20 @@ export function ThreeImageCarousel() {
         </div>
         <div>
           <Image
-            src="/Temporary Image.png"
+            src="/Globe/Photo 3.jpeg"
+            alt="img"
+            width={500}
+            height={500}
+            layout="responsive"
+            className="max-w-xs md:max-w-md lg:max-w-full"
+          />
+
+
+        </div>
+
+        <div>
+        <Image
+            src="/Globe/Photo 4.jpeg"
             alt="img"
             width={500}
             height={500}

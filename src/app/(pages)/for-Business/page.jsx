@@ -9,7 +9,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import apiImage from "../../../../public/API.webp";
 import showcaseImage from "../../../../public/Showcase.webp";
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet";
 import { parseCookies } from "nookies";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -71,23 +71,25 @@ const projCardDara = [
 ];
 
 const Page = () => {
-
-  const [accessToken, setAccessToken] = useState('')
+  const [accessToken, setAccessToken] = useState("");
   useEffect(() => {
     const cookies = parseCookies();
 
     const accesstoken = cookies?.access_token;
-    setAccessToken(accesstoken)
-
+    setAccessToken(accesstoken);
   }, []);
-
 
   return (
     <div className="overflow-hidden h-full">
       <Helmet>
         {/* Primary Meta Tags */}
-        <title>Positive Climate Action - Business Sustainability Services</title>
-        <meta name="title" content="Positive Climate Action - Business Sustainability Services" />
+        <title>
+          Positive Climate Action - Business Sustainability Services
+        </title>
+        <meta
+          name="title"
+          content="Positive Climate Action - Business Sustainability Services"
+        />
         <meta
           name="description"
           content="Join us and reach your ESG and net-zero commitments. A partnership that boosts the fight against climate change and drives sustainable growth for your business."
@@ -96,7 +98,10 @@ const Page = () => {
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://reborngreen.org" />
-        <meta property="og:title" content="Positive Climate Action - Business Sustainability Services" />
+        <meta
+          property="og:title"
+          content="Positive Climate Action - Business Sustainability Services"
+        />
         <meta
           property="og:description"
           content="Our mission is to empower businesses and individuals to accelerate climate action."
@@ -173,12 +178,10 @@ const Page = () => {
           transition={{ duration: 0.5 }}
           className="flex items-center mt-6 justify-center gap-7 sm:gap-16 flex-wrap"
         >
-         <Link
-  className="w-[340px] sm:w-[500px] hover:scale-110 duration-300 flex items-center justify-center flex-col text-center px-4 py-5 min-h-[300px] bg-green z-10 rounded-xl"
-  href={!accessToken ? '/login?is_pricing=true' : '/plant-tree'}
->
- 
-
+          <Link
+            className="w-[340px] sm:w-[500px] hover:scale-110 duration-300 flex items-center justify-center flex-col text-center px-4 py-5 min-h-[300px] bg-green z-10 rounded-xl"
+            href={!accessToken ? "/login?is_pricing=true" : "/plant-tree"}
+          >
             <Image src="/Box 1.svg" alt="img" height={100} width={100} />
             <h4 className="text-2xl text-white font-semibold mt-8">
               Support Tree-Planting Projects
@@ -358,7 +361,7 @@ const Page = () => {
             business. The globe can be customized to suit your business. Contact
             us to find out more.
           </p>
-          {/* <ThreeImageCarousel /> */}
+          <ThreeImageCarousel />
         </motion.div>
       </section>
       {/* Carbon  */}
@@ -482,10 +485,10 @@ const GetInTouch = () => {
     e.preventDefault();
     // Handle form submission logic here (e.g., send data to backend, show success message)
     console.log(formData);
-  
+
     try {
       // Send data to server
-      await axios.post('https://backend.reborngreen.org/send-email', formData);
+      await axios.post("https://backend.reborngreen.org/send-email", formData);
       toast.success("Your message has been sent!", {
         position: "top-right",
         autoClose: 1500,
@@ -508,18 +511,21 @@ const GetInTouch = () => {
       });
     } catch (error) {
       console.log(error);
-      toast.error("There was an error sending your message. Please try again later.", {
-        position: "top-right",
-        autoClose: 1500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      toast.error(
+        "There was an error sending your message. Please try again later.",
+        {
+          position: "top-right",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }
+      );
     }
-    
+
     setFormData({
       name: "",
       email: "",
