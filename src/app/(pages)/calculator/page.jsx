@@ -158,7 +158,7 @@ const Page = () => {
               className="w-[120px] xsm:w-[160px] h-auto"
             />
           </Link>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center text-center">
             <h2 className="text-4xl font-semibold text-white mb-4">
               Calculate and Offset Your Flight's Carbon Footprint
             </h2>
@@ -231,7 +231,7 @@ const Page = () => {
                   className="px-3 py-1.5 text-lg border border-gray-300 rounded-md"
                 />
               </div>
-              <div className="col-span-12 flex flex-col items-end">
+              <div className="col-span-12 flex flex-col md:items-end  sm:items-center">
                 {error && (
                   <div className="w-full flex flex-col gap-y-2">
                     <hr />
