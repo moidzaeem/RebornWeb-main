@@ -79,8 +79,11 @@ const Login = () => {
 
           // Check query parameters
           const isPricing = searchParams.get('is_pricing') === 'true';
-          if (isPricing) {
+          const isLink = searchParams.get('is_link') === 'true';
+          if (isPricing && !isLink) {
             router.push("/plant-tree");
+          }else if(isPricing && isLink){
+            router.push("/plant-tree-offset");
           } else {
             router.push("/user-profile");
           }

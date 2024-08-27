@@ -194,7 +194,7 @@ const Page = () => {
           <Link
             style={{ border: "1px solid green" }}
             className=" w-[340px] sm:w-[500px] hover:scale-110 duration-300 flex items-center justify-center flex-col text-center px-4 py-5 min-h-[300px] bg-white  z-10 rounded-xl "
-            href="/plant-tree-offset"
+            href={!accessToken ? "/login?is_pricing=true&isLink=true" : "/plant-tree-offset"}
           >
             <Image src="/Box 2.svg" alt="img" height={100} width={100} />
             <h4 className="text-2xl text-black font-semibold mt-8">
