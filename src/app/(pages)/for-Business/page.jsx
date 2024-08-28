@@ -506,15 +506,7 @@ const GetInTouch = () => {
         theme: "light",
       });
 
-      // Clear form fields
-      setRegValue({
-        name: "",
-        email: "",
-        country: "",
-        enquiryReason: "",
-        hearAbout: "",
-        message: "",
-      });
+      
     } catch (error) {
       console.log(error);
       toast.error(
