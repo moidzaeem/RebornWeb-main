@@ -13,6 +13,7 @@ import { Helmet } from "react-helmet";
 import { parseCookies } from "nookies";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { ToastContainer } from "react-toastify";
 
 // export const metadata = {
 //   title: "Explore Our Comprehensive Services | Joyn Digital",
@@ -647,6 +648,20 @@ const GetInTouch = () => {
       <p className="text-center text-gray-600 mt-4">
         We aim to respond to all inquiries within 2-3 business days.
       </p>
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
+
+    
   );
 };
