@@ -195,7 +195,11 @@ const Page = () => {
           <Link
             style={{ border: "1px solid green" }}
             className=" w-[340px] sm:w-[500px] hover:scale-110 duration-300 flex items-center justify-center flex-col text-center px-4 py-5 min-h-[300px] bg-white  z-10 rounded-xl "
-            href={!accessToken ? "/login?is_pricing=true&isLink=true" : "/plant-tree-offset"}
+            href={
+              !accessToken
+                ? "/login?is_pricing=true&isLink=true"
+                : "/plant-tree-offset"
+            }
           >
             <Image src="/Box 2.svg" alt="img" height={100} width={100} />
             <h4 className="text-2xl text-black font-semibold mt-8">
@@ -536,118 +540,133 @@ const GetInTouch = () => {
   };
 
   return (
-    <div className="bg-white shadow-xl rounded-lg p-6 w-full sm:w-[80%] lg:w-[60%] mx-auto mb-12">
-      <h2 className="text-2xl font-semibold text-center text-[#3d3d3d] mb-4">
-        Get in Touch
-      </h2>
-      <p className="text-center text-gray-600 mb-6">
-        If your business plans to make a positive impact but is unsure where to
-        begin, contact us. Our team is here to guide you on your sustainability
-        journey.
-      </p>
+    <>
+      <div className="bg-white shadow-xl rounded-lg p-6 w-full sm:w-[80%] lg:w-[60%] mx-auto mb-12">
+        <h2 className="text-2xl font-semibold text-center text-[#3d3d3d] mb-4">
+          Get in Touch
+        </h2>
+        <p className="text-center text-gray-600 mb-6">
+          If your business plans to make a positive impact but is unsure where
+          to begin, contact us. Our team is here to guide you on your
+          sustainability journey.
+        </p>
 
-      <form onSubmit={handleSubmit}>
-        <div style={{ boxShadow: "2px 4px 8px #DCDCDC" }} className="mb-4 p-2">
-          <label
-            htmlFor="name"
-            className="block text-gray-700 font-medium mb-1"
+        <form onSubmit={handleSubmit}>
+          <div
+            style={{ boxShadow: "2px 4px 8px #DCDCDC" }}
+            className="mb-4 p-2"
           >
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            className="w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-green-dark"
-            placeholder="Enter your full name"
-            required
-          />
-        </div>
+            <label
+              htmlFor="name"
+              className="block text-gray-700 font-medium mb-1"
+            >
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              className="w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-green-dark"
+              placeholder="Enter your full name"
+              required
+            />
+          </div>
 
-        <div style={{ boxShadow: "2px 4px 8px #DCDCDC" }} className="mb-4 p-2">
-          <label
-            htmlFor="email"
-            className="block text-gray-700 font-medium mb-1"
+          <div
+            style={{ boxShadow: "2px 4px 8px #DCDCDC" }}
+            className="mb-4 p-2"
           >
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            className="w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-green-dark"
-            placeholder="Enter your email address"
-            required
-          />
-        </div>
+            <label
+              htmlFor="email"
+              className="block text-gray-700 font-medium mb-1"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              className="w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-green-dark"
+              placeholder="Enter your email address"
+              required
+            />
+          </div>
 
-        <div style={{ boxShadow: "2px 4px 8px #DCDCDC" }} className="mb-4 p-2">
-          <label
-            htmlFor="assistanceType"
-            className="block text-gray-700 font-medium mb-1"
+          <div
+            style={{ boxShadow: "2px 4px 8px #DCDCDC" }}
+            className="mb-4 p-2"
           >
-            How can we assist you?
-          </label>
-          <select
-            id="assistanceType"
-            name="assistanceType"
-            value={formData.assistanceType}
-            onChange={handleInputChange}
-            className="w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-green-dark"
-            required
-          >
-            <option value="">Select an option</option>
-            <option value="Calculate Your Carbon Footprint">
-              Calculate Your Carbon Footprint
-            </option>
-            <option value="More details about Climate Impact for your team">
-              More details about Climate Impact for your team
-            </option>
-            <option value="Integrate the API for Climate Change Solutions">
-              Integrate the API for Climate Change Solutions
-            </option>
-            <option value="Obtain the Climate Impact Globe for my workplace">
-              Obtain the Climate Impact Globe for my workplace
-            </option>
-            <option value="Other reason">Other reason</option>
-          </select>
-        </div>
+            <label
+              htmlFor="assistanceType"
+              className="block text-gray-700 font-medium mb-1"
+            >
+              How can we assist you?
+            </label>
+            <select
+              id="assistanceType"
+              name="assistanceType"
+              value={formData.assistanceType}
+              onChange={handleInputChange}
+              className="w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-green-dark"
+              required
+            >
+              <option value="">Select an option</option>
+              <option value="Calculate Your Carbon Footprint">
+                Calculate Your Carbon Footprint
+              </option>
+              <option value="More details about Climate Impact for your team">
+                More details about Climate Impact for your team
+              </option>
+              <option value="Integrate the API for Climate Change Solutions">
+                Integrate the API for Climate Change Solutions
+              </option>
+              <option value="Obtain the Climate Impact Globe for my workplace">
+                Obtain the Climate Impact Globe for my workplace
+              </option>
+              <option value="Other reason">Other reason</option>
+            </select>
+          </div>
 
-        <div style={{ boxShadow: "2px 4px 8px #DCDCDC" }} className="mb-4 p-2">
-          <label
-            htmlFor="message"
-            className="block text-gray-700 font-medium mb-1"
+          <div
+            style={{ boxShadow: "2px 4px 8px #DCDCDC" }}
+            className="mb-4 p-2"
           >
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleInputChange}
-            className="w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-green-dark h-32"
-            placeholder="Provide any additional details or questions you have"
-            required
-          />
-        </div>
+            <label
+              htmlFor="message"
+              className="block text-gray-700 font-medium mb-1"
+            >
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleInputChange}
+              className="w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-green-dark h-32"
+              placeholder="Provide any additional details or questions you have"
+              required
+            />
+          </div>
 
-        <div className="text-center">
-          <button
-            type="submit"
-            className="bg-green text-white py-2 px-4 rounded-md hover:bg-green-dark transition duration-300"
-          >
-            Submit
-          </button>
-        </div>
-      </form>
+          <div className="text-center">
+            <button
+              type="submit"
+              className="bg-green text-white py-2 px-4 rounded-md hover:bg-green-dark transition duration-300"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
 
-      <p className="text-center text-gray-600 mt-4">
-        We aim to respond to all inquiries within 2-3 business days.
-      </p>
+        <p className="text-center text-gray-600 mt-4">
+          We aim to respond to all inquiries within 2-3 business days.
+        </p>
+      </div>
+
       <ToastContainer
         position="top-center"
         autoClose={1000}
@@ -660,8 +679,6 @@ const GetInTouch = () => {
         pauseOnHover
         theme="light"
       />
-    </div>
-
-    
+    </>
   );
 };
