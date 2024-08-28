@@ -14,6 +14,7 @@ import { parseCookies } from "nookies";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // export const metadata = {
 //   title: "Explore Our Comprehensive Services | Joyn Digital",
