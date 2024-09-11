@@ -64,13 +64,15 @@ export default function RootLayout({ children }) {
           path === "/plant-tree" ||
           path === "/carbon-offsets" ? (
             <Navbar />
-          ) : path === "/calculator" ? null : (
+          ) : path === "/calculator" || path === "/user-profile" ? null : (
             <BgNavbar />
           )}
           <Toaster position="center-right" />
 
           {children}
-          {path === "/calculator" ? null : <Footer />}
+          {path === "/calculator" || path === "/user-profile" ? null : (
+            <Footer />
+          )}
         </UserProvider>
       </body>
     </html>

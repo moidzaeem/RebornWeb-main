@@ -1,13 +1,18 @@
 "use client";
-import LeftSideBar from "@/components/LeftSideBar";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 import { parseCookies } from "nookies";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useUser } from "../../../../lib/UserConext";
-import { easeIn, easeInOut, motion } from "framer-motion";
 import Link from "next/link";
+import treesPlanted from "../../../../public/assets/images/trees-planted.png";
+import co2Offset from "../../../../public/assets/images/CO2-Offset.png";
+import carEmission from "../../../../public/assets/images/Car-Emissions.png";
+import energyUsed from "../../../../public/assets/images/Energy-Used.png";
+import wasteRecycling from "../../../../public/assets/images/Waste-Recycling.png";
+import treePlantingProjects from "../../../../public/assets/images/Tree-Planting-Projects.png";
+import verifiedCarbonProjects from "../../../../public/assets/images/Verified-Carbon-Projects.png";
 
 const Page = () => {
   const userData = useUser();
@@ -87,224 +92,158 @@ const Page = () => {
   }, [userData, userApi, isGenrateApi]);
 
   return (
-    <div className="overflow-hidden h-full">
-      {/* about sec 1  */}
-      <section className="w-full flex items-start justify-start mt-20 min-h-screen ">
-        <LeftSideBar />
-        <main className="max-w-[1800px] flex-1 bg-[#fbfbfb] px-[0px] lg:px-[60px] xll:px-[120px] py-[2rem] mx-auto h-full">
-          <div
-            style={{
-              backgroundImage: "url('/assets/dashboard/Backgroung.png')",
-            }}
-            className="w-full flex flex-col gap-5 items-center min-h-1/3 bg-cover bg-center"
-          >
-            <div className="flex items-center justify-center gap-4 mt-4">
-              {profilePicture && (
-                <div className="flex-shrink-0">
-                  <Image
-                    src={profilePicture}
-                    alt="Profile Picture"
-                    width={100}
-                    height={100}
-                    className="rounded-full"
-                  />
-                </div>
-              )}
-              <h3 className="text-center leading-normal lg:leading-[50px] xll:leading-[60px] text-[25px] lg:text-[35px] xll:text-[45px] text-black-text font-medium font-worksans">
-                Welcome{" "}
-                <span className="text-green font-semibold">{name && name}</span>
-              </h3>
-            </div>
-
-            <h3 className=" text-center leading-normal lg:leading-[50px] xll:leading-[60px] text-[25px] lg:text-[35px] xll:text-[45px] text-black-text font-medium font-worksans">
-              An Overview of your Climate Impact
-            </h3>
-
-            {/* two cards */}
-            <div className="flex flex-wrap justify-center gap-4">
-  <div className="w-full sm:w-1/2 md:w-1/4 max-w-lg bg-green shadow-md rounded-lg overflow-hidden flex flex-col items-center justify-center p-4">
-    <img
-      className="w-32 h-auto object-cover"
-      src="/assets/dashboard/1.svg"
-      alt="Card Image"
-    />
-
-    <div className="p-4 text-center">
-      <h2 className="text-xl font-semibold text-white">
-        {treePlanted} Tree Planted
-      </h2>
-      <p className="text-white mt-2">
-        You've planted {treePlanted}. These trees will absorb {treePlanted * 0.1096} tonnes of CO2 throughout their lifetime.
-      </p>
-    </div>
-  </div>
-
-  <div className="w-full sm:w-1/2 md:w-1/4 max-w-lg bg-green shadow-md rounded-lg overflow-hidden flex flex-col items-center justify-center p-4">
-    <img
-      className="w-32 h-auto object-cover"
-      src="/assets/dashboard/2.svg"
-      alt="Card Image"
-    />
-
-    <div className="p-4 text-center">
-      <h2 className="text-xl font-semibold text-white">
-        {climatePoints} Tonnes CO2 Offset
-      </h2>
-      <p className="text-white mt-2">
-        You have offset {climatePoints} tonnes of CO2 by supporting verified carbon projects around the world. ({climatePoints} tonnes from additional carbon credits)
-      </p>
-    </div>
-  </div>
-</div>
-          </div>
-
-          {/* // bottom section */}
-
-          <div className="bg-lightgrey mt-4 h-auto sm:h-screen sm:h-1/4 bg-cover bg-center flex items-center justify-center">
-            <div className="flex flex-wrap justify-center max-w-screen-xl gap-8 p-4">
-              {/* First Card */}
-              <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-                <div className="bg-white rounded-lg shadow-lg">
-                  <img
-                    className="w-1/2 mx-auto mt-4"
-                    src="/assets/dashboard/car.svg"
-                    alt="Car Icon"
-                  />
-                  <div className="p-4">
-                    <h2 className="text-xl font-semibold text-gray-800">
-                      Equivalent Car Emissions
-                    </h2>
-                    <p className="text-gray-600 mt-2">
-                      By offsetting{" "}
-                      {(treePlanted * 0.1096 + climatePoints).toFixed(3)} tonnes
-                      of CO2 is like taking a car off the road for about{" "}
-                      {((treePlanted * 0.1096 + climatePoints) / 0.408).toFixed(
-                        3
-                      )}{" "}
-                      kilometers (
-                      {(
-                        ((treePlanted * 0.1096 + climatePoints) / 0.408) *
-                        0.621371
-                      ).toFixed(3)}
-                       {" "}miles).
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Second Card */}
-              <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-                <div className="bg-white rounded-lg shadow-lg">
-                  <img
-                    className="w-1/2 mx-auto mt-4"
-                    src="/assets/dashboard/house.svg"
-                    alt="House Icon"
-                  />
-                  <div className="p-4">
-                    <h2 className="text-xl font-semibold text-gray-800">
-                      Equivalent Energy Used
-                    </h2>
-                    <p className="text-gray-600 mt-2">
-                    Offsetting{" "}
-                      {(treePlanted * 0.1096 + climatePoints).toFixed(3)} tonnes
-                      of CO2 is equivalent to the annual electricity use of an
-                      average household for about{" "}
-                      {(
-                        (((treePlanted * 0.1096 + climatePoints) * 3.6) /
-                          (11000 / 12)) *
-                        1000
-                      ).toFixed(0)}{" "}
-                      months.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Third Card */}
-              <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-                <div className="bg-white rounded-lg shadow-lg">
-                  <img
-                    className="w-1/2 mx-auto mt-4"
-                    src="/assets/dashboard/cycle.svg"
-                    alt="Cycle Icon"
-                  />
-                  <div className="p-4">
-                    <h2 className="text-xl font-semibold text-gray-800">
-                      Equivalent Waste Recycling
-                    </h2>
-                    <p className="text-gray-600 mt-2">
-                      Offsetting{" "}
-                      {(treePlanted * 0.1096 + climatePoints).toFixed(3)} tonnes
-                      of CO2 is equivalent to recycling about{" "}
-                      {(
-                        ((treePlanted * 0.1096 + climatePoints) * 1000) /
-                        0.15
-                      ).toFixed(3)}{" "}
-                      plastic bottles instead of sending them to landfill.
-                    </p>
-                  </div>
-                </div>
-              </div>
+    <div className="w-full flex flex-col gap-4 lg:gap-5">
+      <div className="bg-[#ffffff]/70 flex flex-col items-center p-7.5 rounded-[20px] gap-3.5">
+        <h3 className="text-[34px] lg:text-[40px] text-green font-medium">
+          Welcome {name}
+        </h3>
+        <h3 className="text-black text-base lg:text-[26px] font-medium">
+          An Overview of your Climate Impact
+        </h3>
+        <div className="grid grid-cols-2 gap-8.5">
+          <div className="bg-black/10 col-span-2 md:col-span-1 flex gap-4 lg:gap-5 p-4 lg:p-6 rounded-[20px]">
+            <Image
+              src={treesPlanted}
+              alt="trees-planter"
+              className="w-14 lg:w-20 h-14 lg:h-20"
+            />
+            <div className="flex flex-col gap-4">
+              <p className="text-lg lg:text-[22px] text-green font-medium">
+                {treePlanted} Tree Planted
+              </p>
+              <p className="text-[10px] lg:text-[13px] text-black font-medium">
+                You've planted {treePlanted}. These trees will absorb{" "}
+                {treePlanted * 0.1096} tonnes of CO2 throughout their lifetime.
+              </p>
             </div>
           </div>
-
-
-        </main>
-      </section>
-
-
-
-      <section className="w-full flex items-center justify-start flex-col bg-white max-w-[1800px] mb-[60px]  px-[30px] lg:px-[60px] xll:px-[120px] py-[4rem] mx-auto">
-        <motion.div
-          initial={{ y: 200 }}
-          viewport={{ once: true }}
-          whileInView={{ y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="w-full flex flex-col items-center justify-center"
-        >
-          <h1 className="text-center mb-[20px] font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]">
-          Is Your Climate Impact Zero? Want to do More?
-          </h1>
-          <p className=" mb-12 w-full xsm:w-[90%] leading-5 tracking-normal font-worksans mdd:w-[60%] text-center text-black-text text-sm xsm:text-[16px]">
-           Explore our options and find perfect fit for you. Together, we can make a difference
+          <div className="bg-black/10 col-span-2 md:col-span-1 flex gap-4 lg:gap-5 p-4 lg:p-6 rounded-[20px]">
+            <Image
+              src={co2Offset}
+              alt="CO2-Offset"
+              className="w-14 lg:w-20 h-14 lg:h-20"
+            />
+            <div className="flex flex-col gap-4">
+              <p className="text-lg lg:text-[22px] text-green font-medium">
+                {climatePoints} Tonnes CO2 Offset
+              </p>
+              <p className="text-[10px] lg:text-[13px] text-black font-medium">
+                You have offset {climatePoints} tonnes of CO2 by supporting
+                verified carbon projects around the world. ({climatePoints}{" "}
+                tonnes from additional carbon credits)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="grid grid-cols-3 gap-4 lg:gap-6">
+        <div className="col-span-3 md:col-span-1 bg-[#ffffff]/80 flex flex-col items-center py-7 px-8 lg:px-5 rounded-[20px]">
+          <Image
+            src={carEmission}
+            alt="car-emissions"
+            className="mt-2 w-16 h-16"
+          />
+          <p className="mt-7.5 text-[22px] text-green font-medium">
+            Equivalent Car Emissions
           </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ y: 200 }}
-          viewport={{ once: true }}
-          whileInView={{ y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center mt-6 justify-center gap-7 sm:gap-16 flex-wrap"
-        >
-          <Link
-            className=" w-[340px] sm:w-[500px] hover:scale-110 duration-300 flex items-center justify-center flex-col text-center px-4 py-5 min-h-[300px] bg-green  z-10 rounded-xl "
-            href="/plant-tree"
-          >
-            <Image src="/Box 1.svg" alt="img" height={100} width={100} />
-            <h4 className="text-2xl text-white font-semibold mt-8">
-              Support Tree-Planting Projects
-            </h4>
-            <p className="text-[16px] text-white font-worksans pt-2">
-              Grow your business sustainably and make the planet greener.
-            </p>
-          </Link>
-
-          <Link
-            style={{ border: "1px solid green" }}
-            className=" w-[340px] sm:w-[500px] hover:scale-110 duration-300 flex items-center justify-center flex-col text-center px-4 py-5 min-h-[300px] bg-white  z-10 rounded-xl "
-            href="/plant-tree-offset"
-          >
-            <Image src="/Box 2.svg" alt="img" height={100} width={100} />
-            <h4 className="text-2xl text-black font-semibold mt-8">
-              Support Verified Carbon Projects
-            </h4>
-            <p className="text-[16px] text-black font-worksans pt-2">
-              Offset your carbon footprint and fight climate change.
-            </p>
-          </Link>
-        </motion.div>
-      </section>
+          <p className="mt-4 text-[13px] text-black font-medium text-center">
+            By offsetting {(treePlanted * 0.1096 + climatePoints).toFixed(3)}{" "}
+            tonnes of CO2 is like taking a car off the road for about{" "}
+            {((treePlanted * 0.1096 + climatePoints) / 0.408).toFixed(3)}{" "}
+            kilometers (
+            {(
+              ((treePlanted * 0.1096 + climatePoints) / 0.408) *
+              0.621371
+            ).toFixed(3)}{" "}
+            miles).
+          </p>
+        </div>
+        <div className="col-span-3 md:col-span-1 bg-[#ffffff]/80 flex flex-col items-center py-7 px-8 lg:px-5 rounded-[20px]">
+          <Image
+            src={energyUsed}
+            alt="energy-used"
+            className="mt-2 w-16 h-16"
+          />
+          <p className="mt-7.5 text-[22px] text-green font-medium">
+            Equivalent Energy Used
+          </p>
+          <p className="mt-4 text-[13px] text-black font-medium text-center">
+            Offsetting {(treePlanted * 0.1096 + climatePoints).toFixed(3)}{" "}
+            tonnes of CO2 is equivalent to the annual electricity use of an
+            average household for about{" "}
+            {(
+              (((treePlanted * 0.1096 + climatePoints) * 3.6) / (11000 / 12)) *
+              1000
+            ).toFixed(0)}{" "}
+            months.
+          </p>
+        </div>
+        <div className="col-span-3 md:col-span-1 bg-[#ffffff]/80 flex flex-col items-center py-7 px-8 lg:px-5 rounded-[20px]">
+          <Image
+            src={wasteRecycling}
+            alt="waste-recycling"
+            className="mt-2 w-16 h-16"
+          />
+          <p className="mt-7.5 text-[22px] text-green font-medium">
+            Equivalent Waste Recycling
+          </p>
+          <p className="mt-4 text-[13px] text-black font-medium text-center">
+            Offsetting {(treePlanted * 0.1096 + climatePoints).toFixed(3)}{" "}
+            tonnes of CO2 is equivalent to recycling about{" "}
+            {(((treePlanted * 0.1096 + climatePoints) * 1000) / 0.15).toFixed(
+              3
+            )}{" "}
+            plastic bottles instead of sending them to landfill.
+          </p>
+        </div>
+      </div>
+      <div className="bg-[#ffffff]/70 flex flex-col items-center p-7.5 rounded-[20px] gap-3.5">
+        <div className="flex flex-col items-center gap-1">
+          <h3 className="text-[22px] lg:text-[34px] text-green font-medium">
+            Is Your Climate Impact Zero? Want to do More?
+          </h3>
+          <p className="text-lg text-black font-medium">
+            Explore our options and find perfect fit for you. Together, we can
+            make a difference
+          </p>
+        </div>
+        <div className="w-full grid grid-cols-2 gap-8.5">
+          <div className="bg-white col-span-2 md:col-span-1 p-4 lg:p-6 rounded-[20px] border-2 border-green">
+            <Link href="/plant-tree" className="flex gap-4 lg:gap-5">
+              <Image
+                src={treePlantingProjects}
+                alt="trees-planting-projects"
+                className="w-14 lg:w-20 h-14 lg:h-20"
+              />
+              <div className="flex flex-col gap-4">
+                <p className="text-lg lg:text-[22px] text-green font-medium">
+                  Support Tree-Planting Projects
+                </p>
+                <p className="text-[10px] lg:text-[13px] text-black font-medium">
+                  Grow your business sustainably and make the planet greener.
+                </p>
+              </div>
+            </Link>
+          </div>
+          <div className="bg-white col-span-2 md:col-span-1 p-4 lg:p-6 rounded-[20px] border-2 border-green">
+            <Link href="/plant-tree-offset" className="flex gap-4 lg:gap-5">
+              <Image
+                src={verifiedCarbonProjects}
+                alt="verified-carbon-projects"
+                className="w-14 lg:w-20 h-14 lg:h-20"
+              />
+              <div className="flex flex-col gap-4">
+                <p className="text-lg lg:text-[22px] text-green font-medium">
+                  Support Verified Carbon Projects
+                </p>
+                <p className="text-[10px] lg:text-[13px] text-black font-medium">
+                  Offset your carbon footprint and fight climate change.
+                </p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
