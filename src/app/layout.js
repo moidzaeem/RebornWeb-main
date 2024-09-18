@@ -64,13 +64,17 @@ export default function RootLayout({ children }) {
           path === "/plant-tree" ||
           path === "/carbon-offsets" ? (
             <Navbar />
-          ) : path === "/calculator" || path === "/user-profile" ? null : (
+          ) : path === "/calculator" ||
+            path === "/user-profile" ||
+            path === "/climate-impact" ? null : (
             <BgNavbar />
           )}
           <Toaster position="center-right" />
 
           {children}
-          {path === "/calculator" || path === "/user-profile" ? null : (
+          {path === "/calculator" ||
+          path === "/user-profile" ||
+          path === "/climate-impact" ? null : (
             <Footer />
           )}
         </UserProvider>

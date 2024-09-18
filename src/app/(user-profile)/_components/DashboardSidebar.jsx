@@ -7,7 +7,7 @@ import Image from "next/image";
 const DashboardSidebar = () => {
   const sideBarOptions = [
     { label: "Profile", link: "" },
-    { label: "Climate Impact", link: "" },
+    { label: "Climate Impact", link: "/climate-impact" },
     { label: "Certificate & Green Rewards", link: "" },
     {
       label: "Integrations",

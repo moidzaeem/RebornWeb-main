@@ -23,6 +23,7 @@ module.exports = {
         "black-text": "var(--black-text)",
       },
       spacing: {
+        4.5: "1.125rem",
         7.5: "1.875rem",
         8.5: "2.125rem",
         12.5: "3.125rem",
@@ -45,6 +46,7 @@ module.exports = {
       backgroundImage: {
         apiIntegrationBg: "url('/Background-Calculator.png')",
         userDashboardBG: "url('/assets/images/62760231.webp')",
+        treesPlantedBG: "url('/assets/images/Tree-Planted.png')",
       },
     },
   },
