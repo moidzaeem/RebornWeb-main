@@ -1,4 +1,4 @@
-import UserSvg from "@/assets/svg/UserSvg";
+import UserSvg from "../../../assets/svg/UserSvg";
 import Link from "next/link";
 import React from "react";
 import rebornLogo from "../../../../public/assets/logos/logo.png";
@@ -14,7 +14,7 @@ const DashboardSidebar = () => {
       link: "",
       children: [
         { label: "Tree Widget", link: "" },
-        { label: "Tree Planting API", link: "" },
+        { label: "Tree Planting API", link: "/tree-planting-api" },
       ],
     },
     { label: "Subscriptions", link: "" },

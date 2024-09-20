@@ -11,6 +11,7 @@ const DashboardHeader = () => {
       <p className="hidden lg:block text-[28px] text-black font-normal">
         {pathName === "/user-profile" && "Profile"}
         {pathName === "/climate-impact" && "Climate Impact"}
+        {pathName === "/tree-planting-api" && "Tree Planting API"}
       </p>
       <div className="flex items-center gap-3.5 lg:gap-6">
         <div className="flex flex-col gap-2">

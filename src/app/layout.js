@@ -1,10 +1,10 @@
 "use client";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "../../src/components/Navbar";
+import Footer from "../../src/components/Footer";
 import Head from "next/head";
 import { usePathname } from "next/navigation";
-import BgNavbar from "@/components/BgNavbar";
+import BgNavbar from "../../src/components/BgNavbar";
 import { Toaster } from "react-hot-toast";
 import { UserProvider } from "../../lib/UserConext";
 
@@ -66,7 +66,8 @@ export default function RootLayout({ children }) {
             <Navbar />
           ) : path === "/calculator" ||
             path === "/user-profile" ||
-            path === "/climate-impact" ? null : (
+            path === "/climate-impact" ||
+            path === "/tree-planting-api" ? null : (
             <BgNavbar />
           )}
           <Toaster position="center-right" />
@@ -74,7 +75,8 @@ export default function RootLayout({ children }) {
           {children}
           {path === "/calculator" ||
           path === "/user-profile" ||
-          path === "/climate-impact" ? null : (
+          path === "/climate-impact" ||
+          path === "/tree-planting-api" ? null : (
             <Footer />
           )}
         </UserProvider>
