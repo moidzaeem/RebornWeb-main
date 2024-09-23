@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const DashboardSidebar = () => {
   const sideBarOptions = [
-    { label: "Profile", link: "" },
+    { label: "Profile", link: "/user-profile" },
     { label: "Climate Impact", link: "/climate-impact" },
     { label: "Certificate & Green Rewards", link: "" },
     {
@@ -17,8 +17,8 @@ const DashboardSidebar = () => {
         { label: "Tree Planting API", link: "/tree-planting-api" },
       ],
     },
-    { label: "Subscriptions", link: "" },
-    { label: "Purchase History", link: "" },
+    { label: "Subscriptions", link: "/subscriptions" },
+    { label: "Purchase History", link: "/purchase-history" },
     { label: "Settings", link: "" },
   ];
 
