@@ -2,6 +2,9 @@
 import priceTag from "@/assets/images/price-tag.png";
 import reduceFootprint from "@/assets/images/ReduceFootprint.png";
 import bigImpact from "@/assets/images/big-impact.png";
+import greenStart from "@/assets/images/GreenStart.png";
+import doubleImpact from "@/assets/images/DoubleImpact.png";
+import profound from "@/assets/images/Profound.png";
 import Image from "next/image";
 import { MenuItem, Select } from "@mui/material";
 // import Select from "react-select";
@@ -164,6 +167,36 @@ const Page = () => {
     { label: "6 employees", value: 6 },
   ];
 
+  const treePlantingProjects = [
+    {
+      icon: greenStart,
+      name: "Perfect for Green Start!",
+      price: "50.00",
+      numberOfTrees: 50,
+    },
+    {
+      icon: doubleImpact,
+      name: "Double the Impact!",
+      price: "100.00",
+      numberOfTrees: 100,
+    },
+    {
+      icon: profound,
+      name: "Make a Profound Difference!",
+      price: "600.00",
+      numberOfTrees: 600,
+    },
+  ];
+
+  const numberOfTreesOptions = [
+    { label: "1 Tree - £60", value: 1 },
+    { label: "1 Tree - £60", value: 2 },
+    { label: "1 Tree - £60", value: 3 },
+    { label: "1 Tree - £60", value: 4 },
+    { label: "1 Tree - £60", value: 5 },
+    { label: "1 Tree - £60", value: 6 },
+  ];
+
   return (
     <div className="w-full flex flex-col gap-4 lg:gap-5">
       {/* ---| Current Subscription Card Mobile |--- */}
@@ -230,10 +263,10 @@ const Page = () => {
         <h4 className="mt-4 lg:mt-8.5 text-lg lg:text-3xl text-[#0A033C] font-semibold">
           Support Carbon Reduction and Removal Projects
         </h4>
-        <div className="mt-5 grid grid-cols-3 gap-4">
-          {CarbonReductionProjects.map((project, index) => (
+        <div className="w-full mt-5 grid grid-cols-3 gap-4">
+          {CarbonReductionProjects.map((project) => (
             <div
-              key={index}
+              key={project.name}
               className="bg-white col-span-3 md:col-span-1 flex flex-col p-5 rounded-[10px]"
             >
               <div className="flex flex-col pb-4 border-b border-[#0A033C15]">
@@ -293,6 +326,79 @@ const Page = () => {
         <p className="mt-4 lg:mt-6 text-xs lg:text-base text-black font-medium">
           VCC’s are verified via Gold Standard, Verra, & UN and ensure we adhere
           to the highest governance and compliance standards in the industry.
+        </p>
+        <h3 className="mt-7 text-lg lg:text-3xl text-[#0A033C] font-semibold">
+          Support Certified Tree-Planting Projects
+        </h3>
+        <div className="w-full mt-7.5 grid grid-cols-3 gap-4">
+          {treePlantingProjects.map((project) => (
+            <div
+              key={project.name}
+              className="bg-white col-span-3 md:col-span-1 flex flex-col p-5 rounded-[10px]"
+            >
+              <Image
+                src={project.icon}
+                alt={project.name}
+                className="w-7.5 h-auto"
+              />
+              <h6 className="mt-4 text-lg lg:text-xl text-[#0A033C] font-semibold">
+                {project.name}
+              </h6>
+              <h5 className="mt-8 text-2xl lg:text-3xl text-[#0A033C] font-semibold">
+                <span className="text-base lg:text-xl">£</span>
+                {project.price}
+              </h5>
+              <p className="mt-2 text-sm text-[#0A033C] font-medium">
+                Select a different amount of trees
+              </p>
+              <div className="mt-3.5 rounded-md border border-green p-4 text-center text-base text-green font-medium">
+                {project.numberOfTrees} Trees
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 w-full bg-white flex flex-col lg:flex-row lg:justify-between items-center rounded-[10px] gap-4 p-5">
+          <p className="text-base font-semibold text-[#0A033C]">
+            Select a custom number of trees you will like to plant per month
+          </p>
+          <Select
+            fullWidth
+            defaultValue={numberOfEmployees[0].value}
+            sx={{
+              "&:hover .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#14A800",
+              },
+              "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                border: "0px",
+              },
+            }}
+            className="border border-green text-green text-base font-medium hover:bg-green hover:text-white font-montserrat md:!max-w-64"
+          >
+            {numberOfTreesOptions.map((i) => (
+              <MenuItem key={i.value} value={i.value}>
+                {i.label}
+              </MenuItem>
+            ))}
+          </Select>
+        </div>
+        <div className="mt-5 lg:mt-8 w-full grid grid-cols-2 md:grid-cols-3 items-center gap-6 lg:gap-12">
+          <div className="col-span-1 md:col-span-2 flex items-center md:gap-7.5">
+            <h3 className="min-w-fit text-[28px] lg:text-[45px] text-green font-semibold">
+              <span className="text-base lg:text-[28px]">Total: </span>
+              <span className="text-xl lg:text-4xl">£</span>15.50
+            </h3>
+            <p className="hidden lg:block text-xs text-black font-medium">
+              Feel great about your contribution! 100% of your support goes
+              towards climate impact and other projects dedicated to our planet.
+            </p>
+          </div>
+          <button className="w-full col-span-1 rounded p-3 lg:p-4 text-xs lg:text-base font-medium bg-green text-white">
+            Continue
+          </button>
+        </div>
+        <p className="mt-2 block lg:hidden text-xs text-black font-medium">
+          Feel great about your contribution! 100% of your support goes towards
+          climate impact and other projects dedicated to our planet.
         </p>
       </div>
     </div>
