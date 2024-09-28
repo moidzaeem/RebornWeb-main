@@ -19,7 +19,7 @@ const DashboardSidebar = () => {
     },
     { label: "Subscriptions", link: "/subscriptions" },
     { label: "Purchase History", link: "/purchase-history" },
-    { label: "Settings", link: "" },
+    { label: "Settings", link: "/settings" },
   ];
 
   const renderOptions = (options) => {

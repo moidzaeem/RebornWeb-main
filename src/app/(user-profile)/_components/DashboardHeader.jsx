@@ -1,6 +1,7 @@
 "use client";
 import LogoutSvg from "@/assets/svg/LogoutSvg";
 import NotificationsSvg from "@/assets/svg/NotificationsSvg";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { destroyCookie } from "nookies";
 import React from "react";
@@ -23,6 +24,7 @@ const DashboardHeader = () => {
         {pathName === "/tree-planting-api" && "Tree Planting API"}
         {pathName === "/purchase-history" && "Purchase History"}
         {pathName === "/subscriptions" && "Subscriptions"}
+        {pathName === "/notifications" && "Notifications"}
       </p>
       <div className="flex items-center gap-3.5 lg:gap-6">
         <div className="flex flex-col gap-2">
@@ -34,9 +36,15 @@ const DashboardHeader = () => {
           </p>
         </div>
         <div className="flex gap-2.5">
-          <button className="bg-transparent text-[#14A800] rounded-xl p-3.5 border border-black/20">
+          <Link
+            href="/notifications"
+            className="bg-transparent text-[#14A800] rounded-xl p-3.5 border border-black/20"
+          >
             <NotificationsSvg className="h-6 w-6 fill-current" />
-          </button>
+          </Link>
+          {/* <button className="bg-transparent text-[#14A800] rounded-xl p-3.5 border border-black/20">
+            <NotificationsSvg className="h-6 w-6 fill-current" />
+          </button> */}
           <button
             onClick={handleLogout}
             className="bg-black text-white rounded-xl p-3.5"

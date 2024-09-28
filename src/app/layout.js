@@ -69,7 +69,9 @@ export default function RootLayout({ children }) {
             path === "/climate-impact" ||
             path === "/tree-planting-api" ||
             path === "/purchase-history" ||
-            path === "/subscriptions" ? null : (
+            path === "/subscriptions" ||
+            path === "/notifications" ||
+            path === "/settings" ? null : (
             <BgNavbar />
           )}
           <Toaster position="center-right" />
@@ -80,7 +82,9 @@ export default function RootLayout({ children }) {
           path === "/climate-impact" ||
           path === "/tree-planting-api" ||
           path === "/purchase-history" ||
-          path === "/subscriptions" ? null : (
+          path === "/subscriptions" ||
+          path === "/notifications" ||
+          path === "/settings" ? null : (
             <Footer />
           )}
         </UserProvider>
