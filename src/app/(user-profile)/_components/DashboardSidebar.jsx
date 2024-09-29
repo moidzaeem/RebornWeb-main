@@ -8,7 +8,7 @@ const DashboardSidebar = () => {
   const sideBarOptions = [
     { label: "Profile", link: "/user-profile" },
     { label: "Climate Impact", link: "/climate-impact" },
-    { label: "Certificate & Green Rewards", link: "" },
+    { label: "Certificate & Green Rewards", link: "/certificate" },
     {
       label: "Integrations",
       link: "",

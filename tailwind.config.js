@@ -24,10 +24,14 @@ module.exports = {
       },
       spacing: {
         4.5: "1.125rem",
+        5.5: "1.375rem",
         7.5: "1.875rem",
         8.5: "2.125rem",
         12.5: "3.125rem",
         25: "6.25rem",
+        45: "11.25rem",
+        63: "15.75rem",
+        91: "22.75rem",
       },
       gridTemplateColumns: {
         "3f": "repeat(3, 1fr)",

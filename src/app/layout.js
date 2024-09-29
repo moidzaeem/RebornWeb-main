@@ -71,7 +71,8 @@ export default function RootLayout({ children }) {
             path === "/purchase-history" ||
             path === "/subscriptions" ||
             path === "/notifications" ||
-            path === "/settings" ? null : (
+            path === "/settings" ||
+            path === "/certificate" ? null : (
             <BgNavbar />
           )}
           <Toaster position="center-right" />
@@ -84,7 +85,8 @@ export default function RootLayout({ children }) {
           path === "/purchase-history" ||
           path === "/subscriptions" ||
           path === "/notifications" ||
-          path === "/settings" ? null : (
+          path === "/settings" ||
+          path === "/certificate" ? null : (
             <Footer />
           )}
         </UserProvider>

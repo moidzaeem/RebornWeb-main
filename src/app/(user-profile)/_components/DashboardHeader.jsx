@@ -25,6 +25,7 @@ const DashboardHeader = () => {
         {pathName === "/purchase-history" && "Purchase History"}
         {pathName === "/subscriptions" && "Subscriptions"}
         {pathName === "/notifications" && "Notifications"}
+        {pathName === "/certificate" && "Certificate & Green Rewards"}
       </p>
       <div className="flex items-center gap-3.5 lg:gap-6">
         <div className="flex flex-col gap-2">
