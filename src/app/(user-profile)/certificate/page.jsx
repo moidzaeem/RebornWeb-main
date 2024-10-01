@@ -17,9 +17,10 @@ const page = () => {
           personalized certificate. Click the button below to download and
           showcase your achievement.
         </p>
-        <button className="w-fit rounded py-3 lg:py-4 px-16 lg:px-11 text-sm lg:text-base font-semibold lg:font-medium bg-green text-white">
+        <button disabled className="w-fit rounded py-3 lg:py-4 px-16 lg:px-11 text-sm lg:text-base font-semibold lg:font-medium bg-black text-white">
           Download Certificate
         </button>
+        <p className="text-black">Coming Soon</p>
       </div>
 
       <div className="bg-[#ffffff]/70 flex flex-col px-5 lg:px-11 py-7 lg:py-11 rounded-[20px] gap-4 lg:gap-7">

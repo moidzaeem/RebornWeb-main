@@ -113,7 +113,7 @@ const Page = () => {
               </p>
               <p className="text-[10px] lg:text-[13px] text-black font-medium">
                 You've planted {treePlanted}. These trees will absorb{" "}
-                {treePlanted * 0.1096} tonnes of CO2 throughout their lifetime.
+                {(treePlanted * 0.1096).toFixed(3) } tonnes of CO2 throughout their lifetime.
               </p>
             </div>
           </div>

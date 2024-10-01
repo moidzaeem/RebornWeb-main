@@ -4,7 +4,7 @@ import NotificationsSvg from "@/assets/svg/NotificationsSvg";
 import MenuLeftAltSvg from "@/assets/svg/MenuLeftAltSvg";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { destroyCookie } from "nookies";
+import { destroyCookie, parseCookies } from "nookies";
 import React from "react";
 import { Box, Drawer } from "@mui/material";
 import { sideBarOptions } from "@/lib/constants";
@@ -12,16 +12,33 @@ import UserSvg from "@/assets/svg/UserSvg";
 import RenderSiderBarOptions from "@/app/(user-profile)/_components/RenderSiderBarOptions";
 import rebornLogo from "../../../../public/assets/logos/logo.png";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { useUser } from "../../../../lib/UserConext";
 
 const DashboardHeader = () => {
+  const userData = useUser();
+
   const router = useRouter();
   const pathName = usePathname();
+  const [name, setName] = useState("");
 
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
+
+  useEffect(() => {
+    const cookies = parseCookies();
+    const name = cookies?.user_name;
+
+    setName(name);
+
+    const accessToken = cookies?.access_token;
+    if (!accessToken) {
+      redirect("/login");
+    }
+  }, [userData]);
 
   const DrawerContent = (
     <Box
@@ -34,8 +51,8 @@ const DashboardHeader = () => {
           <UserSvg className="fill-current w-16 h-16" />
         </span>
         <div className="flex flex-col gap-1.5">
-          <p className="capitalize text-xl text-white font-medium">John Doe</p>
-          <p className="uppercase text-xs text-white font-semibold">admin</p>
+          <p className="capitalize text-xl text-white font-medium">{name}</p>
+          {/* <p className="uppercase text-xs text-white font-semibold">admin</p> */}
         </div>
       </div>
       <div className="flex flex-col gap-1.5">
@@ -80,21 +97,21 @@ const DashboardHeader = () => {
           </span>
           <div className="flex flex-col gap-2">
             <p className="text-base font-normal text-white lg:text-black capitalize">
-              John Doe
+             {name}
             </p>
-            <p className="text-[10px] text-[#14A800] font-semibold uppercase">
+            {/* <p className="text-[10px] text-[#14A800] font-semibold uppercase">
               admin
-            </p>
+            </p> */}
           </div>
         </div>
 
         <div className="flex gap-2.5">
-          <Link
+          {/* <Link
             href="/notifications"
             className="bg-transparent text-[#14A800] rounded-xl p-3.5 border border-[#ffffff]/20 lg:border-black/20"
           >
             <NotificationsSvg className="h-6 w-6 fill-current" />
-          </Link>
+          </Link> */}
           {/* <button className="bg-transparent text-[#14A800] rounded-xl p-3.5 border border-black/20">
             <NotificationsSvg className="h-6 w-6 fill-current" />
           </button> */}

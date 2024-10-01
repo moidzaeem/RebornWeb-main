@@ -10,57 +10,61 @@ import { MenuItem, Select } from "@mui/material";
 // import Select from "react-select";
 
 // import LeftSideBar from "@/components/LeftSideBar";
-// import { redirect } from "next/navigation";
-// import { parseCookies } from "nookies";
-// import { useEffect, useState, React } from "react";
-// import { useUser } from "../../../../lib/UserConext";
+import { redirect } from "next/navigation";
+import { parseCookies } from "nookies";
+import { useEffect, useState, React } from "react";
+import { useUser } from "../../../../lib/UserConext";
 
 const Page = () => {
-  // const userData = useUser();
+  const userData = useUser();
 
-  // const cookies = parseCookies();
-  // const accessToken = cookies?.access_token;
-  // const [userApi, setUserApi] = useState(null);
+  const [userApi, setUserApi] = useState(null);
   // const [isCancelled, setIsCancelled] = useState(false);
 
-  // const [subscriptionData, setSubscriptionData] = useState([]);
+  const [subscriptionData, setSubscriptionData] = useState([]);
+  const [accessToken, setAccessToken] = useState(null);
 
-  // if (!accessToken) {
-  //   redirect("/login");
-  // }
+  const getSubscriptionData = async () => {
+    try {
+      const apiUrl = `${process.env.API_URL}/subscription`;
+      const response = await fetch(apiUrl, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
 
-  // const getSubscriptionData = async () => {
-  //   try {
-  //     const apiUrl = `${process.env.API_URL}/subscription`;
-  //     const response = await fetch(apiUrl, {
-  //       method: "GET",
-  //       headers: {
-  //         Authorization: `Bearer ${accessToken}`,
-  //       },
-  //     });
+      if (response.ok) {
+        const data = await response.json();
+        if (data.status !== 200) {
+        } else {
+          setSubscriptionData(data.data);
+        }
+      } else {
+      }
+    } catch (error) {
+      console.error("Request failed:", error.message);
+    }
+  };
 
-  //     if (response.ok) {
-  //       const data = await response.json();
-  //       if (data.status !== 200) {
-  //       } else {
-  //         setSubscriptionData(data.data);
-  //       }
-  //     } else {
-  //     }
-  //   } catch (error) {
-  //     console.error("Request failed:", error.message);
-  //   }
-  // };
+  useEffect(() => {
+    const cookies = parseCookies();
+    const accessToken = cookies?.access_token;
 
-  // useEffect(() => {
-  //   if (userData !== undefined) {
-  //     setUserApi(userData?.data.api_key);
-  //   }
+    if (!accessToken) {
+      redirect("/login");
+    } else {
+      setAccessToken(accessToken);
+    }
 
-  //   if (userApi) {
-  //     getSubscriptionData();
-  //   }
-  // }, [userData, userApi]);
+    if (userData !== undefined) {
+      setUserApi(userData?.data.api_key);
+    }
+
+    if (userApi) {
+      getSubscriptionData();
+    }
+  }, [userData, userApi]);
 
   // const cancelSubscription = async (subscriptionId) => {
   //   setIsCancelled(true);
@@ -225,34 +229,50 @@ const Page = () => {
         </div>
       </div>
       {/* ---| Current Subscription Card Laptop |--- */}
-      <div className="bg-[#ffffff]/70 hidden lg:flex justify-between items-cneter p-7.5 rounded-[20px] gap-6">
-        <div className="flex flex-col gap-1">
-          <p className="text-base text-black font-medium">
-            Current Subscription
-          </p>
-          <div className="flex items-center gap-5">
-            <h3 className="text-[28px] text-green font-medium capitalize">
-              Reduce your footprint
-            </h3>
-            <div className="py-2 px-2.5 bg-[#14A800]/10 rounded text-base text-green font-semibold">
-              Active
+      {subscriptionData.map((subscription, index) => (
+        <div
+          key={index} // Use a unique key, consider subscription.id if available
+          className="bg-[#ffffff]/70 hidden lg:flex justify-between items-center p-7.5 rounded-[20px] gap-6"
+        >
+          <div className="flex flex-col gap-1">
+            {/* <p className="text-base text-black font-medium">
+              Current Subscription
+            </p> */}
+            <div className="flex items-center gap-5">
+              <h3 className="text-[28px] text-green font-medium capitalize">
+                {subscription.title || "Reduce your footprint"}{" "}
+                {/* Assuming a title field */}
+              </h3>
+              <div className="py-2 px-2.5 bg-[#14A800]/10 rounded text-base text-green font-semibold">
+                {subscription.status === "active" ? "Active" : "Inactive"}{" "}
+                {/* Assuming an active field */}
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col items-stretch gap-3">
+            <p className="text-xl text-black font-medium">
+              Start Date:{" "}
+              {new Date(subscription.createdAt).toLocaleDateString()}{" "}
+              {/* Format the date */}
+            </p>
+            <div className="w-full flex justify-between items-center">
+              <p className="text-xl text-green font-semibold">
+                {subscription.price} {/* Assuming a price field */}
+              </p>
+              {subscription.status === "active"?
+              
+              <button
+                className="bg-[#FF1D1D]/10 hover:bg-[#FF1D1D] text-[#FF1D1D] hover:text-white py-2 px-4.5 text-base font-semibold rounded-md"
+                onClick={() => handleCancel(subscription.id)} // Assuming you have a function to handle cancellation
+              >
+                Cancel
+              </button>: null}
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-stretch gap-3">
-          <p className="text-xl text-black font-medium">
-            Start Date: 06/08/2024
-          </p>
-          <div className="w-full flex justify-between items-center">
-            <p className="text-xl text-green font-semibold">£15.50</p>
-            <button className="bg-[#FF1D1D]/10 hover:bg-[#FF1D1D] text-[#FF1D1D] hover:text-white py-2 px-4.5 text-base text-white font-semibold rounded-md">
-              Cancel
-            </button>
-          </div>
-        </div>
-      </div>
+      ))}
 
-      <div className="bg-[#ffffff]/70 flex flex-col items-center py-7 lg:py-9 px-5 md:px-10 xl:px-20 rounded-[20px]">
+      {/* <div className="bg-[#ffffff]/70 flex flex-col items-center py-7 lg:py-9 px-5 md:px-10 xl:px-20 rounded-[20px]">
         <h3 className="text-[34px] lg:text-[44px] text-green font-medium">
           Monthly Subscription
         </h3>
@@ -400,7 +420,7 @@ const Page = () => {
           Feel great about your contribution! 100% of your support goes towards
           climate impact and other projects dedicated to our planet.
         </p>
-      </div>
+      </div> */}
     </div>
   );
 };

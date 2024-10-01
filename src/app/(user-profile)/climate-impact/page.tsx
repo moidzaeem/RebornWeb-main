@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import treesPlantedIcon from "../../../../public/assets/images/Trees Planted Icon.png";
 import Image from "next/image";
@@ -5,8 +7,73 @@ import co2Offset from "../../../../public/assets/images/CO2-Offset.png";
 import CleanEnergySvg from "../../../assets/svg/CleanEnergySvg";
 import EconomicGrowthSvg from "../../../assets/svg/EconomicGrowthSvg";
 import LifeOnLandSvg from "../../../assets/svg/LifeOnLandSvg";
+import { useEffect, useState } from "react";
+import { parseCookies } from "nookies";
+import { redirect } from "next/navigation";
+import { useUser } from "../../../../lib/UserConext";
 
 const page = () => {
+  const userData = useUser();
+
+  const [accessToken, setAccessToken] = useState(null);
+  const [userApi, setUserApi] = useState(null);
+  const [disable, setDiable] = useState(false);
+  const [treePlanted, setTreePlanted] = useState(0);
+  const [climatePoints, setClimatePoints] = useState(0);
+
+  useEffect(() => {
+    const cookies = parseCookies();
+
+    const accessToken = cookies?.access_token;
+    if (!accessToken) {
+      redirect("/login");
+    } else {
+      setAccessToken(accessToken);
+    }
+    if (userData !== undefined) {
+      setUserApi(userData?.data.api_key);
+    }
+    if (userApi) {
+      const getTreeData = async () => {
+        try {
+          const apiUrl = `${process.env.API_URL}/user/tree-record?api_key=${userApi}`;
+          const response = await fetch(apiUrl, {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            if (data.status !== 200) {
+              // toast.error(data.message)
+              setDiable(false);
+            } else {
+              if (data.data.tree_planted) {
+                const treePlanted = data.data.tree_planted;
+
+                setTreePlanted(treePlanted);
+              }
+              if (data.data.climate_points) {
+                const climatePoints = data.data.climate_points;
+
+                setClimatePoints(climatePoints);
+              }
+              setDiable(false);
+            }
+          } else {
+            setDiable(false);
+          }
+        } catch (error) {
+          console.error("Request failed:", error.message);
+          setDiable(false);
+        }
+      };
+      getTreeData();
+    }
+  }, [userData, userApi]);
+
   const contributions = [
     {
       number: 7,
@@ -52,20 +119,21 @@ const page = () => {
           <div className="flex items-start gap-x-6 lg:gap-x-8">
             <div className="flex flex-col items-end gap-3">
               <div className="flex gap-x-4 lg:gap-x-5">
-                {[0, 1, 2, 3, 4, 5, 6].map((count) => (
+                {String(treePlanted).padStart(7, '0').split('').map((digit, index) => (
                   <div
-                    key={count}
-                    className="bg-[#ffffff]/60 p-2 lg:p-5 rounded-lg lg:rounded-[20px]"
+                    key={index}
+                    className="bg-[#ffffff]/60 p-2 lg:p-5 rounded-lg lg:rounded-[20px] flex items-center justify-center"
                   >
                     <p className="text-[40px] lg:text-[104px] font-normal text-black">
-                      0
+                      {digit}
                     </p>
                   </div>
                 ))}
               </div>
+
               <div className="hidden lg:block bg-[#ffffff]/60 py-4 px-5 rounded-[10px]">
                 <p className="text-[22px] text-black font-medium">
-                  1,234 Tones CO2 Sequestered
+                  {climatePoints} Tones CO2 Sequestered
                 </p>
               </div>
             </div>
@@ -86,7 +154,7 @@ const page = () => {
               CO2 Avoided
             </p>
             <p className="text-[41px] lg:text-[53px] text-black font-medium text-center">
-              73 Tones
+            {climatePoints} Tones
             </p>
           </div>
         </div>
