@@ -193,8 +193,8 @@ const MyTeamOffset = () => {
         </div>
       </div>
       <div className="flex my-10 items-center justify-between w-full">
-        <p class="block max-w-sm p-6 bg-green  border border-green rounded-lg shadow hover:bg-lime-700 ">
-          <p class=" font-poppins font-normal text-white ">
+        <p className="block max-w-sm p-6 bg-green  border border-green rounded-lg shadow hover:bg-lime-700 ">
+          <p className=" font-poppins font-normal text-white ">
             Total: £{allPrice.toFixed(2)} / month
           </p>
         </p>

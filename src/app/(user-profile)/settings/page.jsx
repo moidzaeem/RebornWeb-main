@@ -93,7 +93,7 @@ const Page = () => {
               />
               <div className="absolute bottom-0 right-0">
                 <label for="profile-image">
-                  <div class="rounded-full p-2 bg-green text-white cursor-pointer">
+                  <div className="rounded-full p-2 bg-green text-white cursor-pointer">
                     <EditSvg className="fill-current" />
                   </div>
                   <input
@@ -130,14 +130,14 @@ const Page = () => {
           Save
         </button>
       </form>
-      <div className="w-full bg-white flex flex-col items-center px-5 lg:px-8 py-7 lg:py-9 lg:max-w-3xl rounded-[20px] gap-4 lg:gap-5">
+      {/* <div className="w-full bg-white flex flex-col items-center px-5 lg:px-8 py-7 lg:py-9 lg:max-w-3xl rounded-[20px] gap-4 lg:gap-5">
         <h6 className="text-base lg:text-xl text-black font-semibold">
           Delete Account
         </h6>
         <button className="w-fit rounded py-3 lg:py-4 px-12 lg:px-24 text-xs lg:text-base font-medium bg-[#FF1D1D] text-white">
           Delete Account
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

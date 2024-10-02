@@ -12,7 +12,7 @@ import { parseCookies } from "nookies";
 import { redirect } from "next/navigation";
 import { useUser } from "../../../../lib/UserConext";
 
-const page = () => {
+const Page = () => {
   const userData = useUser();
 
   const [accessToken, setAccessToken] = useState(null);
@@ -163,8 +163,9 @@ const page = () => {
             Your Contribution to the SDGs
           </p>
           <div className="mt-4.5 lg:mt-7 flex gap-1.5 lg:gap-3">
-            {contributions.map((contribution) => (
+            {contributions.map((contribution, index) => (
               <div
+              key={index}
                 className={`w-[25%] ${contribution.bgColor} flex flex-col items-center justify-between gap-2 lg:gap-3 p-1.5 lg:p-2.5 rounded-[10px] lg:rounded-[20px]`}
               >
                 <div className="flex items-start gap-1.5 lg:gap-2.5">
@@ -199,4 +200,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

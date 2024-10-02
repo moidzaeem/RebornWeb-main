@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import treesPlantedIcon from "../../../../public/assets/images/Trees Planted Icon.png";
 import rebornLogo from "../../../../public/assets/logos/logo.png";
@@ -8,8 +9,73 @@ import ShieldPlusSvg from "@/assets/svg/ShieldPlusSvg";
 import HandHoldingUserSvg from "@/assets/svg/HandHoldingUserSvg";
 import GlobeEarthSvg from "@/assets/svg/GlobeEarthSvg";
 import Image from "next/image";
+import { useUser } from "../../../../lib/UserConext";
+import { parseCookies } from "nookies";
+import { useEffect, useState } from "react";
+import ScriptGenrate from "@/components/ScriptGenrate";
 
-const page = () => {
+const Page = () => {
+  const userData = useUser();
+
+  const [accessToken, setAccessToken] = useState(null);
+  const [userApi, setUserApi] = useState(null);
+  const [disable, setDiable] = useState(false);
+  const [treePlanted, setTreePlanted] = useState(0);
+  const [climatePoints, setClimatePoints] = useState(0);
+
+  useEffect(() => {
+    const cookies = parseCookies();
+
+    const accessToken = cookies?.access_token;
+    if (!accessToken) {
+      redirect("/login");
+    } else {
+      setAccessToken(accessToken);
+    }
+    if (userData !== undefined) {
+      setUserApi(userData?.data.api_key);
+    }
+    if (userApi) {
+      const getTreeData = async () => {
+        try {
+          const apiUrl = `${process.env.API_URL}/user/tree-record?api_key=${userApi}`;
+          const response = await fetch(apiUrl, {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            if (data.status !== 200) {
+              // toast.error(data.message)
+              setDiable(false);
+            } else {
+              if (data.data.tree_planted) {
+                const treePlanted = data.data.tree_planted;
+
+                setTreePlanted(treePlanted);
+              }
+              if (data.data.climate_points) {
+                const climatePoints = data.data.climate_points;
+
+                setClimatePoints(climatePoints);
+              }
+              setDiable(false);
+            }
+          } else {
+            setDiable(false);
+          }
+        } catch (error) {
+          console.error("Request failed:", error.message);
+          setDiable(false);
+        }
+      };
+      getTreeData();
+    }
+  }, [userData, userApi]);
+
   const whyTreeWidget = [
     {
       icon: <NotificationsSvg className="w-4.5 lg:w-6 h-auto fill-green" />,
@@ -63,7 +129,7 @@ const page = () => {
             <div className="flex items-end">
               <div className="flex flex-col gap-1.5 lg:gap-3">
                 <h3 className="text-[22px] lg:text-[34px] text-black font-medium">
-                  3,254 trees
+                 {treePlanted} trees
                 </h3>
                 <p className="text-sm lg:text-lg text-black font-medium">
                   Planted With
@@ -76,11 +142,10 @@ const page = () => {
               />
             </div>
           </div>
-          <button className="w-fit rounded uppercase py-3 lg:py-4 px-18 lg:px-16 text-sm lg:text-base font-semibold lg:font-medium bg-green text-white">
-            generate code
-          </button>
+          { <ScriptGenrate userApi={userApi} />}
         </div>
       </div>
+      {/* { <ScriptGenrate userApi={userApi} />} */}
 
       <div className="grid grid-cols-2 gap-5">
         <div className="relative col-span-2 md:col-span-1 bg-[#ffffff]/70 flex flex-col gap-4 lg:gap-5 rounded-[20px] pt-4 lg:pt-5.5 pb-4 lg:pb-10 px-6 lg:px-8">
@@ -118,4 +183,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

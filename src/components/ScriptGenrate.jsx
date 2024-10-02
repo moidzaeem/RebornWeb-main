@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { FaCopy } from "react-icons/fa";
 import { FiCopy } from "react-icons/fi";
 
 const ScriptGenrate = ({ userApi }) => {
@@ -13,136 +12,131 @@ const ScriptGenrate = ({ userApi }) => {
       try {
         const scriptContent = `
            <style>
-  .tree-container {
-    background-color: #42b932;
-    padding: 20px;
-    margin: 20px auto;
-    border-radius: 5px;
-    max-width: 500px;
-    font-size: 30px;
-    color: white;
-    display: flex;
-    align-items: center;
-    font-family: sans-serif;
-    position: relative; /* Added */
-    overflow: hidden; /* Added */
-    cursor: pointer; /* Added */
-    transition: background-color 0.3s ease; /* Added */
-    border: 2px solid transparent; /* Added */
-    box-shadow: 2px 4px 8px #5c391a;
-  }
+              .tree-container {
+                  background-color: white;
+                  padding: 20px;
+                  margin: 20px auto;
+                  border-radius: 5px;
+                  max-width: 500px;
+                  font-size: 30px;
+                  color: black;
+                  display: flex;
+                  align-items: center;
+                  font-family: sans-serif;
+                  position: relative;
+                  overflow: hidden;
+                  cursor: pointer;
+                  transition: background-color 0.3s ease;
+                  border: 2px solid transparent;
+                  box-shadow: 2px 4px 8px #5c391a;
+              }
 
-  .tree-container:hover {
-    background-color: #2b7a21; /* Darker shade on hover */
-    border-color: #fff; /* Border color on hover */
-  }
+              .inner-container {
+                  align-items: center;
+                  justify-content: center;
+                  width: 100%;
+                  flex-direction: column;
+                  gap: 10px;
+                  margin-top: 20px;
+                  height: 50px;
+                  padding: 10px 0;
+              }
 
-  .inner-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    flex-direction: column;
-    gap: 10px;
-    line-height: 0px;
-    margin-top: 20px;
-    height: 50px;
-    padding: 10px 0;
-  }
+              .tree-image {
+                  width: 200px;
+              }
 
-  .tree-image {
-    width: 200px;
-  }
+              .tree-text {
+                  font-size: 18px;
+              }
 
-  .tree-text {
-    font-size: 18px;
-  }
-</style>
-            <script>
-                function fetchData() {
-                    fetch('${process.env.API_URL}/user/tree-record-api?api_key=${userApi}', {
-                        method: 'GET',
-                    })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        var divElement = document.createElement('div');
-                        var divInner = document.createElement('div');
-                        var imgEle = document.createElement('img');
-                        var p = document.createElement('p');
-                        
-                        divElement.classList.add('tree-container');
-                        divInner.classList.add('inner-container');
-                        imgEle.classList.add('tree-image');
-                        p.classList.add('tree-text');
-                        
-                        divInner.innerText = JSON.stringify(data.data !== undefined ? data.data.tree_planted : 0);
-                        imgEle.src = "https://reborngreen.fra1.cdn.digitaloceanspaces.com/general/Tree%20Widget.png";
-                        p.innerHTML = "Trees Planted";
-                        
-                        document.querySelector('body').appendChild(divElement);
-                        divElement.appendChild(imgEle);
-                        divInner.appendChild(p);
-                        divElement.appendChild(divInner);
-                    })
-                    .catch(error => {
-                        console.error('There was a problem fetching the data:', error);
-                    });
-                }
-                fetchData();
-            </script>
+              .tree-widget-class {
+                  justify-content: space-between;
+                  display: flex;
+                  width: 100%;
+              }
+
+              .tree-widget-class img {
+                  width: 50%;
+              }
+
+              .text-widget-container {
+                  display: flex;
+                  justify-content: space-between;
+              }
+
+              .text-widget-container img {
+                  width: 50%;
+              }
+           </style>
+           <script>
+               function fetchData() {
+                   fetch('${process.env.API_URL}/user/tree-record-api?api_key=${userApi}', {
+                       method: 'GET',
+                   })
+                   .then(response => {
+                       if (!response.ok) {
+                           throw new Error('Network response was not ok');
+                       }
+                       return response.json();
+                   })
+                   .then(data => {
+                       var divElement = document.createElement('div');
+                       var divInner = document.createElement('div');
+                       var textContainer = document.createElement('div');
+
+                       var imgEle = document.createElement('img');
+                       var p = document.createElement('p');
+                       var plantedWith = document.createElement('img');
+
+                       divElement.classList.add('tree-container');
+                       divInner.classList.add('inner-container');
+                       textContainer.classList.add('text-widget-container');
+                       imgEle.classList.add('tree-image');
+                       p.classList.add('tree-text');
+                       plantedWith.classList.add('tree-widget-class');
+
+                       divInner.innerText = (data.data !== undefined ? \`\${data.data.tree_planted} trees\` : '0 trees');
+                       imgEle.src = "https://reborngreen.fra1.cdn.digitaloceanspaces.com/general/Trees%20Planted%20Icon.png";
+                       p.innerText = "Planted With";
+                       plantedWith.src = 'https://reborngreen.fra1.cdn.digitaloceanspaces.com/general/logo.png';
+
+                       document.querySelector('body').appendChild(divElement);
+                       divElement.appendChild(imgEle);
+                       divElement.appendChild(divInner);
+                       divInner.appendChild(textContainer);
+                       textContainer.appendChild(p);
+                       textContainer.appendChild(plantedWith);
+                   })
+                   .catch(error => {
+                       console.error('There was a problem fetching the data:', error);
+                   });
+               }
+               fetchData();
+           </script>
         `;
 
         // Set the generated script content
         setGeneratedScript(scriptContent);
+
+        // Automatically copy the generated script
+        await navigator.clipboard.writeText(scriptContent);
+        toast.success("Script copied to clipboard!");
+
       } catch (error) {
         console.error("Request failed:", error.message);
       }
     }
   };
 
-  const copyScript = () => {
-    navigator.clipboard
-      .writeText(generatedScript)
-      .then(() => {
-        toast.success("Script copied to clipboard!");
-        setGeneratedScript("");
-      })
-      .catch((error) => {
-        toast.error("Failed to copy script:", error);
-      });
-  };
-
   return (
     <div className="flex items-center my-5 justify-center">
-      {generatedScript !== "" ? (
-        <div className="w-full  h-auto rounded-xl relative">
-          <textarea
-            name=""
-            value={generatedScript}
-            className="bg-dark  outline-none rounded-xl no-scrollbar text-white w-full min-h-[600px] resize-none"
-            id=""
-            readOnly
-          ></textarea>
-          <p
-            className="absolute cursor-pointer flex gap-2 text-sm top-5 right-5 text-[#ceb2b2]"
-            onClick={() => copyScript()}
-          >
-            <FiCopy className="text-white" size={20} /> copy Code
-          </p>
-        </div>
-      ) : (
-        <button
-          onClick={() => generateScript()}
-          className="px-8 py-4 bg-blue-800 text-white hover:bg-blue-900 rounded-md"
-        >
-          Generate Script
-        </button>
-      )}
+      <button
+        onClick={() => generateScript()}
+        className="w-fit rounded uppercase py-3 lg:py-4 px-18 lg:px-16 text-sm lg:text-base font-semibold lg:font-medium bg-green text-white"
+      >
+        Generate Code
+      </button>
     </div>
   );
 };

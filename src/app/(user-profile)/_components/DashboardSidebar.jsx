@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import UserSvg from "../../../assets/svg/UserSvg";
 import React from "react";
 import rebornLogo from "../../../../public/assets/logos/logo.png";
@@ -13,13 +13,17 @@ const DashboardSidebar = () => {
   const userData = useUser();
 
   const [name, setName] = useState("");
+  const [profileImage, setProfileImage] = useState("");
 
   useEffect(() => {
     const cookies = parseCookies();
     const name = cookies?.user_name;
-
     setName(name);
-
+    if (cookies?.profileImage) {
+      setProfileImage(
+        `https://backend.reborngreen.org/${cookies?.profileImage}`
+      );
+    }
     const accessToken = cookies?.access_token;
     if (!accessToken) {
       redirect("/login");
@@ -29,14 +33,26 @@ const DashboardSidebar = () => {
   return (
     <div className="bg-black h-full px-4 rounded-[20px] flex flex-col gap-4">
       <div className="mt-12 flex items-center gap-3.5">
-        <span className="p-3 bg-[#ffffff]/40 text-white rounded-full">
-          <UserSvg className="fill-white w-16 h-16" />
+        <span className="p-3 bg-white/40 text-white rounded-full">
+          {profileImage ? (
+            <Image
+              src={profileImage}
+              alt="Profile Image"
+              width={100}
+              height={100}
+              className="w-16 h-16 object-cover" // Use 'object-cover' for better image fitting
+            />
+          ) : (
+            <UserSvg className="w-16 h-16 fill-current text-white" />
+          )}
         </span>
         <div className="flex flex-col gap-1.5">
           <p className="capitalize text-xl text-white font-medium">{name}</p>
+          {/* Uncomment if you want to show the user role */}
           {/* <p className="uppercase text-xs text-white font-semibold">admin</p> */}
         </div>
       </div>
+
       <div className="flex flex-col gap-1.5">
         {RenderSiderBarOptions(sideBarOptions)}
         {/* {sideBarOptions.map((option) => (

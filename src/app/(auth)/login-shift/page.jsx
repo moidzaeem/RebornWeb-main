@@ -56,7 +56,7 @@ const Login = () => {
         if (response.data.status === 200) {
           toast.success(response.data.message);
           const { access, refresh } = response.data.data.tokens;
-          const { name } = response.data.data.user;
+          const { name,logo  } = response.data.data.user;
 
           setCookie(null, "access_token", access.token, {
             maxAge: 12 * 60 * 60, // 12 hours expiration
@@ -71,6 +71,13 @@ const Login = () => {
             httpOnly: false,
           });
           setCookie(null, "user_name", name, {
+            maxAge: 12 * 60 * 60, // 12 hours expiration
+            path: "/",
+            sameSite: "lax",
+            httpOnly: false,
+          });
+
+          setCookie(null, "profileImage", logo, {
             maxAge: 12 * 60 * 60, // 12 hours expiration
             path: "/",
             sameSite: "lax",

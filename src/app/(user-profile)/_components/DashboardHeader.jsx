@@ -21,6 +21,7 @@ const DashboardHeader = () => {
   const router = useRouter();
   const pathName = usePathname();
   const [name, setName] = useState("");
+  const [profileImage, setProfileImage] = useState("");
 
   const [open, setOpen] = React.useState(false);
 
@@ -34,6 +35,11 @@ const DashboardHeader = () => {
 
     setName(name);
 
+    if (cookies?.profileImage) {
+      setProfileImage(
+        `https://backend.reborngreen.org/${cookies?.profileImage}`
+      );
+    }
     const accessToken = cookies?.access_token;
     if (!accessToken) {
       redirect("/login");
@@ -92,16 +98,29 @@ const DashboardHeader = () => {
       </p>
       <div className="flex items-center gap-3.5 lg:gap-6">
         <div className="flex items-center gap-2">
-          <span className="p-2.5 bg-[#ffffff]/40 lg:bg-[#000000]/40 text-white rounded-full">
-            <UserSvg className="fill-current w-6 h-6" />
+          <span className="p-2.5 bg-white lg:bg-white/40 text-white rounded-full">
+            {profileImage ? (
+              <div className="w-12 h-12 rounded-full overflow-hidden">
+                <Image
+                  src={profileImage}
+                  alt="Reborn Logo"
+                  width={64}
+                  height={64}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            ) : (
+              <UserSvg className="fill-white w-16 h-16 rounded-full" />
+            )}
           </span>
           <div className="flex flex-col gap-2">
             <p className="text-base font-normal text-white lg:text-black capitalize">
-             {name}
+              {name}
             </p>
+            {/* Uncomment if you want to show the user role */}
             {/* <p className="text-[10px] text-[#14A800] font-semibold uppercase">
-              admin
-            </p> */}
+      admin
+    </p> */}
           </div>
         </div>
 
