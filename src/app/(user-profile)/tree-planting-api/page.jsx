@@ -44,7 +44,7 @@ const page = () => {
   return (
     <div className="w-full flex flex-col gap-4 lg:gap-5">
       <div className="bg-[#ffffff]/70 flex flex-col lg:flex-row items-center justify-between p-7.5 rounded-[20px] gap-4 lg:gap-10">
-        <h3 className="text-[34px] lg:text-[40px] text-green font-medium">
+        <h3 className="text-[34px] lg:text-[40px] text-green text-center md:text-left font-medium">
           Plant a Tree, Make a Difference
         </h3>
         <button className="bg-green flex items-center gap-2.5 px-8 lg:px-11 py-2.5 lg:py-3.5 rounded-lg text-white font-poppins">

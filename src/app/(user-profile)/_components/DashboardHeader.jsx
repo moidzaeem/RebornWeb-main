@@ -53,9 +53,19 @@ const DashboardHeader = () => {
       className="bg-black h-full w-72 p-6 flex flex-col gap-4"
     >
       <div className="mt-12 flex items-center gap-3.5">
-        <span className="p-3 bg-[#ffffff]/40 text-white rounded-full">
-          <UserSvg className="fill-current w-16 h-16" />
-        </span>
+        {profileImage ? (
+          <Image
+            src={profileImage}
+            alt="Profile Image"
+            width={100}
+            height={100}
+            className="w-16 h-16 object-cover rounded-full"
+          />
+        ) : (
+          <span className="bg-[#ffffff]/40 text-white rounded-full">
+            <UserSvg className="w-16 h-16 fill-current text-white" />
+          </span>
+        )}
         <div className="flex flex-col gap-1.5">
           <p className="capitalize text-xl text-white font-medium">{name}</p>
           {/* <p className="uppercase text-xs text-white font-semibold">admin</p> */}
@@ -98,21 +108,24 @@ const DashboardHeader = () => {
       </p>
       <div className="flex items-center gap-3.5 lg:gap-6">
         <div className="flex items-center gap-2">
-          <span className="p-2.5 bg-white lg:bg-white/40 text-white rounded-full">
-            {profileImage ? (
-              <div className="w-12 h-12 rounded-full overflow-hidden">
-                <Image
-                  src={profileImage}
-                  alt="Reborn Logo"
-                  width={64}
-                  height={64}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-            ) : (
+          {/* <span className="p-2.5 bg-white lg:bg-white/40 text-white rounded-full"> */}
+          {profileImage ? (
+            // <div className="w-12 h-12 rounded-full overflow-hidden">
+            <Image
+              src={profileImage}
+              alt="Reborn Logo"
+              width={64}
+              height={64}
+              // className="w-8.5 h-8.5 object-cover w-full h-full rounded-full"
+              className="w-8.5 h-8.5 md:w-13 md:h-13 object-cover rounded-full"
+            />
+          ) : (
+            // </div>
+            <span className="p-2.5 bg-white lg:bg-white/40 text-white rounded-full">
               <UserSvg className="fill-white w-16 h-16 rounded-full" />
-            )}
-          </span>
+            </span>
+          )}
+          {/* </span> */}
           <div className="flex flex-col gap-2">
             <p className="text-base font-normal text-white lg:text-black capitalize">
               {name}

@@ -204,30 +204,45 @@ const Page = () => {
   return (
     <div className="w-full flex flex-col gap-4 lg:gap-5">
       {/* ---| Current Subscription Card Mobile |--- */}
-      <div className="bg-[#ffffff]/70 relative lg:hidden flex flex-col items-center px-5 py-7 rounded-2xl gap-4">
-        <div className="absolute top-4 right-4 py-2 px-2.5 bg-[#14A800]/10 rounded text-[10px] text-green font-semibold">
-          Active
-        </div>
-        <div className="flex flex-col items-center gap-1">
-          <p className="text-xs text-black font-medium">Current Subscription</p>
-          <p className="text-[22px] text-green font-medium capitalize">
-            Reduce your footprint
-          </p>
-        </div>
-        <div className="w-full flex justify-between items-center">
-          <div className="flex items-center gap-4">
-            <p className="text-base text-black font-medium">
-              Start Date:
-              <br />
-              06/08/2024
-            </p>
-            <button className="bg-[#FF1D1D] py-2 px-5 text-[10px] text-white font-semibold rounded-md">
-              Cancel
-            </button>
+      {subscriptionData.map((subscription) => (
+        <div className="bg-[#ffffff]/70 relative lg:hidden flex flex-col items-center px-5 py-7 rounded-2xl gap-4">
+          <div className="absolute top-4 right-4 py-2 px-2.5 bg-[#14A800]/10 rounded text-[10px] text-green font-semibold">
+            {subscription.status === "active" ? "Active" : "Inactive"}
           </div>
-          <p className="text-[22px] text-green font-semibold">£15.50</p>
+          <div className="flex flex-col items-center gap-1">
+            {subscription.status === "active" && (
+              <p className="text-xs text-black font-medium">
+                Current Subscription
+              </p>
+            )}
+            <p className="text-[22px] text-green font-medium capitalize">
+              {subscription.title || "Reduce your footprint"}
+            </p>
+          </div>
+          <div className="w-full flex justify-between items-center">
+            <div className="flex items-center gap-4">
+              <p className="text-base text-black font-medium">
+                Start Date:
+                <br />
+                {new Date(subscription.createdAt).toLocaleDateString()}
+              </p>
+              {subscription.status === "active" && (
+                <button
+                  onClick={() => handleCancel(subscription.id)}
+                  className="bg-[#FF1D1D] py-2 px-5 text-[10px] text-white font-semibold rounded-md"
+                >
+                  Cancel
+                </button>
+              )}
+            </div>
+            <p className="text-[22px] text-green font-semibold">
+              {subscription.price}
+              {/* £15.50 */}
+            </p>
+          </div>
         </div>
-      </div>
+      ))}
+
       {/* ---| Current Subscription Card Laptop |--- */}
       {subscriptionData.map((subscription, index) => (
         <div
@@ -259,14 +274,14 @@ const Page = () => {
               <p className="text-xl text-green font-semibold">
                 {subscription.price} {/* Assuming a price field */}
               </p>
-              {subscription.status === "active"?
-              
-              <button
-                className="bg-[#FF1D1D]/10 hover:bg-[#FF1D1D] text-[#FF1D1D] hover:text-white py-2 px-4.5 text-base font-semibold rounded-md"
-                onClick={() => handleCancel(subscription.id)} // Assuming you have a function to handle cancellation
-              >
-                Cancel
-              </button>: null}
+              {subscription.status === "active" ? (
+                <button
+                  onClick={() => handleCancel(subscription.id)} // Assuming you have a function to handle cancellation
+                  className="bg-[#FF1D1D]/10 hover:bg-[#FF1D1D] text-[#FF1D1D] hover:text-white py-2 px-4.5 text-base font-semibold rounded-md"
+                >
+                  Cancel
+                </button>
+              ) : null}
             </div>
           </div>
         </div>
