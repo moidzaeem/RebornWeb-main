@@ -204,8 +204,8 @@ const Page = () => {
   return (
     <div className="w-full flex flex-col gap-4 lg:gap-5">
       {/* ---| Current Subscription Card Mobile |--- */}
-      {subscriptionData.map((subscription) => (
-        <div className="bg-[#ffffff]/70 relative lg:hidden flex flex-col items-center px-5 py-7 rounded-2xl gap-4">
+      {subscriptionData.map((subscription, index) => (
+        <div key={index} className="bg-[#ffffff]/70 relative lg:hidden flex flex-col items-center px-5 py-7 rounded-2xl gap-4">
           <div className="absolute top-4 right-4 py-2 px-2.5 bg-[#14A800]/10 rounded text-[10px] text-green font-semibold">
             {subscription.status === "active" ? "Active" : "Inactive"}
           </div>

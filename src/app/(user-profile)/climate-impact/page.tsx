@@ -77,12 +77,13 @@ const Page = () => {
   }, [userData, userApi]);
 
   const contributions = [
-    <AffordableAndCleanEnergySvg className="w-16 md:w-28 -16 md:h-28" />,
-    <DecentWorkAndEconomicGrowthSvg className="w-16 md:w-28 -16 md:h-28" />,
-    <ClimateActionSvg className="w-16 md:w-28 -16 md:h-28" />,
-    <LifeBelowWaterSvg className="w-16 md:w-28 -16 md:h-28" />,
-    <LifeOnLandSvg className="w-16 md:w-28 -16 md:h-28" />,
+    <AffordableAndCleanEnergySvg key="affordable-clean-energy" className="w-16 md:w-28 -16 md:h-28" />,
+    <DecentWorkAndEconomicGrowthSvg key="decent-work-economic-growth" className="w-16 md:w-28 -16 md:h-28" />,
+    <ClimateActionSvg key="climate-action" className="w-16 md:w-28 -16 md:h-28" />,
+    <LifeBelowWaterSvg key="life-below-water" className="w-16 md:w-28 -16 md:h-28" />,
+    <LifeOnLandSvg key="life-on-land" className="w-16 md:w-28 -16 md:h-28" />,
   ];
+  
   // const contributions = [
   //   {
   //     number: 7,
@@ -189,7 +190,7 @@ const Page = () => {
             Your Contribution to the SDGs
           </p>
           <div className="mt-4.5 lg:mt-7 flex gap-1.5 lg:gap-3">
-            {contributions.map((contribution) => (
+            {contributions.map((contribution, index) => (
               <>{contribution}</>
             ))}
             {/* {contributions.map((contribution, index) => (
