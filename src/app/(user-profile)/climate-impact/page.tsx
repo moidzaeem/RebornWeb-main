@@ -4,11 +4,16 @@ import React from "react";
 import treesPlantedIcon from "../../../../public/assets/images/Trees Planted Icon.png";
 import Image from "next/image";
 import co2Offset from "../../../../public/assets/images/CO2-Offset.png";
-import AffordableAndCleanEnergySvg from "../../../assets/svg/AffordableAndCleanEnergySvg";
-import DecentWorkAndEconomicGrowthSvg from "../../../assets/svg/DecentWorkAndEconomicGrowthSvg";
-import ClimateActionSvg from "../../../assets/svg/ClimateActionSvg";
-import LifeBelowWaterSvg from "../../../assets/svg/LifeBelowWaterSvg";
-import LifeOnLandSvg from "../../../assets/svg/LifeOnLandSvg";
+import AffordableAndCleanEnergySvg from "@/assets/svg/AffordableAndCleanEnergySvg";
+import AffordableAndCleanEnergyLockedSvg from "@/assets/svg/AffordableAndCleanEnergyLockedSvg";
+import DecentWorkAndEconomicGrowthSvg from "@/assets/svg/DecentWorkAndEconomicGrowthSvg";
+import DecentWorkAndEconomicGrowthLockedSvg from "@/assets/svg/DecentWorkAndEconomicGrowthLockedSvg";
+import ClimateActionSvg from "@/assets/svg/ClimateActionSvg";
+import ClimateActionLockedSvg from "@/assets/svg/ClimateActionLockedSvg";
+import LifeBelowWaterSvg from "@/assets/svg/LifeBelowWaterSvg";
+import LifeBelowWaterLockedSvg from "@/assets/svg/LifeBelowWaterLockedSvg";
+import LifeOnLandSvg from "@/assets/svg/LifeOnLandSvg";
+import LifeOnLandLockedSvg from "@/assets/svg/LifeOnLandLockedSvg";
 import { useEffect, useState } from "react";
 import { parseCookies } from "nookies";
 import { redirect } from "next/navigation";
@@ -41,9 +46,7 @@ const Page = () => {
           const apiUrl = `${process.env.API_URL}/user/tree-record?api_key=${userApi}`;
           const response = await fetch(apiUrl, {
             method: "GET",
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
+            headers: { Authorization: `Bearer ${accessToken}` },
           });
 
           if (response.ok) {
@@ -54,12 +57,10 @@ const Page = () => {
             } else {
               if (data.data.tree_planted) {
                 const treePlanted = data.data.tree_planted;
-
                 setTreePlanted(treePlanted);
               }
               if (data.data.climate_points) {
                 const climatePoints = data.data.climate_points;
-
                 setClimatePoints(climatePoints);
               }
               setDiable(false);
@@ -76,14 +77,63 @@ const Page = () => {
     }
   }, [userData, userApi]);
 
+  const showContribution = treePlanted && climatePoints > 0;
+
   const contributions = [
-    <AffordableAndCleanEnergySvg key="affordable-clean-energy" className="w-16 md:w-28 -16 md:h-28" />,
-    <DecentWorkAndEconomicGrowthSvg key="decent-work-economic-growth" className="w-16 md:w-28 -16 md:h-28" />,
-    <ClimateActionSvg key="climate-action" className="w-16 md:w-28 -16 md:h-28" />,
-    <LifeBelowWaterSvg key="life-below-water" className="w-16 md:w-28 -16 md:h-28" />,
-    <LifeOnLandSvg key="life-on-land" className="w-16 md:w-28 -16 md:h-28" />,
+    climatePoints > 0 ? (
+      <AffordableAndCleanEnergySvg
+        key="affordable-clean-energy"
+        className="w-16 md:w-28 -16 md:h-28"
+      />
+    ) : (
+      <AffordableAndCleanEnergyLockedSvg
+        key="affordable-clean-energy"
+        className="w-16 md:w-28 -16 md:h-28"
+      />
+    ),
+    showContribution ? (
+      <DecentWorkAndEconomicGrowthSvg
+        key="decent-work-economic-growth"
+        className="w-16 md:w-28 -16 md:h-28"
+      />
+    ) : (
+      <DecentWorkAndEconomicGrowthLockedSvg
+        key="decent-work-economic-growth"
+        className="w-16 md:w-28 -16 md:h-28"
+      />
+    ),
+    showContribution ? (
+      <ClimateActionSvg
+        key="climate-action"
+        className="w-16 md:w-28 -16 md:h-28"
+      />
+    ) : (
+      <ClimateActionLockedSvg
+        key="climate-action"
+        className="w-16 md:w-28 -16 md:h-28"
+      />
+    ),
+    showContribution ? (
+      <LifeBelowWaterSvg
+        key="life-below-water"
+        className="w-16 md:w-28 -16 md:h-28"
+      />
+    ) : (
+      <LifeBelowWaterLockedSvg
+        key="life-below-water"
+        className="w-16 md:w-28 -16 md:h-28"
+      />
+    ),
+    showContribution ? (
+      <LifeOnLandSvg key="life-on-land" className="w-16 md:w-28 -16 md:h-28" />
+    ) : (
+      <LifeOnLandLockedSvg
+        key="life-on-land"
+        className="w-16 md:w-28 -16 md:h-28"
+      />
+    ),
   ];
-  
+
   // const contributions = [
   //   {
   //     number: 7,
@@ -191,7 +241,9 @@ const Page = () => {
           </p>
           <div className="mt-4.5 lg:mt-7 flex gap-1.5 lg:gap-3">
             {contributions.map((contribution, index) => (
-              <>{contribution}</>
+              <div className="svg-background" key={contribution.key}>
+                {contribution}
+              </div>
             ))}
             {/* {contributions.map((contribution, index) => (
               <div

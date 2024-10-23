@@ -8,6 +8,7 @@ import RenderSiderBarOptions from "@/app/(user-profile)/_components/RenderSiderB
 import { useEffect, useState } from "react";
 import { useUser } from "../../../../lib/UserConext";
 import { parseCookies } from "nookies";
+import { redirect } from "next/navigation";
 
 const DashboardSidebar = () => {
   const userData = useUser();

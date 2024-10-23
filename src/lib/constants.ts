@@ -4,7 +4,7 @@ export const sideBarOptions = [
   { label: "Certificate & Green Rewards", link: "/certificate" },
   {
     label: "Integrations",
-    link: "",
+    link: "/tree-widget",
     children: [
       { label: "Tree Widget", link: "/tree-widget" },
       { label: "Tree Planting API", link: "/tree-planting-api" },

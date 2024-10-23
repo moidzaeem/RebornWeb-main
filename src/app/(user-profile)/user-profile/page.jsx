@@ -113,7 +113,7 @@ const Page = () => {
               </p>
               <p className="text-[10px] lg:text-[13px] text-black font-medium">
                 You've planted {treePlanted}. These trees will absorb{" "}
-                {(treePlanted * 0.1096).toFixed(3) } tonnes of CO2 throughout their lifetime.
+                {treePlanted * 0.1096} tonnes of CO2 throughout their lifetime.
               </p>
             </div>
           </div>
@@ -129,8 +129,7 @@ const Page = () => {
               </p>
               <p className="text-[10px] lg:text-[13px] text-black font-medium">
                 You have offset {climatePoints} tonnes of CO2 by supporting
-                verified carbon projects around the world. ({climatePoints}{" "}
-                tonnes from additional carbon credits)
+                verified carbon projects around the world.
               </p>
             </div>
           </div>
@@ -147,7 +146,7 @@ const Page = () => {
             Equivalent Car Emissions
           </p>
           <p className="mt-4 text-[13px] text-black font-medium text-center">
-            By offsetting {(treePlanted * 0.1096 + climatePoints).toFixed(3)}{" "}
+            Offsetting {(treePlanted * 0.1096 + climatePoints).toFixed(3)}{" "}
             tonnes of CO2 is like taking a car off the road for about{" "}
             {((treePlanted * 0.1096 + climatePoints) / 0.408).toFixed(3)}{" "}
             kilometers (
