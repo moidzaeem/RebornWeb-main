@@ -76,9 +76,13 @@ const page = () => {
           <p className="mt-4 lg:mt-5 text-[13px] lg:text-lg text-black font-medium text-center">
             Our API is designed for hassle-free implementation.
           </p>
-          <button className="mt-4 bg-green flex items-center gap-2.5 px-8 lg:px-11 py-2.5 lg:py-3.5 rounded-lg text-white font-poppins">
+          <Link
+            target="_blank"
+            href="https://reborngreen.stoplight.io"
+            className="mt-4 bg-green flex items-center gap-2.5 px-8 lg:px-11 py-2.5 lg:py-3.5 rounded-lg text-white font-poppins"
+          >
             API documentation
-          </button>
+          </Link>
         </div>
       </div>
       <div className="grid grid-cols-12 gap-4 lg:gap-5">

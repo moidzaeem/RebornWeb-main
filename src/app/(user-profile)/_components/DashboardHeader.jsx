@@ -3,7 +3,7 @@ import LogoutSvg from "@/assets/svg/LogoutSvg";
 import NotificationsSvg from "@/assets/svg/NotificationsSvg";
 import MenuLeftAltSvg from "@/assets/svg/MenuLeftAltSvg";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { redirect, usePathname, useRouter } from "next/navigation";
 import { destroyCookie, parseCookies } from "nookies";
 import React from "react";
 import { Box, Drawer } from "@mui/material";

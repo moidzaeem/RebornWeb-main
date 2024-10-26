@@ -11,6 +11,6 @@ export const sideBarOptions = [
     ],
   },
   { label: "Subscriptions", link: "/subscriptions" },
-  // { label: "Purchase History", link: "/purchase-history" },
+  { label: "Purchase History", link: "/purchase-history" },
   { label: "Settings", link: "/settings" },
 ];

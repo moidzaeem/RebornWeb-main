@@ -6,8 +6,22 @@ import React, { useEffect, useState } from "react";
 import { useUser } from "../../../../lib/UserConext";
 import axios from "axios";
 import EditSvg from "@/assets/svg/EditSvg";
+import { Box, Modal } from "@mui/material";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  bgcolor: "background.paper",
+  boxShadow: 24,
+  borderRadius: "20px",
+  p: 4,
+};
 
 const Page = () => {
+  const [openModal, setOpenModal] = React.useState(false);
+
   const userData = useUser();
   const [userInfor, setUserInfor] = useState({
     name: "",
@@ -130,14 +144,34 @@ const Page = () => {
           Save
         </button>
       </form>
-      {/* <div className="w-full bg-white flex flex-col items-center px-5 lg:px-8 py-7 lg:py-9 lg:max-w-3xl rounded-[20px] gap-4 lg:gap-5">
+      <div className="w-full bg-white flex flex-col items-center px-5 lg:px-8 py-7 lg:py-9 lg:max-w-3xl rounded-[20px] gap-4 lg:gap-5">
         <h6 className="text-base lg:text-xl text-black font-semibold">
           Delete Account
         </h6>
-        <button className="w-fit rounded py-3 lg:py-4 px-12 lg:px-24 text-xs lg:text-base font-medium bg-[#FF1D1D] text-white">
+        <button
+          onClick={() => setOpenModal(true)}
+          className="w-fit rounded py-3 lg:py-4 px-12 lg:px-24 text-xs lg:text-base font-medium bg-[#FF1D1D] text-white"
+        >
           Delete Account
         </button>
-      </div> */}
+        <Modal open={openModal} onClose={(prev) => setOpenModal(!prev)}>
+          <Box sx={style}>
+            <div className="flex flex-col gap-5 items-center">
+              <h6 className="text-xl">
+                Are you sure you want to delete your account?
+              </h6>
+              <div className="flex gap-4">
+                <button className="w-fit rounded py-2 px-5 text-sm lg:text-base font-semibold lg:font-medium bg-black text-white">
+                  Cancel
+                </button>
+                <button className="w-fit rounded py-2 px-5 text-xs lg:text-base font-medium bg-[#FF1D1D] text-white">
+                  Delete Account
+                </button>
+              </div>
+            </div>
+          </Box>
+        </Modal>
+      </div>
     </div>
   );
 };
