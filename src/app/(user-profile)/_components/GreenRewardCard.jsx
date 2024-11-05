@@ -22,6 +22,8 @@ const GreenRewardCard = (props) => {
         detail={detail}
         openModal={openModal}
         setOpenModal={(prev) => setOpenModal(!prev)}
+        buttonText={buttonText}
+        disabled={disabled}
       />
       <Image
         src={imageSrc}
