@@ -1,5 +1,4 @@
 "use client";
-import TracingBeam from "@/components/TracingBeam";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
@@ -11,45 +10,53 @@ import Image from "next/image";
 import ArrowUpSvg from "@/assets/svg/ArrowUpSvg";
 import ArrowDownSvg from "@/assets/svg/ArrowDownSvg";
 import carbonOffsetImg from "../../../../public/Untitled-design-2024-05-15T170119.931.png";
-import ProjectsCard from "@/components/ProjectsCard";
 import { FaBalanceScale, FaLeaf, FaRecycle } from "react-icons/fa";
 import { Helmet } from "react-helmet";
-import TextCard from "@/components/TextCard";
+import netZeroImg from "../../../../public/assets/carbon-offset/Guide-Carbon-reduction.png";
+import EnergyUsageAuditSvg from "@/assets/svg/EnergyUsageAuditSvg";
+import RenewableEnergyTransitionSvg from "@/assets/svg/RenewableEnergyTransitionSvg";
+import TeamSustainabilityInitiativesSvg from "@/assets/svg/TeamSustainabilityInitiativesSvg";
+import ProductLifecycleOptimizationSvg from "@/assets/svg/ProductLifecycleOptimizationSvg";
+import CreateYourModalPlan from "@/components/CreateYourModalPlan";
 
 const items = [
   {
+    icon: <EnergyUsageAuditSvg className="w-24 h-24" />,
     title: "Energy Efficiency Audits",
-    content: `Identify areas for improvement in your facilities and implement energy-saving upgrades like LED lighting or smart thermostats.`,
+    content: `Every ton of carbon saved counts. Start by auditing your energy use and making efficiency upgrades to reduce consumption.`,
   },
   {
-    title: "Renewable Energy Procurement",
-    content: `Invest in renewable energy sources like solar or wind power to reduce reliance on fossil fuels.`,
+    icon: <RenewableEnergyTransitionSvg className="w-24 h-24" />,
+    title: "Renewable Energy Transition",
+    content: `Switching to renewable sources reduces your dependence on fossil fuels and accelerates your journey to net zero.`,
   },
   {
-    title: "Employee Engagement",
-    content: `Encourage eco-conscious behaviors among employees by promoting carpooling, and energy-saving practices in the workplace.`,
+    icon: <TeamSustainabilityInitiativesSvg className="w-24 h-24" />,
+    title: "Team Sustainability Initiatives",
+    content: `Motivate employees to actively reduce waste and energy consumption through company-wide sustainability programs.`,
   },
   {
-    title: "Circular Economy Principles",
-    content: `Embrace practices like product lifecycle optimization, waste reduction, and responsible recycling.`,
+    icon: <ProductLifecycleOptimizationSvg className="w-24 h-24" />,
+    title: "Product Lifecycle Optimization",
+    content: `Focus on reducing emissions by optimizing your products’ lifecycle—from production to recycling.`,
   },
 ];
 
 const howItWorksItems = [
   {
     icon: calculatePng,
-    title: `Calculate your carbon footprint`,
-    description: `Estimate the total amount of greenhouse gases your activities produce. Contact us to obtain your emissions report.`,
+    title: `Achieve Climate Neutrality`,
+    description: `Set or maintain your climate neutrality goals. Offset 100% of your emissions and achieve climate neutrality with confidence. At RebornGreen, we deliver a standards-compliant portfolio tailored to your targets, fully aligned with ISO 14068.`,
   },
   {
     icon: supprotPng,
-    title: `Support projects that reduce or remove CO2`,
-    description: `By purchasing carbon credits, you invest in initiatives like renewable energy generation, forest conservation, or carbon avoidance. These projects actively counteract your emissions, creating a net positive impact. You can purchase high-quality carbon credits from the RebornGreen platform.`,
+    title: `Remove Carbon for Net Zero`,
+    description: `Eliminate unavoidable emissions to meet your net zero goals in alignment with SBTi or other industry standards. Purchase carbon removals today or plan strategically for future reductions. `,
   },
   {
     icon: reducePng,
-    title: `Reduce your impact whenever possible`,
-    description: `Reduce your impact whenever possible: Remember, offsetting is most effective when combined with efforts to minimize emissions at the source. Consider eco-friendly alternatives for travel, reduce energy consumption at home, and embrace sustainable practices in your daily life.`,
+    title: `Achieve Impact with Custom Solutions`,
+    description: `Our experts work closely with you to design a carbon reduction strategy that aligns with your company’s vision and long-term sustainability goals. Together, we ensure your efforts make a real and measurable impact.`,
   },
 ];
 
@@ -90,6 +97,7 @@ const projCardData = [
 
 const Page = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [openModal, setOpenModal] = useState(false);
 
   const handleToggle = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -158,52 +166,53 @@ const Page = () => {
         <div className="w-full h-full absolute top-0 left-0 bg-black opacity-50 z-0"></div>
       </div>
 
-      {/* Section 1.2 */}
-      <section className="bg-white">
-        <div className="w-full max-w-[1800px] my-[40px] px-[30px] lg:px-[60px] xll:px-[120px] py-[2rem] mx-auto">
-          <motion.div
-            initial={{ y: 200, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ type: "tween", duration: 0.5 }}
-            className="flex gap-15 flex-col lg:flex-row my-20 items-center justify-center"
-          >
-            <div className="w-full mt-8 lg:mt-0 items-center justify-center ">
-              <div className="text-center">
-                <h1 className="font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]">
-                  Net Zero Starts with
-                  <span className="font-bold text-[#14a800]"> Less</span>
-                </h1>
-                <p className="w-full leading-5 tracking-normal font-worksans text-black-text text-sm xsm:text-base">
-                Achieving net zero emissions requires a two-pronged approach: reducing your carbon footprint and offsetting the remainder. At RebornGreen, we believe in prioritizing emission reduction as the cornerstone of sustainability
-                </p>
-              </div>
-
-              {/* <div>
-                  <h3 className="w-fit font-black text-center lg:text-left mb-[20px] font-poppins text-[25px] xsm:text-[30px] lg:text-[35px] xll:text-[40px] text-[#223645] border-b-8 border-b-green">
-                    Minimize emissions first
-                  </h3>
-                  <p className="leading-[30px] text-sm sm:text-[16px] font-worksans tracking-wide text-black-text">
-                    The journey to net zero emissions requires a collaborative
-                    effort, and businesses play a crucial role. Focusing on
-                    reduction is the cornerstone of achieving net zero. Every
-                    ton of CO2 your company avoids releasing translates to a
-                    significant positive impact.
-                  </p>
-                </div> */}
+      <div className="w-full max-w-[1800px] my-[40px] px-[30px] lg:px-[60px] xll:px-[120px] py-[2rem] mx-auto">
+        <motion.div
+          initial={{ y: 200, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ type: "tween", duration: 0.5 }}
+          className={`flex gap-15 flex-col lg:flex-row my-20 items-center justify-center`}
+        >
+          <div className="w-full mt-8 lg:mt-0 xsm:w-10/12 lg:flex-1 flex items-center justify-center flex-col">
+            <div className="w-full xsm:w-10/12 lg:flex-1 flex items-center text-center lg:text-start lg:items-start  justify-center flex-col">
+              <h3 className=" text-center lg:text-left mb-[20px] font-poppins text-[25px] xsm:text-[30px] lg:text-[35px] xll:text-[40px] font-[500] text-green">
+                Net Zero Starts with Less!
+              </h3>
+              <p className="leading-[30px] text-sm sm:text-[16px]  font-worksans tracking-wide text-black-text">
+                At RebornGreen, we encourage our customers to prioritize
+                reducing emissions. We offer support, guidance, and services to
+                help you get started.{" "}
+                <Link href="/contact" className="text-green">
+                  Contact us
+                </Link>{" "}
+                to receive our step by step guide.
+              </p>
             </div>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+          <Image
+            src={netZeroImg}
+            width={700}
+            height={500}
+            alt="netZeroImg"
+            loading="lazy"
+            className=" rounded-lg w-full sm:w-[80%] mdd:w-[50%] h-auto"
+          />
+        </motion.div>
+      </div>
 
       <section className="w-full bg-[#f6f6f6] mt-10 max-w-[1800px] mb-[60px]  px-[30px] lg:px-[60px] xll:px-[120px] py-[4rem] mx-auto">
         <h1 className="text-center mb-[20px] font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]">
-          <span className="font-bold text-[#14a800]">Minimize Emissions  </span>
-          First
+          <span className="font-bold text-[#14a800]">Every Tone </span>
+          Matters
         </h1>
         <div className="flex gap-6 flex-wrap items-center justify-center">
           {items?.map((item, index) => (
-            <div key={index} className=" w-full xsm:w-[90%] flex items-center justify-between bg-white duration-500 hover:scale-110 md:w-[48%] xlg:w-[20%] xll:w-[20%] h-full rounded-xl shadow-lg border min-h-[420px]">
+            <div
+              key={index}
+              className=" w-full xsm:w-[90%] flex items-center justify-between bg-white duration-500 hover:scale-110 md:w-[48%] xlg:w-[20%] xll:w-[20%] h-full rounded-xl shadow-lg border min-h-[420px]"
+            >
               <div className="gap-y-5 text-center w-full h-full rounded-xl flex items-center justify-center flex-col  p-4">
+                {item.icon}
                 {/* <Image src={img} alt="card image" width={90} height={90} /> */}
                 <div>
                   <h2 className="text-dark text-lg xsm:text-2xl font-worksans font-semibold">
@@ -212,12 +221,22 @@ const Page = () => {
                   <p className="text-base text-black-text font-poppins mt-3">
                     {item.content}
                   </p>
-                 
                 </div>
               </div>
             </div>
           ))}
         </div>
+        <p className="text-base text-black-tex font-poppins mt-12 text-center">
+          Tell us more about your business, and we'll create a personalized
+          carbon reduction plan to help you make every ton count.{" "}
+        </p>
+        <button onClick={() => setOpenModal(true)} className="btn mt-5 mx-auto">
+          Create your plan
+        </button>
+        <CreateYourModalPlan
+          openModal={openModal}
+          setOpenModal={(prev) => setOpenModal(!prev)}
+        />
       </section>
 
       {/* accordions */}
@@ -281,10 +300,11 @@ const Page = () => {
       </section> */}
 
       <div style={{ height: 100 }} />
-      <h2 className="text-center text-2xl lg:text-4xl font-light mb-10">
+      <h1 className="text-center mb-[20px] font-poppins text-[30px] xsm:text-[40px] lg:text-[55px] xll:text-[60px] font-[500] text-[#3d3d3d]">
         Can&#39;t Avoid It? Offset It!{" "}
-        <span className="text-[#5BE565] font-bold">The Sustainable Way</span>
-      </h2>
+        <span className="font-bold text-[#14a800]">The Sustainable Way</span>
+      </h1>
+
       <div style={{ height: 40 }} />
       {/* image with 3 grid */}
       <section
@@ -420,22 +440,20 @@ const Page = () => {
             <div className="  w-full mt-8 lg:mt-0 xsm:w-10/12 lg:flex-1  flex items-center justify-center flex-col">
               <div className="w-full xsm:w-10/12 lg:flex-1 flex items-center text-center lg:text-start lg:items-start  justify-center flex-col">
                 <h3 className=" text-center lg:text-left mb-[20px] font-poppins text-[25px] xsm:text-[30px] lg:text-[35px] xll:text-[40px] font-[500] text-green">
-                Investing in
-                A Sustainable Future
+                  Investing in A Sustainable Future
                 </h3>
                 <p className="leading-[30px] text-sm sm:text-[16px]  font-worksans tracking-wide text-black-text">
-                Carbon offsetting is a way for businesses and individuals to
-                    address the greenhouse gas emissions they can’t eliminate
-                    through their operations. It allows you to balance your
-                    environmental impact by supporting projects that actively
-                    reduce or remove carbon dioxide from the atmosphere.
+                  Carbon offsetting is a way for businesses and individuals to
+                  address the greenhouse gas emissions they can’t eliminate
+                  through their operations. It allows you to balance your
+                  environmental impact by supporting projects that actively
+                  reduce or remove carbon dioxide from the atmosphere.
                 </p>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
-
 
       {/* <section className="bg-[#F9F9F9]">
         <div className="w-full max-w-[1800px] my-[40px] px-[30px] lg:px-[60px] xll:px-[120px] py-[2rem] mx-auto">
