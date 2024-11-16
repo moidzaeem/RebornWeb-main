@@ -21,7 +21,7 @@ const style = {
 };
 
 const GreenRewardModal = (props) => {
-  const { imageSrc, title, detail, openModal, setOpenModal } = props;
+  const { imageSrc, title, detail, openModal, setOpenModal,buttonText,disabled } = props;
 
   return (
     <Modal open={openModal} onClose={setOpenModal}>
@@ -38,10 +38,12 @@ const GreenRewardModal = (props) => {
           <p className="text-sm lg:text-lg text-black font-medium text-center md:min-h-45 lg:min-h-91 xl:min-h-56 xll:min-h-36">
             {detail}
           </p>
-          <button className="w-full flex justify-center items-center gap-2 bg-[#9C9C9C] text-sm lg:text-base text-white font-medium p-2.5 lg:p-3 rounded">
-            <LockSvg className="fill-current" /> Unlock at 500 tons of CO2
-            avoided
-          </button>
+          <button
+        disabled={disabled}
+        className="w-full flex justify-center items-center gap-2 bg-green disabled:cursor-not-allowed disabled:bg-[#9C9C9C] text-sm lg:text-base text-white font-medium p-2.5 lg:p-3 rounded"
+      >
+        {buttonText}
+      </button>
         </div>
       </Box>
     </Modal>

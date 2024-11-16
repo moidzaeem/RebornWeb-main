@@ -122,7 +122,7 @@ const page = () => {
         {/* <p className="text-black">Coming Soon</p> */}
       </div>
 
-      <DownloadCertificate />
+      {/* <DownloadCertificate /> */}
 
       <div className="bg-[#ffffff]/70 flex flex-col px-5 lg:px-11 py-7 lg:py-11 rounded-[20px] gap-4 lg:gap-7">
         <h3 className="text-[34px] lg:text-[44px] text-green font-medium text-center">

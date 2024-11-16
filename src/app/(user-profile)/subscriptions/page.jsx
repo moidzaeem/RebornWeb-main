@@ -287,7 +287,7 @@ const Page = () => {
         </div>
       ))}
 
-      {/* <div className="bg-[#ffffff]/70 flex flex-col items-center py-7 lg:py-9 px-5 md:px-10 xl:px-20 rounded-[20px]">
+      <div className="bg-[#ffffff]/70 flex flex-col items-center py-7 lg:py-9 px-5 md:px-10 xl:px-20 rounded-[20px]">
         <h3 className="text-[34px] lg:text-[44px] text-green font-medium">
           Monthly Subscription
         </h3>
@@ -392,7 +392,7 @@ const Page = () => {
             </div>
           ))}
         </div>
-        <div className="mt-4 w-full bg-white flex flex-col lg:flex-row lg:justify-between items-center rounded-[10px] gap-4 p-5">
+        {/* <div className="mt-4 w-full bg-white flex flex-col lg:flex-row lg:justify-between items-center rounded-[10px] gap-4 p-5">
           <p className="text-base font-semibold text-[#0A033C]">
             Select a custom number of trees you will like to plant per month
           </p>
@@ -415,7 +415,7 @@ const Page = () => {
               </MenuItem>
             ))}
           </Select>
-        </div>
+        </div> */}
         <div className="mt-5 lg:mt-8 w-full grid grid-cols-2 md:grid-cols-3 items-center gap-6 lg:gap-12">
           <div className="col-span-1 md:col-span-2 flex items-center md:gap-7.5">
             <h3 className="min-w-fit text-[28px] lg:text-[45px] text-green font-semibold">
@@ -435,7 +435,7 @@ const Page = () => {
           Feel great about your contribution! 100% of your support goes towards
           climate impact and other projects dedicated to our planet.
         </p>
-      </div> */}
+      </div>
     </div>
   );
 };
