@@ -34,6 +34,7 @@ module.exports = {
         45: "11.25rem",
         63: "15.75rem",
         91: "22.75rem",
+        122: "30.5rem",
       },
       gridTemplateColumns: {
         "3f": "repeat(3, 1fr)",

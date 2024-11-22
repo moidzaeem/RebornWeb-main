@@ -17,7 +17,7 @@ const CreateYourModalPlan = (props) => {
   return (
     <Modal open={openModal} onClose={setOpenModal}>
       <Box sx={style}>
-        <form className="w-[85vw] md:w-[55vw] flex-col flex items-centerjustify-center max-h-[75vh] overflow-auto sm:w-10/12 mdd:flex-1 gap-5">
+        <form className="w-[85vw] md:w-[55vw] flex-col flex items-center justify-center max-h-[75vh] overflow-auto sm:w-10/12 mdd:flex-1 gap-5">
           <div className="flex flex-col gap-1">
             <label className="font-Montserrat  font-semibold">
               Business Name *

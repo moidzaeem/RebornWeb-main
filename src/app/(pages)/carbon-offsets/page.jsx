@@ -2,10 +2,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
-import ArrowLeftSvg from "@/assets/svg/ArrowLeftSvg";
-import calculatePng from "../../../../public/calculate.png";
-import supprotPng from "../../../../public/supprot.png";
-import reducePng from "../../../../public/reduce.png";
+// import ArrowLeftSvg from "@/assets/svg/ArrowLeftSvg";
 import Image from "next/image";
 import ArrowUpSvg from "@/assets/svg/ArrowUpSvg";
 import ArrowDownSvg from "@/assets/svg/ArrowDownSvg";
@@ -18,6 +15,15 @@ import RenewableEnergyTransitionSvg from "@/assets/svg/RenewableEnergyTransition
 import TeamSustainabilityInitiativesSvg from "@/assets/svg/TeamSustainabilityInitiativesSvg";
 import ProductLifecycleOptimizationSvg from "@/assets/svg/ProductLifecycleOptimizationSvg";
 import CreateYourModalPlan from "@/components/CreateYourModalPlan";
+import OneSvg from "@/assets/svg/OneSvg";
+import TwoSvg from "@/assets/svg/TwoSvg";
+import ThreeSvg from "@/assets/svg/ThreeSvg";
+import enhancedWeathering from "@/assets/images/Enhanced-Weathering.png";
+import renewableEnergy from "@/assets/images/renewable-energy.png";
+import cleanCooking from "@/assets/images/Clean-Cooking.png";
+import biochar from "@/assets/images/Biochar.png";
+import blueCarbon from "@/assets/images/Blue-Carbon.png";
+import StepByStepGuidenceForm from "@/components/StepByStepGuidenceForm";
 
 const items = [
   {
@@ -44,20 +50,27 @@ const items = [
 
 const howItWorksItems = [
   {
-    icon: calculatePng,
+    icon: <OneSvg className="w-16 h-16" />,
     title: `Achieve Climate Neutrality`,
     description: `Set or maintain your climate neutrality goals. Offset 100% of your emissions and achieve climate neutrality with confidence. At RebornGreen, we deliver a standards-compliant portfolio tailored to your targets, fully aligned with ISO 14068.`,
   },
   {
-    icon: supprotPng,
+    icon: <TwoSvg className="w-16 h-16" />,
     title: `Remove Carbon for Net Zero`,
     description: `Eliminate unavoidable emissions to meet your net zero goals in alignment with SBTi or other industry standards. Purchase carbon removals today or plan strategically for future reductions. `,
   },
   {
-    icon: reducePng,
+    icon: <ThreeSvg className="w-16 h-16" />,
     title: `Achieve Impact with Custom Solutions`,
     description: `Our experts work closely with you to design a carbon reduction strategy that aligns with your company’s vision and long-term sustainability goals. Together, we ensure your efforts make a real and measurable impact.`,
   },
+];
+
+const HQProjects = [
+  { img: enhancedWeathering, title: "Enhanced Weathering" },
+  { img: renewableEnergy, title: "Renewable Energy" },
+  { img: cleanCooking, title: "Clean Cooking" },
+  { img: biochar, title: "Biochar" },
 ];
 
 const projCardData = [
@@ -329,7 +342,7 @@ const Page = () => {
           <div className="flex flex-col lg:flex-row gap-10">
             {howItWorksItems.map((i) => (
               <div key={i.title} className="flex-1 text-center lg:text-left">
-                <Image src={i.icon} alt={i.title} className="w-fit h-auto" />
+                {i.icon}
                 <h3 className="text-xl font-bold mt-4 text-black">{i.title}</h3>
                 <p className="mt-2 text-sm text-gray-700">{i.description}</p>
               </div>
@@ -337,6 +350,7 @@ const Page = () => {
           </div>
         </div>
       </section>
+
       <div style={{ height: 200 }} />
 
       {/* Section 1 */}
@@ -366,8 +380,55 @@ const Page = () => {
         </div>
       </section> */}
 
+      <div className="grid grid-cols-4">
+        {HQProjects.map((project) => (
+          <div
+            key={project.title}
+            className="col-span-2 md:col-span-1 relative group"
+          >
+            <Image
+              src={project.img}
+              alt={project.title}
+              className="max-w-56 lg:max-w-122 h-auto"
+            />
+            <p className="lg:hidden lg:group-hover:block absolute left-4 lg:left-8 bottom-4 lg:bottom-8 text-white font-medium text-2xl">
+              {project.title}
+            </p>
+          </div>
+        ))}
+        <div className="hidden lg:flex flex-col col-span-2 justify-center gap-10 lg:px-16">
+          <h2 className="font-poppins leading-normal lg:text-5xl xll:text-6xl font-medium text-[#3d3d3d]">
+            High-Quality Climate Projects Verified by{" "}
+            <span className="font-bold text-[#14a800]">RebornGreen</span>
+          </h2>
+          <Link className="btn inline-block w-fit" href={"/tree-planting"}>
+            See All Projects
+          </Link>
+        </div>
+        <div className="col-span-4 lg:col-span-2 relative group">
+          <p className="lg:hidden lg:group-hover:block absolute left-4 lg:left-8 bottom-4 lg:bottom-8 text-white font-medium text-2xl">
+            Blue Carbon
+          </p>
+          <Image
+            src={blueCarbon}
+            alt="Blue Carbon"
+            className="w-full max-h-56 lg:max-h-122"
+          />
+        </div>
+
+        <div className="lg:hidden flex flex-col col-span-4 justify-center gap-6 px-6 md:px-10 mt-10 md:mt-14">
+          <h2 className="font-poppins leading-normal text-3xl xsm:text-4xl font-medium text-[#3d3d3d]">
+            High-Quality Climate Projects Verified by{" "}
+            <span className="font-bold text-[#14a800]">RebornGreen</span>
+          </h2>
+          <Link className="btn inline-block w-fit" href={"/tree-planting"}>
+            See All Projects
+          </Link>
+        </div>
+      </div>
+
       {/* last banner */}
-      <section className="bg-white">
+      {/* <section className="bg-white">
         <div className="w-[90%] mx-auto">
           <section
             style={{
@@ -417,7 +478,7 @@ const Page = () => {
             </div>
           </section>
         </div>
-      </section>
+      </section> */}
 
       <div style={{ height: 100 }} />
 
@@ -529,6 +590,24 @@ const Page = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      <section className="w-full max-w-[1800px] my-[100px] sm:my-[160px] px-[30px] lg:px-[60px] xll:px-[120px] py-4 md:py-6 xl:py-8 mx-auto flex flex-col lg:flex-row justify-center lg:items-center">
+        <div className="w-full lg:w-1/2 px-8 md:px-12 lg:px-16">
+          <p className="uppercase font-semibold text-lg lg:text-xl">
+            talk to an expert
+          </p>
+          <h2 className="font-poppins leading-normal text-2xl xsm:text-3xl lg:text-4xl xll:text-5xl font-medium text-[#3d3d3d]">
+            Get{" "}
+            <span className="font-bold text-[#14a800]">
+              step-by-step guidence
+            </span>{" "}
+            on your carbon offsetting journey
+          </h2>
+        </div>
+        <div className="w-full lg:w-1/2 px-8 md:px-12 lg:px-16">
+          <StepByStepGuidenceForm />
         </div>
       </section>
     </div>
